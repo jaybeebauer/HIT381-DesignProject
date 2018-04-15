@@ -9,6 +9,7 @@
     Include styles
     ========================================================================== */
 @import url("lib/thumbnaillist.css");
+@import url("lib/thumbnailgrid.css");
 
 /* ==========================================================================
    Base styles: opinionated defaults
