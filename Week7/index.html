@@ -65,10 +65,8 @@
 				<!-- "message" class can be used for system messages ie. NoJS warnings, etc -->
 				<p class="message"></p>
 			</div> <!-- /header -->
+			
 			<div data-role="content" data-theme="a">
-				
-				
-				
 				<ul class="styledList">
 					<li> <a href="#hikeSelection" data-role="button" data-transition="slide" id="hikeSelection">Hike Selection</a> </li>
 					<li> <a href="#news" data-role="button" data-transition="slide" id="news">News</a> </li>
@@ -77,26 +75,29 @@
 					<li> <a href="#favourites" data-role="button" data-transition="slide" id="favourites">Favourites</a> </li>
 					<li> <a href="#search" data-role="button" data-transition="slide" id="search">Search</a> </li>
 				</ul>
-
 			</div> <!-- /content -->
+			
 			<div data-role="footer" data-position="fixed">
 				<h4></h4>
 			</div> <!-- /footer -->
+			
 		</section> <!-- /page -->
 
 		<!-- Hike Selection page -->
+		<!-- IN PROGRESS: Add localStorage functionality so hikeHistory & favourites work -->
 		<section data-role="page" data-theme="a" id="hikeSelection">
 			<div data-role="header">
 				<h1>Hike Selection</h1>
 			</div> <!-- /header -->
+			
 			<div data-role="content" data-theme="a">
-
 				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
+				
 				<ul class="styledList">
 					<div class="trailData"></div>
 				</ul>
-				
 			</div> <!-- /content -->
+			
 			<div data-role="footer" data-position="fixed">
 				<h4></h4>
 			</div> <!-- /footer -->
@@ -107,8 +108,8 @@
 			<div data-role="header">
 				<h1>News</h1>
 			</div> <!-- /header -->
+			
 			<div data-role="content" data-theme="a">
-
 				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
 				<ul class="styledList">
 					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
@@ -132,11 +133,12 @@
 						<p>Lorem ipsum dolor sit amet...</p>
 					</li></a>
 				</ul>
-				
 			</div> <!-- /content -->
+			
 			<div data-role="footer" data-position="fixed">
 				<h4></h4>
 			</div> <!-- /footer -->
+			
 		</section> <!-- /page -->
 
 		<!-- Photos page -->
@@ -144,94 +146,70 @@
 			<div data-role="header">
 				<h1>Photos</h1>
 			</div> <!-- /header -->
+			
 			<div data-role="content" data-theme="a">
-
 				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
 				<div class="thumbnailgrid">
 					<ul>
-						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
+						<li><a href="#"><img class="userImg" id="img01" src="http://via.placeholder.com/100x100" alt="User Image 1"/></a></li>
+						<li><a href="#"><img class="userImg" id="img02" src="http://via.placeholder.com/100x100" alt="User Image 2"/></a></li>
+						<li><a href="#"><img class="userImg" id="img03" src="http://via.placeholder.com/100x100" alt="User Image 3"/></a></li>
+						<li><a href="#"><img class="userImg" id="img04" src="http://via.placeholder.com/100x100" alt="User Image 4"/></a></li>
+						<li><a href="#"><img class="userImg" id="img05" src="http://via.placeholder.com/100x100" alt="User Image 5"/></a></li>
+						<li><a href="#"><img class="userImg" id="img06" src="http://via.placeholder.com/100x100" alt="User Image 6"/></a></li>
+						<li><a href="#"><img class="userImg" id="img07" src="http://via.placeholder.com/100x100" alt="User Image 7"/></a></li>
+						<li><a href="#"><img class="userImg" id="img08" src="http://via.placeholder.com/100x100" alt="User Image 8"/></a></li>
+						<li><a href="#"><img class="userImg" id="img09" src="http://via.placeholder.com/100x100" alt="User Image 9"/></a></li>
+						<li><a href="#"><img class="userImg" id="img10" src="http://via.placeholder.com/100x100" alt="User Image 10"/></a></li>
+						<li><a href="#"><img class="userImg" id="img11" src="http://via.placeholder.com/100x100" alt="User Image 11"/></a></li>
+						<li><a href="#"><img class="userImg" id="img12" src="http://via.placeholder.com/100x100" alt="User Image 12"/></a></li>
+						<li><a href="#"><img class="userImg" id="img13" src="http://via.placeholder.com/100x100" alt="User Image 13"/></a></li>
+						<li><a href="#"><img class="userImg" id="img14" src="http://via.placeholder.com/100x100" alt="User Image 14"/></a></li>
+						<li><a href="#"><img class="userImg" id="img15" src="http://via.placeholder.com/100x100" alt="User Image 15"/></a></li>
 					</ul>
 				</div>
-				
+				<!-- Based on code from https://www.w3schools.com/howto/howto_css_modal_images.asp -->
+				<div id="myModal" class="modal">
+					<span class="close">&times;</span>
+					<img class="modal-content" id="modalUserImg">
+					<div id="caption"></div>
+				</div>
 			</div> <!-- /content -->
+			
 			<div data-role="footer" data-position="fixed">
 				<h4></h4>
 			</div> <!-- /footer -->
+			
 		</section> <!-- /page -->
 
 		<!-- Hike History page -->
+		<!-- IN PROGRESS: Add localStorage functionality so hikeHistory works -->
 		<section data-role="page" data-theme="a" id="hikeHistory">
 			<div data-role="header">
 				<h1>Hike History</h1>
 			</div> <!-- /header -->
-			<div data-role="content" data-theme="a">
 			
+			<div data-role="content" data-theme="a">
 				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
 				<ul class="styledList">
-					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
-						<div id="viewedTrail1">
-							<img src="http://via.placeholder.com/100x100" />
-							<h3>Viewed Trail 1</h3>
-							<p>Lorem ipsum dolor sit amet...</p>
-						</div>
-					</li></a>
-					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
-						<div id="viewedTrail2">
-							<img src="http://via.placeholder.com/100x100" />
-							<h3>Viewed Trail 2</h3>
-							<p>Lorem ipsum dolor sit amet...</p>
-						</div>
-					</li></a>
-					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
-						<div id="viewedTrail3">
-						<img src="http://via.placeholder.com/100x100" />
-						<h3>Viewed Trail 3</h3>
-						<p>Lorem ipsum dolor sit amet...</p>
-						</div>
-					</li></a>
-					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
-						<div id="viewedTrail4">
-							<img src="http://via.placeholder.com/100x100" />
-							<h3>Viewed Trail 4</h3>
-							<p>Lorem ipsum dolor sit amet...</p>
-						</div>
-					</li></a>
-					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
-						<div id="viewedTrail5">
-							<img src="http://via.placeholder.com/100x100" />
-							<h3>Viewed Trail 5</h3>
-							<p>Lorem ipsum dolor sit amet...</p>
-						</div>
-					</li></a>
+					<div class="historicTrailData"></div>
 				</ul>
-				
 			</div> <!-- /content -->
+			
 			<div data-role="footer" data-position="fixed">
 				<h4></h4>
 			</div> <!-- /footer -->
+			
 		</section> <!-- /page -->
 
 		<!-- Favourites Page -->
+		<!-- IN PROGRESS: Add localStorage functionality so favourites works -->
 		<section data-role="page" data-theme="a" id="favourites">
 			<div data-role="header">
 				<h1>Favourites</h1>
 			</div> <!-- /header -->
+			
 			<div data-role="content" data-theme="a">
-
 				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
 				<ul class="styledList">
 					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
@@ -250,11 +228,12 @@
 						<p>Lorem ipsum dolor sit amet...</p>
 					</li></a>	
 				</ul>
-				
 			</div> <!-- /content -->
+			
 			<div data-role="footer" data-position="fixed">
 				<h4></h4>
 			</div> <!-- /footer -->
+			
 		</section><!-- /page -->
 
 		<!-- Search page -->
@@ -262,8 +241,8 @@
 			<div data-role="header">
 				<h1>Search</h1>
 			</div> <!-- /header -->
+			
 			<div data-role="content" data-theme="a">
-
 				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
 				<div>
 				    <input type="text" name="search" placeholder="Search..">
@@ -286,31 +265,38 @@
 						</li></a>
 				    </ul>
 				</div>
-				
 			</div> <!-- /content -->
+			
 			<div data-role="footer" data-position="fixed">
 				<h4></h4>
 			</div> <!-- /footer -->
+			
 		</section> <!-- /page -->
 
 		<!-- Trail Info Page -->
 		<section data-role="page" data-theme="a" id="trailInfo">
 			<div data-role="header">
-				<h1>Trail Info</h1>
+				<h1 class="trailInfoTitle">Trail Info</h1>
 			</div> <!-- /header -->
 			<div data-role="content" data-theme="a">
-
 				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
+				
 				<ul class="styledList">
 					<a href="#trailMap" data-role="button" data-transition="slide"><li>
 						<!-- Info will be selected from the XML file (based on what the user selected) so this page is populated with appropriate data -->
-						<img src="http://via.placeholder.com/100x100" />
-						<p>Click the image to navigate to the map screen</p>
-					</li></a>	
-					
-				<p class="ui-grid-b"><a href="#" data-role="button" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
-					
+						<img src="http://via.placeholder.com/300x300" />
+					</li></a>
 				</ul>
+				<p>Click the image to navigate to the map screen or press the Select button</p>
+				<h3>Notes:</h3>
+				<p>Lorem Ipsum</p>
+				<h3>Hazards</h3>
+				<ul>
+					<li>Haz 1</li>
+					<li>Haz 2</li>
+				</ul>
+				
+				<p class="ui-grid-b"><a href="#hikeSelection" data-role="button" data-transition="slide" data-direction="reverse" class="ui-block-b">Back</a><a href="#trailMap" data-role="button"  data-transition="slide" class="ui-block-b">Select</a></p>
 				
 			</div> <!-- /content -->
 			<div data-role="footer" data-position="fixed">
@@ -321,17 +307,16 @@
 		<!-- Trail Map Page -->
 		<section data-role="page" data-theme="a" id="trailMap">
 			<div data-role="header">
-				<h1>Trail Map</h1>
+				<h1 class="trailMapTitle">Trail Map</h1>
 			</div> <!-- /header -->
 			<div data-role="content" data-theme="a">
 
 				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
 				
 						<!-- Info will be selected from the XML file(based on what the user selected) so this page is populated with appropriate data -->
-						<img src="http://via.placeholder.com/100x100" />
-						<p>Click the image to navigate to the map screen</p>
+						<img src="http://via.placeholder.com/375x667" />
 					
-				<p class="ui-grid-b"><a href="#" data-role="button" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
+				<p class="ui-grid-b"><a href="#trailInfo" data-role="button" data-transition="slide" data-direction="reverse" class="ui-block-b">Back</a></p>
 					
 				</ul>
 				
