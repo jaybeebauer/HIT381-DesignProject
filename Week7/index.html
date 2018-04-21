@@ -67,6 +67,8 @@
 			</div> <!-- /header -->
 			<div data-role="content" data-theme="a">
 				
+				
+				
 				<ul class="styledList">
 					<li> <a href="#hikeSelection" data-role="button" data-transition="slide" id="hikeSelection">Hike Selection</a> </li>
 					<li> <a href="#news" data-role="button" data-transition="slide" id="news">News</a> </li>
@@ -91,36 +93,7 @@
 
 				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
 				<ul class="styledList">
-					<a href="#" data-role="button"><li>
-						<img src="http://via.placeholder.com/100x100" />
-						<h3>Trail 1</h3>
-						<p>Lorem ipsum dolor sit amet...</p>
-					</li></a>
-					<a href="#" data-role="button"><li>
-						<img src="http://via.placeholder.com/100x100" />
-						<h3>Trail 2</h3>
-						<p>Lorem ipsum dolor sit amet...</p>
-					</li></a>
-					<a href="#" data-role="button"><li>
-						<img src="http://via.placeholder.com/100x100" />
-						<h3>Trail 3</h3>
-						<p>Lorem ipsum dolor sit amet...</p>
-					</li></a>
-					<a href="#" data-role="button"><li>
-						<img src="http://via.placeholder.com/100x100" />
-						<h3>Trail 4</h3>
-						<p>Lorem ipsum dolor sit amet...</p>
-					</li></a>
-					<a href="#" data-role="button"><li>
-						<img src="http://via.placeholder.com/100x100" />
-						<h3>Trail 5</h3>
-						<p>Lorem ipsum dolor sit amet...</p>
-					</li></a>
-					<a href="#" data-role="button"><li>
-						<img src="http://via.placeholder.com/100x100" />
-						<h3>Trail 6</h3>
-						<p>Lorem ipsum dolor sit amet...</p>
-					</li></a>
+					<div class="trailData"></div>
 				</ul>
 				
 			</div> <!-- /content -->
@@ -138,22 +111,22 @@
 
 				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
 				<ul class="styledList">
-					<a href="#" data-role="button"><li>
+					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
 						<img src="http://via.placeholder.com/100x100" />
 						<h3>Headline</h3>
 						<p>Lorem ipsum dolor sit amet...</p>
 					</li></a>
-					<a href="#" data-role="button"><li>
+					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
 						<img src="http://via.placeholder.com/100x100" />
 						<h3>Headline</h3>
 						<p>Lorem ipsum dolor sit amet...</p>
 					</li></a>
-					<a href="#" data-role="button"><li>
+					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
 						<img src="http://via.placeholder.com/100x100" />
 						<h3>Headline</h3>
 						<p>Lorem ipsum dolor sit amet...</p>
 					</li></a>
-					<a href="#" data-role="button"><li>
+					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
 						<img src="http://via.placeholder.com/100x100" />
 						<h3>Headline</h3>
 						<p>Lorem ipsum dolor sit amet...</p>
@@ -209,30 +182,40 @@
 			
 				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
 				<ul class="styledList">
-					<a href="#" data-role="button"><li>
-						<img src="http://via.placeholder.com/100x100" />
-						<h3>Viewed Trail 1</h3>
-						<p>Lorem ipsum dolor sit amet...</p>
+					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
+						<div id="viewedTrail1">
+							<img src="http://via.placeholder.com/100x100" />
+							<h3>Viewed Trail 1</h3>
+							<p>Lorem ipsum dolor sit amet...</p>
+						</div>
 					</li></a>
-					<a href="#" data-role="button"><li>
-						<img src="http://via.placeholder.com/100x100" />
-						<h3>Viewed Trail 2</h3>
-						<p>Lorem ipsum dolor sit amet...</p>
+					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
+						<div id="viewedTrail2">
+							<img src="http://via.placeholder.com/100x100" />
+							<h3>Viewed Trail 2</h3>
+							<p>Lorem ipsum dolor sit amet...</p>
+						</div>
 					</li></a>
-					<a href="#" data-role="button"><li>
+					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
+						<div id="viewedTrail3">
 						<img src="http://via.placeholder.com/100x100" />
 						<h3>Viewed Trail 3</h3>
 						<p>Lorem ipsum dolor sit amet...</p>
+						</div>
 					</li></a>
-					<a href="#" data-role="button"><li>
-						<img src="http://via.placeholder.com/100x100" />
-						<h3>Viewed Trail 4</h3>
-						<p>Lorem ipsum dolor sit amet...</p>
+					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
+						<div id="viewedTrail4">
+							<img src="http://via.placeholder.com/100x100" />
+							<h3>Viewed Trail 4</h3>
+							<p>Lorem ipsum dolor sit amet...</p>
+						</div>
 					</li></a>
-					<a href="#" data-role="button"><li>
-						<img src="http://via.placeholder.com/100x100" />
-						<h3>Viewed Trail 5</h3>
-						<p>Lorem ipsum dolor sit amet...</p>
+					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
+						<div id="viewedTrail5">
+							<img src="http://via.placeholder.com/100x100" />
+							<h3>Viewed Trail 5</h3>
+							<p>Lorem ipsum dolor sit amet...</p>
+						</div>
 					</li></a>
 				</ul>
 				
@@ -251,17 +234,17 @@
 
 				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
 				<ul class="styledList">
-					<a href="#" data-role="button"><li>
+					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
 						<img src="http://via.placeholder.com/100x100" />
 						<h3>Favourite Trail 1</h3>
 						<p>Lorem ipsum dolor sit amet...</p>
 					</li></a>
-					<a href="#" data-role="button"><li>
+					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
 						<img src="http://via.placeholder.com/100x100" />
 						<h3>Favourite Trail 2</h3>
 						<p>Lorem ipsum dolor sit amet...</p>
 					</li></a>
-					<a href="#" data-role="button"><li>
+					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
 						<img src="http://via.placeholder.com/100x100" />
 						<h3>Favourite Trail 3</h3>
 						<p>Lorem ipsum dolor sit amet...</p>
@@ -286,17 +269,17 @@
 				    <input type="text" name="search" placeholder="Search..">
 				    <button type="submit">Go</button>
 				    <ul class="styledList">
-						<a href="#" data-role="button"><li>
+						<a href="#trailInfo" data-role="button" data-transition="slide"><li>
 						    <img src="http://via.placeholder.com/100x100" />
 						    <h3>Results Trail 1</h3>
 						    <p>Lorem ipsum dolor sit amet...</p>
 						</li></a>
-						<a href="#" data-role="button"><li>
+						<a href="#trailInfo" data-role="button" data-transition="slide"><li>
 						    <img src="http://via.placeholder.com/100x100" />
 						    <h3>Results Trail 2</h3>
 						    <p>Lorem ipsum dolor sit amet...</p>
 						</li></a>
-						<a href="#" data-role="button"><li>
+						<a href="#trailInfo" data-role="button" data-transition="slide"><li>
 						    <img src="http://via.placeholder.com/100x100" />
 						    <h3>Results Trail 3</h3>
 						    <p>Lorem ipsum dolor sit amet...</p>
@@ -310,6 +293,54 @@
 			</div> <!-- /footer -->
 		</section> <!-- /page -->
 
+		<!-- Trail Info Page -->
+		<section data-role="page" data-theme="a" id="trailInfo">
+			<div data-role="header">
+				<h1>Trail Info</h1>
+			</div> <!-- /header -->
+			<div data-role="content" data-theme="a">
+
+				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
+				<ul class="styledList">
+					<a href="#trailMap" data-role="button" data-transition="slide"><li>
+						<!-- Info will be selected from the XML file (based on what the user selected) so this page is populated with appropriate data -->
+						<img src="http://via.placeholder.com/100x100" />
+						<p>Click the image to navigate to the map screen</p>
+					</li></a>	
+					
+				<p class="ui-grid-b"><a href="#" data-role="button" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
+					
+				</ul>
+				
+			</div> <!-- /content -->
+			<div data-role="footer" data-position="fixed">
+				<h4></h4>
+			</div> <!-- /footer -->
+		</section><!-- /page -->
+		
+		<!-- Trail Map Page -->
+		<section data-role="page" data-theme="a" id="trailMap">
+			<div data-role="header">
+				<h1>Trail Map</h1>
+			</div> <!-- /header -->
+			<div data-role="content" data-theme="a">
+
+				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
+				
+						<!-- Info will be selected from the XML file(based on what the user selected) so this page is populated with appropriate data -->
+						<img src="http://via.placeholder.com/100x100" />
+						<p>Click the image to navigate to the map screen</p>
+					
+				<p class="ui-grid-b"><a href="#" data-role="button" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
+					
+				</ul>
+				
+			</div> <!-- /content -->
+			<div data-role="footer" data-position="fixed">
+				<h4></h4>
+			</div> <!-- /footer -->
+		</section><!-- /page -->
+		
         <script src="js/helper.js"></script>
         <script src="js/main.js"></script>
 
