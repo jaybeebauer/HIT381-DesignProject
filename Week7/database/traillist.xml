@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<traillist>
+<trail>
+  <Name>Trail 1</Name>
+  <Description>This is to describe the trail</Description>
+  <Notes>Blah some notes here</Notes>
+  <Hazards>List hazards here</Hazards>
+  <Image>http://via.placeholder.com/100x100</Image>
+  <Length>5.00</Length>
+  <Surface>Smooth</Surface>
+  <Contact>Some Guy - 0404111111</Contact>
+  <BackpackingAllowed>False</BackpackingAllowed>
+  <BicyclesAllowed>True</BicyclesAllowed>
+  <FitnessTrail>False</FitnessTrail>
+  <WaterTrail>False</WaterTrail>
+  <TrailStatus>Open</TrailStatus>
+  <AlternativeName>Awesome Trail</AlternativeName>
+</trail>
+<trail>
+  <Name>Trail 2</Name>
+  <Description>This is to describe the trail</Description>
+  <Notes>Blah some notes here</Notes>
+  <Hazards>List hazards here</Hazards>
+  <Image>http://via.placeholder.com/100x100</Image>
+  <Length>3.00</Length>
+  <Surface>Rough</Surface>
+  <Contact>Some Guy - 0404111111</Contact>
+  <BackpackingAllowed>False</BackpackingAllowed>
+  <BicyclesAllowed>True</BicyclesAllowed>
+  <FitnessTrail>False</FitnessTrail>
+  <WaterTrail>True</WaterTrail>
+  <TrailStatus>Open</TrailStatus>
+  <AlternativeName>Killers Trail</AlternativeName>
+</trail>
+</traillist>
