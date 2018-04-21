@@ -11,8 +11,6 @@
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
         <meta http-equiv="cleartype" content="on">
 
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
@@ -59,7 +57,6 @@
     </head>
     <body>
 
-        <!-- Add your site or application content here -->
 		<!-- Home page -->
 		<section data-role="page" data-theme="a" id="home">
 			<div data-role="header">
@@ -69,7 +66,8 @@
 				<p class="message"></p>
 			</div> <!-- /header -->
 			<div data-role="content" data-theme="a">
-				<ul>
+				
+				<ul class="styledList">
 					<li> <a href="#hikeSelection" data-role="button" data-transition="slide" id="hikeSelection">Hike Selection</a> </li>
 					<li> <a href="#news" data-role="button" data-transition="slide" id="news">News</a> </li>
 					<li> <a href="#photos" data-role="button" data-transition="slide" id="photos">Photos</a> </li>
@@ -92,40 +90,39 @@
 			<div data-role="content" data-theme="a">
 
 				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
-        <div class="thumbnaillist">
-          <ul>
-            <li>
-              <img src="http://via.placeholder.com/100x100" />
-              <h3>Trail 1</h3>
-              <p>Lorem ipsum dolor sit amet...</p>
-            </li>
-            <li>
-              <img src="http://via.placeholder.com/100x100" />
-              <h3>Trail 2</h3>
-              <p>Lorem ipsum dolor sit amet...</p>
-            </li>
-            <li>
-              <img src="http://via.placeholder.com/100x100" />
-              <h3>Trail 3</h3>
-              <p>Lorem ipsum dolor sit amet...</p>
-            </li>
-            <li>
-              <img src="http://via.placeholder.com/100x100" />
-              <h3>Trail 4</h3>
-              <p>Lorem ipsum dolor sit amet...</p>
-            </li>
-            <li>
-              <img src="http://via.placeholder.com/100x100" />
-              <h3>Trail 5</h3>
-              <p>Lorem ipsum dolor sit amet...</p>
-            </li>
-            <li>
-              <img src="http://via.placeholder.com/100x100" />
-              <h3>Trail 6</h3>
-              <p>Lorem ipsum dolor sit amet...</p>
-            </li>
-          </ul>
-        </div>
+				<ul class="styledList">
+					<a href="#" data-role="button"><li>
+						<img src="http://via.placeholder.com/100x100" />
+						<h3>Trail 1</h3>
+						<p>Lorem ipsum dolor sit amet...</p>
+					</li></a>
+					<a href="#" data-role="button"><li>
+						<img src="http://via.placeholder.com/100x100" />
+						<h3>Trail 2</h3>
+						<p>Lorem ipsum dolor sit amet...</p>
+					</li></a>
+					<a href="#" data-role="button"><li>
+						<img src="http://via.placeholder.com/100x100" />
+						<h3>Trail 3</h3>
+						<p>Lorem ipsum dolor sit amet...</p>
+					</li></a>
+					<a href="#" data-role="button"><li>
+						<img src="http://via.placeholder.com/100x100" />
+						<h3>Trail 4</h3>
+						<p>Lorem ipsum dolor sit amet...</p>
+					</li></a>
+					<a href="#" data-role="button"><li>
+						<img src="http://via.placeholder.com/100x100" />
+						<h3>Trail 5</h3>
+						<p>Lorem ipsum dolor sit amet...</p>
+					</li></a>
+					<a href="#" data-role="button"><li>
+						<img src="http://via.placeholder.com/100x100" />
+						<h3>Trail 6</h3>
+						<p>Lorem ipsum dolor sit amet...</p>
+					</li></a>
+				</ul>
+				
 			</div> <!-- /content -->
 			<div data-role="footer" data-position="fixed">
 				<h4></h4>
@@ -140,30 +137,29 @@
 			<div data-role="content" data-theme="a">
 
 				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
-        <div class="thumbnaillist">
-          <ul>
-            <li>
-              <img src="http://via.placeholder.com/100x100" />
-              <h3>Headline</h3>
-              <p>Lorem ipsum dolor sit amet...</p>
-            </li>
-            <li>
-              <img src="http://via.placeholder.com/100x100" />
-              <h3>Headline</h3>
-              <p>Lorem ipsum dolor sit amet...</p>
-            </li>
-            <li>
-              <img src="http://via.placeholder.com/100x100" />
-              <h3>Headline</h3>
-              <p>Lorem ipsum dolor sit amet...</p>
-            </li>
-            <li>
-              <img src="http://via.placeholder.com/100x100" />
-              <h3>Headline</h3>
-              <p>Lorem ipsum dolor sit amet...</p>
-            </li>
-          </ul>
-        </div>
+				<ul class="styledList">
+					<a href="#" data-role="button"><li>
+						<img src="http://via.placeholder.com/100x100" />
+						<h3>Headline</h3>
+						<p>Lorem ipsum dolor sit amet...</p>
+					</li></a>
+					<a href="#" data-role="button"><li>
+						<img src="http://via.placeholder.com/100x100" />
+						<h3>Headline</h3>
+						<p>Lorem ipsum dolor sit amet...</p>
+					</li></a>
+					<a href="#" data-role="button"><li>
+						<img src="http://via.placeholder.com/100x100" />
+						<h3>Headline</h3>
+						<p>Lorem ipsum dolor sit amet...</p>
+					</li></a>
+					<a href="#" data-role="button"><li>
+						<img src="http://via.placeholder.com/100x100" />
+						<h3>Headline</h3>
+						<p>Lorem ipsum dolor sit amet...</p>
+					</li></a>
+				</ul>
+				
 			</div> <!-- /content -->
 			<div data-role="footer" data-position="fixed">
 				<h4></h4>
@@ -178,25 +174,26 @@
 			<div data-role="content" data-theme="a">
 
 				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
-        <div class="thumbnailgrid">
-          <ul>
-            <li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-            <li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-            <li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-            <li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-            <li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-            <li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-            <li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-            <li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-            <li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-            <li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-            <li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-            <li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-            <li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-            <li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-            <li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
-          </ul>
-        </div>
+				<div class="thumbnailgrid">
+					<ul>
+						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
+						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
+						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
+						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
+						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
+						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
+						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
+						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
+						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
+						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
+						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
+						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
+						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
+						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
+						<li><a href="#"><img src="http://via.placeholder.com/100x100" /></a></li>
+					</ul>
+				</div>
+				
 			</div> <!-- /content -->
 			<div data-role="footer" data-position="fixed">
 				<h4></h4>
@@ -209,8 +206,36 @@
 				<h1>Hike History</h1>
 			</div> <!-- /header -->
 			<div data-role="content" data-theme="a">
-
+			
 				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
+				<ul class="styledList">
+					<a href="#" data-role="button"><li>
+						<img src="http://via.placeholder.com/100x100" />
+						<h3>Viewed Trail 1</h3>
+						<p>Lorem ipsum dolor sit amet...</p>
+					</li></a>
+					<a href="#" data-role="button"><li>
+						<img src="http://via.placeholder.com/100x100" />
+						<h3>Viewed Trail 2</h3>
+						<p>Lorem ipsum dolor sit amet...</p>
+					</li></a>
+					<a href="#" data-role="button"><li>
+						<img src="http://via.placeholder.com/100x100" />
+						<h3>Viewed Trail 3</h3>
+						<p>Lorem ipsum dolor sit amet...</p>
+					</li></a>
+					<a href="#" data-role="button"><li>
+						<img src="http://via.placeholder.com/100x100" />
+						<h3>Viewed Trail 4</h3>
+						<p>Lorem ipsum dolor sit amet...</p>
+					</li></a>
+					<a href="#" data-role="button"><li>
+						<img src="http://via.placeholder.com/100x100" />
+						<h3>Viewed Trail 5</h3>
+						<p>Lorem ipsum dolor sit amet...</p>
+					</li></a>
+				</ul>
+				
 			</div> <!-- /content -->
 			<div data-role="footer" data-position="fixed">
 				<h4></h4>
@@ -225,6 +250,24 @@
 			<div data-role="content" data-theme="a">
 
 				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
+				<ul class="styledList">
+					<a href="#" data-role="button"><li>
+						<img src="http://via.placeholder.com/100x100" />
+						<h3>Favourite Trail 1</h3>
+						<p>Lorem ipsum dolor sit amet...</p>
+					</li></a>
+					<a href="#" data-role="button"><li>
+						<img src="http://via.placeholder.com/100x100" />
+						<h3>Favourite Trail 2</h3>
+						<p>Lorem ipsum dolor sit amet...</p>
+					</li></a>
+					<a href="#" data-role="button"><li>
+						<img src="http://via.placeholder.com/100x100" />
+						<h3>Favourite Trail 3</h3>
+						<p>Lorem ipsum dolor sit amet...</p>
+					</li></a>	
+				</ul>
+				
 			</div> <!-- /content -->
 			<div data-role="footer" data-position="fixed">
 				<h4></h4>
@@ -239,27 +282,28 @@
 			<div data-role="content" data-theme="a">
 
 				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
-        <div class="thumbnaillist">
-          <input type="text" name="search" placeholder="Search..">
-          <button type="submit">Go</button>
-          <ul>
-            <li>
-              <img src="http://via.placeholder.com/100x100" />
-              <h3>Results Trail 1</h3>
-              <p>Lorem ipsum dolor sit amet...</p>
-            </li>
-            <li>
-              <img src="http://via.placeholder.com/100x100" />
-              <h3>Results Trail 2</h3>
-              <p>Lorem ipsum dolor sit amet...</p>
-            </li>
-            <li>
-              <img src="http://via.placeholder.com/100x100" />
-              <h3>Results Trail 3</h3>
-              <p>Lorem ipsum dolor sit amet...</p>
-            </li>
-          </ul>
-        </div>
+				<div>
+				    <input type="text" name="search" placeholder="Search..">
+				    <button type="submit">Go</button>
+				    <ul class="styledList">
+						<a href="#" data-role="button"><li>
+						    <img src="http://via.placeholder.com/100x100" />
+						    <h3>Results Trail 1</h3>
+						    <p>Lorem ipsum dolor sit amet...</p>
+						</li></a>
+						<a href="#" data-role="button"><li>
+						    <img src="http://via.placeholder.com/100x100" />
+						    <h3>Results Trail 2</h3>
+						    <p>Lorem ipsum dolor sit amet...</p>
+						</li></a>
+						<a href="#" data-role="button"><li>
+						    <img src="http://via.placeholder.com/100x100" />
+						    <h3>Results Trail 3</h3>
+						    <p>Lorem ipsum dolor sit amet...</p>
+						</li></a>
+				    </ul>
+				</div>
+				
 			</div> <!-- /content -->
 			<div data-role="footer" data-position="fixed">
 				<h4></h4>
