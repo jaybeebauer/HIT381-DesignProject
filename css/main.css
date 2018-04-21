@@ -70,8 +70,25 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+.styledList li {
+	list-style-type:none;
+}
 
+.styledList li img {
+	float: left;
+}
 
+.styledList p {
+	float: left;
+	font: 200 12px/1.5 Georgia, Times New Roman, serif;
+	padding-left: 1.25em;
+}
+
+.styledList h3 {
+	float: left;
+	font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+	padding-left: 1.25em;
+}
 
 
 
