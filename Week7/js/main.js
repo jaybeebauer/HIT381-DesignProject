@@ -73,21 +73,21 @@
 				storedTrailNotes.trail6Notes="";
 				
 			var storedHikeHistory = {};
-				storedHikeHistory.myHikeHistory = [];
+				storedHikeHistory.myHikeHistory = [];*/
 				
-			var favouritesList = {};
-				favouritesList.userFavourites = [];			 */
+			var favouritesList = [];
 	
 			$(document).on('pagebeforeshow', '#hikeSelection', function(){
 				$(document).on('click', '.test', function(){
 					var tempTrailName = $(this).attr("id");
 					var tempImageURL = $('.test img').attr("src");
-					var tempTrailDescription = $('.test p').text();
+					var tempTrailDescription = $(this).find('p').text();
 					$('.trailInfoTitle' ).html(tempTrailName + " Information");
+					$('.trailInfoFavourite').html(tempTrailName+" added to Favourites");
 					$('.trailMapTitle').html(tempTrailName + " Map");
 					
 					selectedTrail.name = tempTrailName;
-					selectedTrail.image = tempImage;
+					selectedTrail.image = tempImageURL;
 					selectedTrail.description = tempTrailDescription;
 					// selectedTrail.notes = "";
 					// selectedTrail.hazards = "";
@@ -102,6 +102,7 @@
 					// selectedTrail.alternativeName = "";
 					localStorage.setItem('yourTrails', JSON.stringify(selectedTrail));
 				});
+				
 			});
 
 			$(document).on('pagebeforeshow', '#news', function(){
@@ -260,17 +261,21 @@
 			});
 			
 			$(document).on('pagebeforeshow', '#hikeHistory', function(){
-				var i;
 				var retrievedTrails = (JSON.parse(localStorage.getItem('yourTrails')));
-				// for(i=0;i < localStorage.length; i++ {
-					
-					// var tempHTML2 = '<a href="#trailInfo" data-transition="slide" data-role="button" class="test" id="Trail ' + retrievedTrails.name + '"><li><img src="' + retrievedTrails.image + '"/><h3>' + retrievedTrails.name + '</h3><p>' + retrievedTrails.description + '</p></li></a>';
-					//$(".historicTrailData" ).html(retrievedTrails.name);
-				// }
+				
+					//var tempHTML = '<a href="#trailInfo" data-transition="slide" data-role="button" class="test" id="Trail ' + trailId + '"><li><img src="' + imageURL + '"/><h3>' + trailName + '</h3><p>' + trailDescription + '</p></li></a>';
+					var tempHTML2 = '<li><a href="#trailInfo" data-transition="slide" data-role="button" id="historic' + retrievedTrails.name + '"><img src="' + retrievedTrails.image + '"/><h3>' + retrievedTrails.name + '</h3><p>' + retrievedTrails.description + '</p></a></li>';
+					$(".historicTrailData" ).append($(tempHTML2));
+				
 			});
 
 			$(document).on('pagebeforeshow', '#favourites', function(){
-
+				var retrievedFavouriteList = (JSON.parse(localStorage.getItem('userFavouriteList')));
+				var retrievedTrails = (JSON.parse(localStorage.getItem('yourTrails')));
+				var tempHTML = '<a href="#trailInfo" data-transition="slide" data-role="button" class="test" id="favourite' + retrievedTrails.name + '"><li><img src="' + retrievedTrails.image + '"/><h3>' + retrievedTrails.name + '</h3><p>' + retrievedTrails.description + '</p></li></a>';
+				
+				
+				$(".myFavouritesList" ).append($(tempHTML));
 			});
 
 			$(document).on('pagebeforeshow', '#search', function(){
@@ -278,11 +283,33 @@
 			});
 			
 			$(document).on('pagebeforeshow', '#trailInfo', function(){
-				
+				var retrievedTrails = (JSON.parse(localStorage.getItem('yourTrails')));
+				var retrievedFavouriteList = (JSON.parse(localStorage.getItem('userFavouriteList')));
+				$(document).on('click', '#myFavourite', function(){
+					if(retrievedFavouriteList == null){
+						favouritesList.push(retrievedTrails);
+						localStorage.setItem('userFavouriteList', JSON.stringify(favouritesList));
+					}
+					else {
+						if( ($.inArray(retrievedTrails.name, retrievedFavouriteList)) !== -1 ){
+							$('.myFavourite').hide();
+							$('.trailInfoFavourite').html("");
+						} 
+						else {
+							localStorage.setItem('userFavouriteList', JSON.stringify(retrievedTrails));
+						}
+					
+					}
+					
+				});
 			});
 			
 			$(document).on('pagebeforeshow', '#trailMap', function(){
-				
+				$(document).on('click', '#trailHazardMap', function(e){
+					var posX = e.pageX;
+					var posY = e.pageY;
+					alert(posX+ ' , ' + posY);
+				});
 			});
 				
 		}
