@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<trails>
+    <trail title="Trail 1" imageurl="http://via.placeholder.com/100x100">
+        <description>
+            Lorem ipsum dolor sit amet...
+        </description>
+		
+    </trail>
+
+    <trail title="Trail 2" imageurl="http://via.placeholder.com/100x100">
+        <description>
+            Lorem ipsum dolor sit amet...
+        </description>
+		<goodStuff>
+			Here it is
+		</goodStuff>
+    </trail>
+
+    <trail title="Trail 3" imageurl="http://via.placeholder.com/100x100">
+        <description>
+            Lorem ipsum dolor sit amet...
+        </description>
+    </trail>
+	
+	<trail title="Trail 4" imageurl="http://via.placeholder.com/100x100">
+        <description>
+            Lorem ipsum dolor sit amet...
+        </description>
+    </trail>
+	
+	<trail title="Trail 5" imageurl="http://via.placeholder.com/100x100">
+        <description>
+            Lorem ipsum dolor sit amet...
+        </description>
+    </trail>
+	
+	<trail title="Trail 6" imageurl="http://via.placeholder.com/100x100">
+        <description>
+            Lorem ipsum dolor sit amet...
+        </description>
+    </trail>
+    
+</trails>

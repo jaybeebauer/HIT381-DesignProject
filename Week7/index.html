@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<!-- Group: Double J, HIT381 Happy Trails Wireframe -->
+<!--Authors: Bosanquet, J   (s241391) https://github.com/Jack-Bosanquet
+             Bauer, J    (s263364) https://github.com/jaybeebauer -->
+
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>Happy Trails</title>
+        <meta name="description" content="">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+        <meta http-equiv="cleartype" content="on">
+
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+		<link rel="shortcut icon" sizes="196x196" href="img/touch/touch-icon-196x196.png">
+        <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+
+
+        <!-- Tile icon for Win8 (144x144 + tile color) -->
+        <meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <meta name="msapplication-TileColor" content="#222222">
+
+        <!-- SEO: If mobile URL is different from desktop URL, add a canonical link to the desktop page -->
+        <!--
+        <link rel="canonical" href="http://www.example.com/" >
+        -->
+
+        <!-- Add to homescreen for Chrome on Android -->
+        <!--
+        <meta name="mobile-web-app-capable" content="yes">
+        -->
+
+        <!-- For iOS web apps. Delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
+        <!--
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="">
+        -->
+
+        <!-- This script prevents links from opening in Mobile Safari. https://gist.github.com/1042026 -->
+        <!--
+        <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
+        -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/vendor/jquery.mobile-1.4.5.css">
+		<script src="js/vendor/jquery-2.1.0.min.js"></script>
+		<script src="js/vendor/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/vendor/modernizr-2.7.1.min.js"></script>
+
+    </head>
+    <body>
+
+		<!-- Home page -->
+		<section data-role="page" data-theme="a" id="home">
+			<div data-role="header">
+				<!-- Insert Logo Here? -->
+				<h1>Happy Trails</h1>
+				<!-- "message" class can be used for system messages ie. NoJS warnings, etc -->
+				<p class="message"></p>
+			</div> <!-- /header -->
+			
+			<div data-role="content" data-theme="a">
+				<ul class="styledList">
+					<li> <a href="#hikeSelection" data-role="button" data-transition="slide" id="hikeSelection">Hike Selection</a> </li>
+					<li> <a href="#news" data-role="button" data-transition="slide" id="news">News</a> </li>
+					<li> <a href="#photos" data-role="button" data-transition="slide" id="photos">Photos</a> </li>
+					<li> <a href="#hikeHistory" data-role="button" data-transition="slide" id="hikeHistory">Hike History</a> </li>
+					<li> <a href="#favourites" data-role="button" data-transition="slide" id="favourites">Favourites</a> </li>
+					<li> <a href="#search" data-role="button" data-transition="slide" id="search">Search</a> </li>
+				</ul>
+			</div> <!-- /content -->
+			
+			<div data-role="footer" data-position="fixed">
+				<h4></h4>
+			</div> <!-- /footer -->
+			
+		</section> <!-- /page -->
+
+		<!-- Hike Selection page -->
+		<!-- IN PROGRESS: Add localStorage functionality so hikeHistory & favourites work -->
+		<section data-role="page" data-theme="a" id="hikeSelection">
+			<div data-role="header">
+				<h1>Hike Selection</h1>
+			</div> <!-- /header -->
+			
+			<div data-role="content" data-theme="a">
+				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
+				
+				<ul class="styledList">
+					<div class="trailData"></div>
+				</ul>
+			</div> <!-- /content -->
+			
+			<div data-role="footer" data-position="fixed">
+				<h4></h4>
+			</div> <!-- /footer -->
+		</section> <!-- /page -->
+
+		<!-- News page -->
+		<section data-role="page" data-theme="a" id="news">
+			<div data-role="header">
+				<h1>News</h1>
+			</div> <!-- /header -->
+			
+			<div data-role="content" data-theme="a">
+				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
+				<ul class="styledList">
+					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
+						<img src="http://via.placeholder.com/100x100" />
+						<h3>Headline</h3>
+						<p>Lorem ipsum dolor sit amet...</p>
+					</li></a>
+					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
+						<img src="http://via.placeholder.com/100x100" />
+						<h3>Headline</h3>
+						<p>Lorem ipsum dolor sit amet...</p>
+					</li></a>
+					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
+						<img src="http://via.placeholder.com/100x100" />
+						<h3>Headline</h3>
+						<p>Lorem ipsum dolor sit amet...</p>
+					</li></a>
+					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
+						<img src="http://via.placeholder.com/100x100" />
+						<h3>Headline</h3>
+						<p>Lorem ipsum dolor sit amet...</p>
+					</li></a>
+				</ul>
+			</div> <!-- /content -->
+			
+			<div data-role="footer" data-position="fixed">
+				<h4></h4>
+			</div> <!-- /footer -->
+			
+		</section> <!-- /page -->
+
+		<!-- Photos page -->
+		<section data-role="page" data-theme="a" id="photos">
+			<div data-role="header">
+				<h1>Photos</h1>
+			</div> <!-- /header -->
+			
+			<div data-role="content" data-theme="a">
+				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
+				<div class="thumbnailgrid">
+					<ul>
+						<li><a href="#"><img class="userImg" id="img01" src="http://via.placeholder.com/100x100" alt="User Image 1"/></a></li>
+						<li><a href="#"><img class="userImg" id="img02" src="http://via.placeholder.com/100x100" alt="User Image 2"/></a></li>
+						<li><a href="#"><img class="userImg" id="img03" src="http://via.placeholder.com/100x100" alt="User Image 3"/></a></li>
+						<li><a href="#"><img class="userImg" id="img04" src="http://via.placeholder.com/100x100" alt="User Image 4"/></a></li>
+						<li><a href="#"><img class="userImg" id="img05" src="http://via.placeholder.com/100x100" alt="User Image 5"/></a></li>
+						<li><a href="#"><img class="userImg" id="img06" src="http://via.placeholder.com/100x100" alt="User Image 6"/></a></li>
+						<li><a href="#"><img class="userImg" id="img07" src="http://via.placeholder.com/100x100" alt="User Image 7"/></a></li>
+						<li><a href="#"><img class="userImg" id="img08" src="http://via.placeholder.com/100x100" alt="User Image 8"/></a></li>
+						<li><a href="#"><img class="userImg" id="img09" src="http://via.placeholder.com/100x100" alt="User Image 9"/></a></li>
+						<li><a href="#"><img class="userImg" id="img10" src="http://via.placeholder.com/100x100" alt="User Image 10"/></a></li>
+						<li><a href="#"><img class="userImg" id="img11" src="http://via.placeholder.com/100x100" alt="User Image 11"/></a></li>
+						<li><a href="#"><img class="userImg" id="img12" src="http://via.placeholder.com/100x100" alt="User Image 12"/></a></li>
+						<li><a href="#"><img class="userImg" id="img13" src="http://via.placeholder.com/100x100" alt="User Image 13"/></a></li>
+						<li><a href="#"><img class="userImg" id="img14" src="http://via.placeholder.com/100x100" alt="User Image 14"/></a></li>
+						<li><a href="#"><img class="userImg" id="img15" src="http://via.placeholder.com/100x100" alt="User Image 15"/></a></li>
+					</ul>
+				</div>
+				<!-- Based on code from https://www.w3schools.com/howto/howto_css_modal_images.asp -->
+				<div id="myModal" class="modal">
+					<span class="close">&times;</span>
+					<img class="modal-content" id="modalUserImg">
+					<div id="caption"></div>
+				</div>
+			</div> <!-- /content -->
+			
+			<div data-role="footer" data-position="fixed">
+				<h4></h4>
+			</div> <!-- /footer -->
+			
+		</section> <!-- /page -->
+
+		<!-- Hike History page -->
+		<!-- IN PROGRESS: Add localStorage functionality so hikeHistory works -->
+		<section data-role="page" data-theme="a" id="hikeHistory">
+			<div data-role="header">
+				<h1>Hike History</h1>
+			</div> <!-- /header -->
+			
+			<div data-role="content" data-theme="a">
+				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
+				
+				<ul class="styledList">
+					<div class="historicTrailData"></div>
+				</ul>
+			</div> <!-- /content -->
+			
+			<div data-role="footer" data-position="fixed">
+				<h4></h4>
+			</div> <!-- /footer -->
+			
+		</section> <!-- /page -->
+
+		<!-- Favourites Page -->
+		<!-- IN PROGRESS: Add localStorage functionality so favourites works -->
+		<section data-role="page" data-theme="a" id="favourites">
+			<div data-role="header">
+				<h1>Favourites</h1>
+			</div> <!-- /header -->
+			
+			<div data-role="content" data-theme="a">
+				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
+				<ul class="styledList">
+					<div class="myFavouritesList"></div>
+				</ul>
+				
+			</div> <!-- /content -->
+			
+			<div data-role="footer" data-position="fixed">
+				<h4></h4>
+			</div> <!-- /footer -->
+			
+		</section><!-- /page -->
+
+		<!-- Search page -->
+		<section data-role="page" data-theme="a" id="search">
+			<div data-role="header">
+				<h1>Search</h1>
+			</div> <!-- /header -->
+			
+			<div data-role="content" data-theme="a">
+				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
+				<div>
+				    <input type="text" name="search" placeholder="Search..">
+				    <button type="submit">Go</button>
+				    <ul class="styledList">
+						<a href="#trailInfo" data-role="button" data-transition="slide"><li>
+						    <img src="http://via.placeholder.com/100x100" />
+						    <h3>Results Trail 1</h3>
+						    <p>Lorem ipsum dolor sit amet...</p>
+						</li></a>
+						<a href="#trailInfo" data-role="button" data-transition="slide"><li>
+						    <img src="http://via.placeholder.com/100x100" />
+						    <h3>Results Trail 2</h3>
+						    <p>Lorem ipsum dolor sit amet...</p>
+						</li></a>
+						<a href="#trailInfo" data-role="button" data-transition="slide"><li>
+						    <img src="http://via.placeholder.com/100x100" />
+						    <h3>Results Trail 3</h3>
+						    <p>Lorem ipsum dolor sit amet...</p>
+						</li></a>
+				    </ul>
+				</div>
+			</div> <!-- /content -->
+			
+			<div data-role="footer" data-position="fixed">
+				<h4></h4>
+			</div> <!-- /footer -->
+			
+		</section> <!-- /page -->
+
+		<!-- Trail Info Page -->
+		<section data-role="page" data-theme="a" id="trailInfo">
+			<div data-role="header">
+				<h1 class="trailInfoTitle">Trail Info</h1>
+			</div> <!-- /header -->
+			<div data-role="content" data-theme="a">
+				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
+				
+				<ul class="styledList">
+					<a href="#trailMap" data-role="button" data-transition="slide"><li>
+						<!-- Info will be selected from the XML file (based on what the user selected) so this page is populated with appropriate data -->
+						<img src="http://via.placeholder.com/300x300" />
+					</li></a>
+				</ul>
+				<p>Click the image to navigate to the map screen or press the Select button</p>
+				<h3>Notes:</h3>
+				<p>Lorem Ipsum</p>
+				<h3>Hazards</h3>
+				<ul>
+					<li>Haz 1</li>
+					<li>Haz 2</li>
+				</ul>
+				
+				<p class="ui-grid-b"><a href="#hikeSelection" data-role="button" data-transition="slide" data-direction="reverse" class="ui-block-b">Back</a><a href="#trailMap" data-role="button"  data-transition="slide" class="ui-block-b">Select</a><a href="#popupBasic" data-rel="popup" data-transition="pop" data-role="button" class="ui-block-b" id="myFavourite">Add to Favourites</a></p>
+				<!-- Favourites Popup Notification -->
+				<div data-role="popup" id="popupBasic">
+					<p class="trailInfoFavourite"></p>
+				</div>
+				
+				
+			</div> <!-- /content -->
+			<div data-role="footer" data-position="fixed">
+				<h4></h4>
+			</div> <!-- /footer -->
+		</section><!-- /page -->
+		
+		<!-- Trail Map Page -->
+		<section data-role="page" data-theme="a" id="trailMap">
+			<div data-role="header">
+				<h1 class="trailMapTitle">Trail Map</h1>
+			</div> <!-- /header -->
+			<div data-role="content" data-theme="a">
+
+				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
+				<br>
+						<!-- Info will be selected from the XML file(based on what the user selected) so this page is populated with appropriate data -->
+						<img src="img/StaticMap_Labeled.jpg" usemap="#image-map"/>
+						<map name="image-map" id="trailHazardMap">
+							<area target="" alt="Hazard A" title="Hazard A" href="#popupShowHazard" coords="88,163,15" shape="circle" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" role="button" aria-haspopup="true" aria-owns="popupShowHazard" aria-expanded="false">
+							<area target="" alt="Hazard B" title="Hazard B" href="#popupShowHazard" coords="257,328,16" shape="circle" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" role="button" aria-haspopup="true" aria-owns="popupShowHazard" aria-expanded="false">
+							<area target="" alt="Hazard C" title="Hazard C" href="#popupShowHazard" coords="406,200,14" shape="circle" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" role="button" aria-haspopup="true" aria-owns="popupShowHazard" aria-expanded="false">
+						</map>
+
+						<p class="ui-grid-b"><a href="#popupAddHazard" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" role="button" aria-haspopup="true" aria-owns="popupAddHazard" aria-expanded="false">Add Hazard</a></p>
+						<p class="ui-grid-b"><a href="#popupShowHazard" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" role="button" aria-haspopup="true" aria-owns="popupShowHazard" aria-expanded="false">Test Show Hazard</a></p>
+						<p class="ui-grid-b"><a href="#trailInfo" data-role="button" data-transition="slide" data-direction="reverse" class="ui-block-b">Back</a></p>
+
+						<!-- Modals/Dialogs for Trail Map here -->
+						<div data-role="popup" id="popupAddHazard">
+							<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+							<form name="addHazard" action="">
+								<!-- TODO: Move inline styling to appropriate CSS file -->
+								<div style="padding:10px 20px;">
+									<h3>Add Hazard</h3>
+									<label for="hn" class="ui-hidden-accessible">Hazard Name:</label>
+									<input type="text" name="hname" id="hn" value="" placeholder="Hazard Name" data-theme="a">
+									<label for="hd" class="ui-hidden-accessible">Hazard Detail:</label>
+									<textarea name="hdetail" id="hd" value="" placeholder="Hazard Detail" data-theme="a"></textarea>
+									<button type="button" data-theme="a" id="addTrailHazard">Add</button>
+								</div>
+							</form>
+						</div>
+						<div data-role="popup" id="popupShowHazard">
+							<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+						    <form name="showHazard" action="">
+								<!-- TODO: Move inline styling to appropriate CSS file -->
+								<div style="padding:10px 20px;">
+									<h3>Hazard</h3>
+									<h4>Name of Hazard</h4>
+									<p>This is the description of Hazard</p>
+
+									<button type="button" data-theme="a">OK</button>
+								</div>
+							</form>
+						</div>
+				
+			</div> <!-- /content -->
+			<div data-role="footer" data-position="fixed">
+				<h4></h4>
+			</div> <!-- /footer -->
+		</section><!-- /page -->
+		
+        <script src="js/helper.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
+</html>
