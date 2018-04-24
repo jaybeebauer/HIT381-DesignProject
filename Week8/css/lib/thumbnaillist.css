@@ -1,0 +1,38 @@
+/*------------------
+Thumbnail List Style
+------------------*/
+
+
+* {margin: 0; padding: 0;}
+
+div.thumbnaillist {
+  margin: 20px;
+}
+
+.thumbnaillist ul {
+  list-style-type: none;
+  width: 500px;
+}
+
+.thumbnaillist h3 {
+  font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+}
+
+.thumbnaillist li img {
+  float: left;
+  margin: 0 15px 0 0;
+}
+
+.thumbnaillist li p {
+  font: 200 12px/1.5 Georgia, Times New Roman, serif;
+}
+
+.thumbnaillist li {
+  padding: 10px;
+  overflow: auto;
+}
+
+.thumbnaillist li:hover {
+  background: #eee;
+  cursor: pointer;
+}
