@@ -65,7 +65,7 @@
 				<!-- "message" class can be used for system messages ie. NoJS warnings, etc -->
 				<p class="message"></p>
 			</div> <!-- /header -->
-			
+
 			<div data-role="content" data-theme="a">
 				<ul class="styledList">
 					<li> <a href="#hikeSelection" data-role="button" data-transition="slide" id="hikeSelection">Hike Selection</a> </li>
@@ -76,28 +76,27 @@
 					<li> <a href="#search" data-role="button" data-transition="slide" id="search">Search</a> </li>
 				</ul>
 			</div> <!-- /content -->
-			
+
 			<div data-role="footer" data-position="fixed">
 				<h4></h4>
 			</div> <!-- /footer -->
-			
+
 		</section> <!-- /page -->
 
 		<!-- Hike Selection page -->
 		<!-- IN PROGRESS: Add localStorage functionality so hikeHistory & favourites work -->
 		<section data-role="page" data-theme="a" id="hikeSelection">
-			<div data-role="header">
+			<div data-role="header" data-add-back-btn="true">
 				<h1>Hike Selection</h1>
 			</div> <!-- /header -->
-			
+
 			<div data-role="content" data-theme="a">
-				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
-				
+
 				<ul class="styledList">
 					<div class="trailData"></div>
 				</ul>
 			</div> <!-- /content -->
-			
+
 			<div data-role="footer" data-position="fixed">
 				<h4></h4>
 			</div> <!-- /footer -->
@@ -105,12 +104,11 @@
 
 		<!-- News page -->
 		<section data-role="page" data-theme="a" id="news">
-			<div data-role="header">
+			<div data-role="header" data-add-back-btn="true">
 				<h1>News</h1>
 			</div> <!-- /header -->
-			
+
 			<div data-role="content" data-theme="a">
-				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
 				<ul class="styledList">
 					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
 						<img src="http://via.placeholder.com/100x100" />
@@ -134,21 +132,20 @@
 					</li></a>
 				</ul>
 			</div> <!-- /content -->
-			
+
 			<div data-role="footer" data-position="fixed">
 				<h4></h4>
 			</div> <!-- /footer -->
-			
+
 		</section> <!-- /page -->
 
 		<!-- Photos page -->
 		<section data-role="page" data-theme="a" id="photos">
-			<div data-role="header">
+			<div data-role="header" data-add-back-btn="true">
 				<h1>Photos</h1>
 			</div> <!-- /header -->
-			
+
 			<div data-role="content" data-theme="a">
-				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
 				<div class="thumbnailgrid">
 					<ul>
 						<li><a href="#"><img class="userImg" id="img01" src="http://via.placeholder.com/100x100" alt="User Image 1"/></a></li>
@@ -175,63 +172,59 @@
 					<div id="caption"></div>
 				</div>
 			</div> <!-- /content -->
-			
+
 			<div data-role="footer" data-position="fixed">
 				<h4></h4>
 			</div> <!-- /footer -->
-			
+
 		</section> <!-- /page -->
 
 		<!-- Hike History page -->
 		<!-- IN PROGRESS: Add localStorage functionality so hikeHistory works -->
 		<section data-role="page" data-theme="a" id="hikeHistory">
-			<div data-role="header">
+			<div data-role="header" data-add-back-btn="true">
 				<h1>Hike History</h1>
 			</div> <!-- /header -->
-			
+
 			<div data-role="content" data-theme="a">
-				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
-				
 				<ul class="styledList">
 					<div class="historicTrailData"></div>
 				</ul>
 			</div> <!-- /content -->
-			
+
 			<div data-role="footer" data-position="fixed">
 				<h4></h4>
 			</div> <!-- /footer -->
-			
+
 		</section> <!-- /page -->
 
 		<!-- Favourites Page -->
 		<!-- IN PROGRESS: Add localStorage functionality so favourites works -->
 		<section data-role="page" data-theme="a" id="favourites">
-			<div data-role="header">
+			<div data-role="header" data-add-back-btn="true">
 				<h1>Favourites</h1>
 			</div> <!-- /header -->
-			
+
 			<div data-role="content" data-theme="a">
-				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
 				<ul class="styledList">
 					<div class="myFavouritesList"></div>
 				</ul>
-				
+
 			</div> <!-- /content -->
-			
+
 			<div data-role="footer" data-position="fixed">
 				<h4></h4>
 			</div> <!-- /footer -->
-			
+
 		</section><!-- /page -->
 
 		<!-- Search page -->
 		<section data-role="page" data-theme="a" id="search">
-			<div data-role="header">
+			<div data-role="header" data-add-back-btn="true">
 				<h1>Search</h1>
 			</div> <!-- /header -->
-			
+
 			<div data-role="content" data-theme="a">
-				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
 				<div>
 				    <input type="text" name="search" placeholder="Search..">
 				    <button type="submit">Go</button>
@@ -254,21 +247,20 @@
 				    </ul>
 				</div>
 			</div> <!-- /content -->
-			
+
 			<div data-role="footer" data-position="fixed">
 				<h4></h4>
 			</div> <!-- /footer -->
-			
+
 		</section> <!-- /page -->
 
 		<!-- Trail Info Page -->
 		<section data-role="page" data-theme="a" id="trailInfo">
-			<div data-role="header">
+			<div data-role="header" data-add-back-btn="true">
 				<h1 class="trailInfoTitle">Trail Info</h1>
 			</div> <!-- /header -->
 			<div data-role="content" data-theme="a">
-				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
-				
+
 				<ul class="styledList">
 					<a href="#trailMap" data-role="button" data-transition="slide"><li>
 						<!-- Info will be selected from the XML file (based on what the user selected) so this page is populated with appropriate data -->
@@ -283,28 +275,28 @@
 					<li>Haz 1</li>
 					<li>Haz 2</li>
 				</ul>
-				
+
 				<p class="ui-grid-b"><a href="#hikeSelection" data-role="button" data-transition="slide" data-direction="reverse" class="ui-block-b">Back</a><a href="#trailMap" data-role="button"  data-transition="slide" class="ui-block-b">Select</a><a href="#popupBasic" data-rel="popup" data-transition="pop" data-role="button" class="ui-block-b" id="myFavourite">Add to Favourites</a></p>
 				<!-- Favourites Popup Notification -->
 				<div data-role="popup" id="popupBasic">
 					<p class="trailInfoFavourite"></p>
 				</div>
-				
-				
+
+
 			</div> <!-- /content -->
 			<div data-role="footer" data-position="fixed">
 				<h4></h4>
 			</div> <!-- /footer -->
 		</section><!-- /page -->
-		
+
 		<!-- Trail Map Page -->
 		<section data-role="page" data-theme="a" id="trailMap">
-			<div data-role="header">
+			<div data-role="header" >
+        <a href="#home" data-direction="reverse" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-home returnHome">Home</a>
 				<h1 class="trailMapTitle">Trail Map</h1>
 			</div> <!-- /header -->
 			<div data-role="content" data-theme="a">
 
-				<p class="ui-grid-b"><a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" class="ui-block-b" class="returnHome">Home</a></p>
 				<br>
 						<!-- Info will be selected from the XML file(based on what the user selected) so this page is populated with appropriate data -->
 						<img src="img/StaticMap_Labeled.jpg" usemap="#image-map"/>
@@ -346,13 +338,13 @@
 								</div>
 							</form>
 						</div>
-				
+
 			</div> <!-- /content -->
 			<div data-role="footer" data-position="fixed">
 				<h4></h4>
 			</div> <!-- /footer -->
 		</section><!-- /page -->
-		
+
         <script src="js/helper.js"></script>
         <script src="js/main.js"></script>
 
