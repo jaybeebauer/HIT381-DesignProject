@@ -71,8 +71,8 @@
 					<li> <a href="#hikeSelection" data-role="button" data-transition="slide" id="hikeSelection">Hike Selection</a> </li>
 					<li> <a href="#news" data-role="button" data-transition="slide" id="news">News</a> </li>
 					<li> <a href="#photos" data-role="button" data-transition="slide" id="photos">Photos</a> </li>
-					<li> <a href="#hikeHistory" data-role="button" data-transition="slide" id="hikeHistory">Hike History</a> </li>
-					<li> <a href="#favourites" data-role="button" data-transition="slide" id="favourites">Favourites</a> </li>
+					<li> <a href="#hikeHistory" data-role="button" data-transition="slide" id="hikeHistoryButton">Hike History</a> </li>
+					<li> <a href="#favourites" data-role="button" data-transition="slide" id="favouritesButton">Favourites</a> </li>
 					<li> <a href="#search" data-role="button" data-transition="slide" id="search">Search</a> </li>
 				</ul>
 			</div> <!-- /content -->
@@ -233,24 +233,10 @@
 
 			<div data-role="content" data-theme="a">
 				<div>
-				    <input type="text" name="search" placeholder="Search..">
-				    <button type="submit">Go</button>
+				    <input type="text" name="search" id="searchCriteria" placeholder="Search..">
+				    <button type="submit" id="findSearchCriteria">Go</button>
 				    <ul class="styledList">
-						<a href="#trailInfo" data-role="button" data-transition="slide"><li>
-						    <img src="http://via.placeholder.com/100x100" />
-						    <h3>Results Trail 1</h3>
-						    <p>Lorem ipsum dolor sit amet...</p>
-						</li></a>
-						<a href="#trailInfo" data-role="button" data-transition="slide"><li>
-						    <img src="http://via.placeholder.com/100x100" />
-						    <h3>Results Trail 2</h3>
-						    <p>Lorem ipsum dolor sit amet...</p>
-						</li></a>
-						<a href="#trailInfo" data-role="button" data-transition="slide"><li>
-						    <img src="http://via.placeholder.com/100x100" />
-						    <h3>Results Trail 3</h3>
-						    <p>Lorem ipsum dolor sit amet...</p>
-						</li></a>
+						<div class="searchResults"></div>
 				    </ul>
 				</div>
 			</div> <!-- /content -->
@@ -283,7 +269,7 @@
 					<li>Haz 2</li>
 				</ul>
 
-				<p class="ui-grid-b"><a href="#hikeSelection" data-role="button" data-transition="slide" data-direction="reverse" class="ui-block-b">Back</a><a href="#trailMap" data-role="button"  data-transition="slide" class="ui-block-b">Select</a><a href="#popupBasic" data-rel="popup" data-transition="pop" data-role="button" class="ui-block-b" id="myFavourite">Add to Favourites</a></p>
+				<p class="ui-grid-b"><a href="#trailMap" data-role="button"  data-transition="slide" class="ui-btn ui-corner-all ui-icon-check ui-btn-icon-left ui-btn-inline">Select</a><a href="#popupBasic" data-rel="popup" data-transition="pop" data-role="button" class="ui-btn-inline ui-btn ui-corner-all ui-icon-heart ui-btn-icon-left" id="myFavourite">Add to Favourites</a></p>
 				<!-- Favourites Popup Notification -->
 				<div data-role="popup" id="popupBasic">
 					<p class="trailInfoFavourite"></p>
@@ -305,46 +291,45 @@
 			<div data-role="content" data-theme="a">
 
 				<br>
-						<!-- Info will be selected from the XML file(based on what the user selected) so this page is populated with appropriate data -->
-						<img src="img/StaticMap_Labeled.jpg" usemap="#image-map"/>
-						<map name="image-map" id="trailHazardMap">
-							<area target="" alt="Hazard A" title="Hazard A" href="#popupShowHazard" coords="88,163,15" shape="circle" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" role="button" aria-haspopup="true" aria-owns="popupShowHazard" aria-expanded="false">
-							<area target="" alt="Hazard B" title="Hazard B" href="#popupShowHazard" coords="257,328,16" shape="circle" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" role="button" aria-haspopup="true" aria-owns="popupShowHazard" aria-expanded="false">
-							<area target="" alt="Hazard C" title="Hazard C" href="#popupShowHazard" coords="406,200,14" shape="circle" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" role="button" aria-haspopup="true" aria-owns="popupShowHazard" aria-expanded="false">
-						</map>
+				<p class="madTester"></p>
+				<!-- Info will be selected from the XML file(based on what the user selected) so this page is populated with appropriate data -->
+				<img src="img/StaticMap_Labeled.jpg" usemap="#image-map"/>
+				<map name="image-map" id="trailHazardMap">
+					<area target="" alt="Hazard A" title="Hazard A" href="#popupShowHazard" coords="88,163,15" shape="circle" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" role="button" aria-haspopup="true" aria-owns="popupShowHazard" aria-expanded="false">
+					<area target="" alt="Hazard B" title="Hazard B" href="#popupShowHazard" coords="257,328,16" shape="circle" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" role="button" aria-haspopup="true" aria-owns="popupShowHazard" aria-expanded="false">
+					<area target="" alt="Hazard C" title="Hazard C" href="#popupShowHazard" coords="406,200,14" shape="circle" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" role="button" aria-haspopup="true" aria-owns="popupShowHazard" aria-expanded="false">
+				</map>
 
-						<p class="ui-grid-b"><a href="#popupAddHazard" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" role="button" aria-haspopup="true" aria-owns="popupAddHazard" aria-expanded="false">Add Hazard</a></p>
-						<p class="ui-grid-b"><a href="#popupShowHazard" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" role="button" aria-haspopup="true" aria-owns="popupShowHazard" aria-expanded="false">Test Show Hazard</a></p>
-						<p class="ui-grid-b"><a href="#trailInfo" data-role="button" data-transition="slide" data-direction="reverse" class="ui-block-b">Back</a></p>
+				<p class="ui-grid-b"><a href="#popupAddHazard" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" role="button" aria-haspopup="true" aria-owns="popupAddHazard" aria-expanded="false">Add Hazard</a></p>
+				<p class="ui-grid-b"><a href="#popupShowHazard" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" role="button" aria-haspopup="true" aria-owns="popupShowHazard" aria-expanded="false">Test Show Hazard</a></p>
+				<p class="ui-grid-b"><a href="#trailInfo" data-role="button" data-transition="slide" data-direction="reverse" class="ui-block-b">Back</a></p>
 
-						<!-- Modals/Dialogs for Trail Map here -->
-						<div data-role="popup" id="popupAddHazard">
-							<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-							<form name="addHazard" action="">
-								<!-- TODO: Move inline styling to appropriate CSS file -->
-								<div style="padding:10px 20px;">
-									<h3>Add Hazard</h3>
-									<label for="hn" class="ui-hidden-accessible">Hazard Name:</label>
-									<input type="text" name="hname" id="hn" value="" placeholder="Hazard Name" data-theme="a">
-									<label for="hd" class="ui-hidden-accessible">Hazard Detail:</label>
-									<textarea name="hdetail" id="hd" value="" placeholder="Hazard Detail" data-theme="a"></textarea>
-									<button type="button" data-theme="a" id="addTrailHazard">Add</button>
-								</div>
-							</form>
+				<!-- Modals/Dialogs for Trail Map here -->
+				<div data-role="popup" id="popupAddHazard">
+					<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+					<form name="addHazard" action="">
+						<!-- TODO: Move inline styling to appropriate CSS file -->
+						<div style="padding:10px 20px;">
+							<h3>Add Hazard</h3>
+							<label for="hn" class="ui-hidden-accessible">Hazard Name:</label>
+							<input type="text" name="hname" id="hn" value="" placeholder="Hazard Name" data-theme="a">
+							<label for="hd" class="ui-hidden-accessible">Hazard Detail:</label>
+							<textarea name="hdetail" id="hd" value="" placeholder="Hazard Detail" data-theme="a"></textarea>
+							<button type="button" data-theme="a" id="addTrailHazard">Add</button>
 						</div>
-						<div data-role="popup" id="popupShowHazard">
-							<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-						    <form name="showHazard" action="">
-								<!-- TODO: Move inline styling to appropriate CSS file -->
-								<div style="padding:10px 20px;">
-									<h3>Hazard</h3>
-									<h4>Name of Hazard</h4>
-									<p>This is the description of Hazard</p>
-
-									<button type="button" data-theme="a">OK</button>
-								</div>
-							</form>
+					</form>
+				</div>
+				<div data-role="popup" id="popupShowHazard">
+					<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+					<form name="showHazard" action="">
+						<!-- TODO: Move inline styling to appropriate CSS file -->
+						<div style="padding:10px 20px;">
+							<h3>Hazard</h3>
+							<h4>Name of Hazard</h4>
+							<p>This is the description of Hazard</p>
 						</div>
+					</form>
+				</div>
 
 			</div> <!-- /content -->
 			<div data-role="footer" data-position="fixed">
