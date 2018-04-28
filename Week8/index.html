@@ -59,7 +59,7 @@
 
 		<!-- Home page -->
 		<section data-role="page" data-theme="a" id="home">
-			<div data-role="header">
+			<div data-role="header" data-position="fixed">
 				<!-- Insert Logo Here? -->
 				<h1>Happy Trails</h1>
 				<!-- "message" class can be used for system messages ie. NoJS warnings, etc -->
@@ -86,7 +86,7 @@
 		<!-- Hike Selection page -->
 		<!-- IN PROGRESS: Add localStorage functionality so hikeHistory & favourites work -->
 		<section data-role="page" data-theme="a" id="hikeSelection">
-			<div data-role="header" data-add-back-btn="true">
+			<div data-role="header" data-add-back-btn="true" data-position="fixed" >
 				<h1>Hike Selection</h1>
 			</div> <!-- /header -->
 
@@ -104,7 +104,7 @@
 
 		<!-- News page -->
 		<section data-role="page" data-theme="a" id="news">
-			<div data-role="header" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed" data-add-back-btn="true">
 				<h1>News</h1>
 			</div> <!-- /header -->
 
@@ -141,7 +141,7 @@
 
 		<!-- Photos page -->
 		<section data-role="page" data-theme="a" id="photos">
-			<div data-role="header" data-add-back-btn="true">
+			<div data-role="header" data-add-back-btn="true" data-position="fixed">
 				<h1>Photos</h1>
 			</div> <!-- /header -->
 
@@ -182,7 +182,7 @@
 		<!-- Hike History page -->
 		<!-- IN PROGRESS: Add localStorage functionality so hikeHistory works -->
 		<section data-role="page" data-theme="a" id="hikeHistory">
-			<div data-role="header" data-add-back-btn="true">
+			<div data-role="header" data-add-back-btn="true" data-position="fixed" >
 				<h1>Hike History</h1>
 			</div> <!-- /header -->
 
@@ -200,7 +200,7 @@
 
 		<!-- Favourites Page -->
 		<!-- IN PROGRESS: Add localStorage functionality so favourites works -->
-		<section data-role="page" data-theme="a" id="favourites">
+		<section data-role="page" data-theme="a" data-position="fixed" id="favourites">
 			<div data-role="header" data-add-back-btn="true">
 				<h1>Favourites</h1>
 			</div> <!-- /header -->
@@ -220,7 +220,7 @@
 
 		<!-- Search page -->
 		<section data-role="page" data-theme="a" id="search">
-			<div data-role="header" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed" data-add-back-btn="true">
 				<h1>Search</h1>
 			</div> <!-- /header -->
 
@@ -256,7 +256,8 @@
 
 		<!-- Trail Info Page -->
 		<section data-role="page" data-theme="a" id="trailInfo">
-			<div data-role="header" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed" data-add-back-btn="true">
+        <a href="#home" data-direction="reverse" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-home returnHome">Home</a>
 				<h1 class="trailInfoTitle">Trail Info</h1>
 			</div> <!-- /header -->
 			<div data-role="content" data-theme="a">
@@ -276,7 +277,6 @@
 					<li>Haz 2</li>
 				</ul>
 
-				<p class="ui-grid-b"><a href="#hikeSelection" data-role="button" data-transition="slide" data-direction="reverse" class="ui-block-b">Back</a><a href="#trailMap" data-role="button"  data-transition="slide" class="ui-block-b">Select</a><a href="#popupBasic" data-rel="popup" data-transition="pop" data-role="button" class="ui-block-b" id="myFavourite">Add to Favourites</a></p>
 				<!-- Favourites Popup Notification -->
 				<div data-role="popup" id="popupBasic">
 					<p class="trailInfoFavourite"></p>
@@ -285,14 +285,19 @@
 
 			</div> <!-- /content -->
 			<div data-role="footer" data-position="fixed">
-				<h4></h4>
+        <div data-role="navbar">
+			<ul>
+				<li><a href="#trailMap" data-role="button"  data-transition="slide">Select Trail</a></li>
+				<li><a href="#popupBasic" data-rel="popup" data-transition="pop" data-role="button" id="myFavourite">Add to Favourites</a></li>
+			</ul>
+		</div><!-- /navbar -->
 			</div> <!-- /footer -->
 		</section><!-- /page -->
 
 		<!-- Trail Map Page -->
 		<section data-role="page" data-theme="a" id="trailMap">
-			<div data-role="header" >
-        <a href="#home" data-direction="reverse" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-home returnHome">Home</a>
+			<div data-role="header" data-position="fixed" data-add-back-btn="true">
+        <a href="#home" data-direction="reverse" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-home returnHome">Home</a>
 				<h1 class="trailMapTitle">Trail Map</h1>
 			</div> <!-- /header -->
 			<div data-role="content" data-theme="a">
@@ -305,10 +310,6 @@
 							<area target="" alt="Hazard B" title="Hazard B" href="#popupShowHazard" coords="257,328,16" shape="circle" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" role="button" aria-haspopup="true" aria-owns="popupShowHazard" aria-expanded="false">
 							<area target="" alt="Hazard C" title="Hazard C" href="#popupShowHazard" coords="406,200,14" shape="circle" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" role="button" aria-haspopup="true" aria-owns="popupShowHazard" aria-expanded="false">
 						</map>
-
-						<p class="ui-grid-b"><a href="#popupAddHazard" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" role="button" aria-haspopup="true" aria-owns="popupAddHazard" aria-expanded="false">Add Hazard</a></p>
-						<p class="ui-grid-b"><a href="#popupShowHazard" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" role="button" aria-haspopup="true" aria-owns="popupShowHazard" aria-expanded="false">Test Show Hazard</a></p>
-						<p class="ui-grid-b"><a href="#trailInfo" data-role="button" data-transition="slide" data-direction="reverse" class="ui-block-b">Back</a></p>
 
 						<!-- Modals/Dialogs for Trail Map here -->
 						<div data-role="popup" id="popupAddHazard">
@@ -341,7 +342,12 @@
 
 			</div> <!-- /content -->
 			<div data-role="footer" data-position="fixed">
-				<h4></h4>
+        <div data-role="navbar">
+			<ul>
+				<li><a href="#popupAddHazard" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" role="button" aria-haspopup="true">Add Hazard</a></li>
+				<li><a href="#popupShowHazard" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" role="button" aria-haspopup="true">Show Hazard</a></li>
+			</ul>
+		</div><!-- /navbar -->
 			</div> <!-- /footer -->
 		</section><!-- /page -->
 
