@@ -14,8 +14,8 @@ div.thumbnailgrid {
 
 .thumbnailgrid li img {
   float: left;
-  margin: 10px;
-  border: 5px solid #fff;
+  margin: 5px;
+  border: 2px solid #fff;
 
   -webkit-transition: box-shadow 0.5s ease;
   -moz-transition: box-shadow 0.5s ease;

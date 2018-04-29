@@ -5,32 +5,34 @@
 * website: NA
 */
 
-(function(){	
-	$(document).ready(function() {
+( function()
+{	
+	$( document ).ready( function() 
+	{
 		// When the document has finished loading, load the file traillist.xml to populate the application with default trail data
 		$.ajax({
 			type: "GET" ,
 			url: "./database/traillist.xml" ,
 			dataType: "xml" ,
-			success: function(xml) {
+			success: function( xml ) {
 				// If the AJAX GET request is successful, loop through traillist.xml and locate all trail entries
-				$(xml).find('trail').each(function(){
-					var $trail = $(this);
-					var trailId = $trail.find('Id').text();
-					var imageURL = $trail.find('Image').text();
-					var trailName = $trail.find('Name').text();
-					var trailDescription = $trail.find('Description').text();
+				$( xml ).find( 'trail' ).each( function(){
+					var $trail = $( this );
+					var trailId = $trail.find( 'Id' ).text();
+					var imageURL = $trail.find( 'Image' ).text();
+					var trailName = $trail.find( 'Name' ).text();
+					var trailDescription = $trail.find( 'Description' ).text();
 					// Output trail information as HTML and append to index.html for retrieval
 					var tempHTML = '<a href="#trailInfo" data-transition="slide" data-role="button" class="test" id="Trail ' + trailId + '"><li><img src="' + imageURL + '"/><h3>' + trailName + '</h3><p>' + trailDescription + '</p></li></a>';
-					$(".trailData" ).append($(tempHTML));
+					$( ".trailData" ).append( $( tempHTML ) );
 				});
 			}
 		});
 		
 		// Check to see if localStorage is supported by the browser
-		if (Modernizr.localstorage) 
+		if ( Modernizr.localstorage ) 
 		{
-			console.log("Local storage is supported by this browser");
+			console.log( "Local storage is supported by this browser" );
 			
 			// Variable for temporarily storing the user's currently selected trail
 			var selectedTrail = {};
@@ -49,13 +51,14 @@
 				selectedTrail.trailStatus = "";
 				selectedTrail.alternativeName = "";
 			
-			// Variable for temporarily storing historicalHikeData objects
+			// 
 			var favouritesList = [];
-				
+			
+			// Variable for temporarily storing historicTrailData objects
 			var storedHikeHistory = [];
 				
 			// Retrieve user's favouritesList from localStorage
-			var retrievedFavouriteList = (JSON.parse(localStorage.getItem('userFavouriteList')));
+			var retrievedFavouriteList = ( JSON.parse( localStorage.getItem( 'userFavouriteList' ) ) );
 			
 			// Check localStorage to see if the user has added any items to their favouritesList
 			if ( localStorage.length == 2 ) 
@@ -119,7 +122,7 @@
 					selectedTrail.name = tempTrailName;
 					selectedTrail.image = tempImageURL;
 					selectedTrail.description = tempTrailDescription;
-					selectedTrail.notes = "NO";
+					selectedTrail.notes = "";
 					// selectedTrail.hazards = "";
 					// selectedTrail.length = "";
 					// selectedTrail.surface = "";
@@ -299,16 +302,20 @@
 			$(document).on('pagebeforeshow', '#hikeHistory', function(){
 				var retrievedTrails = (JSON.parse(localStorage.getItem('yourTrails')));
 				var retrievedHikeHistory = (JSON.parse(localStorage.getItem('yourHikeHistory')));
+				$(".historicTrailData" ).html("");
 				// Check to make sure there are no duplicate entries in historicTrailData
-				$.each( retrievedTrails, function( key, value)
+				$.each( retrievedHikeHistory, function( index, value)
 				{
-					// var historyCheck = $('.historicTrailData').text().indexOf(retrievedTrails.name) > -1;
-					if( retrievedTrails.name == value )
-					// if(historyCheck == false)
-					{
-						var tempHTML2 = '<li><a href="#trailInfo" data-transition="slide" data-role="button" id="historic' + retrievedTrails.name + '" class="ui-btn ui-corner-all ui-mini test"><img src="' + retrievedTrails.image + '"/><h3>' + retrievedTrails.name + '</h3><p>' + retrievedTrails.description + '</p></a></li>';
-						$(".historicTrailData" ).append($(tempHTML2));
-					}
+					// var historyCheck = $('.historicTrailData').text().indexOf(retrievedHikeHistory[index].name) > -1;
+					alert(retrievedHikeHistory[index].name);
+					// if( retrievedHikeHistory[index].name )
+					// {
+						// if(historyCheck == false)
+						// {
+							var tempHTML2 = '<li><a href="#trailInfo" data-transition="slide" data-role="button" id="historic' + retrievedHikeHistory[index].name + '" class="ui-btn ui-corner-all ui-mini test"><img src="' + retrievedHikeHistory[index].image + '"/><h3>' + retrievedHikeHistory[index].name + '</h3><p>' + retrievedHikeHistory[index].description + '</p></a></li>';
+							$(".historicTrailData" ).append($(tempHTML2));
+						// }
+					// }
 				});				
 			});
 
@@ -368,6 +375,23 @@
 			$(document).on('pagebeforeshow', '#trailInfo', function(){
 				var retrievedTrails = (JSON.parse(localStorage.getItem('yourTrails')));
 				var retrievedFavouriteList = (JSON.parse(localStorage.getItem('userFavouriteList')));
+				var retrievedHikeHistory = (JSON.parse(localStorage.getItem('yourHikeHistory')));
+				if(retrievedHikeHistory != null)
+				{
+					storedHikeHistory.push(retrievedHikeHistory);
+					localStorage.setItem('yourHikeHistory', JSON.stringify(storedHikeHistory));
+					alert(retrievedHikeHistory.name);
+				}
+				else 
+				{
+					if( (jQuery.inArray(retrievedTrails.name, retrievedHikeHistory)) > -1 ){
+						$('#myFavourite').hide();
+						$('.trailInfoFavourite').html("");
+					} 
+					else {
+						localStorage.setItem('yourHikeHistory', JSON.stringify(retrievedTrails));
+					}
+				}
 				$(document).on('click', '#myFavourite', function(){
 					if(retrievedFavouriteList != null){
 						favouritesList.push(retrievedTrails);
@@ -406,4 +430,4 @@
 		
 	});
 	
-})();
+} )();
