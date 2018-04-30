@@ -76,53 +76,43 @@
 			// Retrieve user's favouritesList from localStorage
 			var retrievedFavouriteList = ( JSON.parse( localStorage.getItem( 'userFavouriteList' ) ) );
 			
-			// Check localStorage to see if the user has added any items to their favouritesList
-			if ( localStorage.length == 2 ) 
+			if (localStorage.getItem('userFavouriteList') === null) 
 			{
-				$( '#hikeHistoryButton' ).show();
+				$( '#favouritesButton' ).hide();
 			}
-			else 
+			else
+			{
+				$( '#favouritesButton' ).show();
+			}
+			
+			if (localStorage.getItem('yourHikeHistory') === null) 
 			{
 				$( '#hikeHistoryButton' ).hide();
-				// Check localStorage to see if the user has added any items to their favouritesList
-				if ( localStorage.length>2 )
-				{
-					$( '#hikeHistoryButton' ).show();
-					$( '#favouritesButton' ).show();
-				}
-				else
-				{
-					// if( !retrievedFavouriteList ) 
-					// {
-						$( '#favouritesButton' ).hide();
-					// }
-				}
+			}
+			else
+			{
+				$( '#hikeHistoryButton' ).show();
 			}
 	
 			$( document ).on( 'pagebeforeshow', '#home', function()
 			{
-				if ( localStorage.length == 2 ) 
+				if (localStorage.getItem('userFavouriteList') === null) 
+				{
+					$( '#favouritesButton' ).hide();
+				}
+				else
+				{
+					$( '#favouritesButton' ).show();
+				}
+				
+				if (localStorage.getItem('yourHikeHistory') === null) 
+				{
+					$( '#hikeHistoryButton' ).hide();
+				}
+				else
 				{
 					$( '#hikeHistoryButton' ).show();
 				}
-				else 
-				{
-					$( '#hikeHistoryButton' ).hide();
-					// Check localStorage to see if the user has added any items to their favouritesList
-					if ( localStorage.length>2 )
-					{
-						$( '#hikeHistoryButton' ).show();
-						$( '#favouritesButton' ).show();
-					}
-					else
-					{
-						// if( !retrievedFavouriteList ) 
-						// {
-							$( '#favouritesButton' ).hide();
-						// }
-					}
-				}
-				
 			
 			});
 	
@@ -160,6 +150,16 @@
 			});
 
 			$(document).on('pagebeforeshow', '#news', function(){
+				
+				var newssubmit = document.getElementById('newssubmit');
+
+				newssubmit.onclick = function(){
+					var newstext = document.getElementById('shareText').value;
+					$('#newslist li:eq(0)').before('<li><h4>You User says:</h4><p>' + newstext + '</p></li>');
+					$('input[id=shareText').val('');
+					$( "#newslist" ).listview( "refresh" );
+				}
+				
 				$(document).on('click', '#title', function(){
 					
 				});
@@ -322,7 +322,7 @@
 				$.each( retrievedHikeHistory, function( index, value)
 				{
 					// var historyCheck = $('.historicTrailData').text().indexOf(retrievedHikeHistory[index].name) > -1;
-					alert(retrievedHikeHistory[index].name);
+					// alert(retrievedHikeHistory[index].name);
 					// if( retrievedHikeHistory[index].name )
 					// {
 						// if(historyCheck == false)
@@ -347,9 +347,37 @@
 					  {
 						var tempHTML = '<a href="#trailInfo" data-transition="slide" data-role="button" class="ui-btn ui-corner-all ui-mini test" id="favourite' + retrievedFavouriteList[index].name + '"><li><img src="' + retrievedFavouriteList[index].image + '"/><h3>' + retrievedFavouriteList[index].name + '</h3><p>' + retrievedFavouriteList[index].description + '</p></li></a>';
 						$( ".myFavouritesList" ).append($(tempHTML));
-						alert( index + ": " + retrievedFavouriteList[index].name + favouritesCheck );
+						// alert( index + ": " + retrievedFavouriteList[index].name + favouritesCheck );
 					  }
 					});
+					
+					/* if(localStorage.getItem('userFavouriteList') != null )
+					{
+						$.each( retrievedFavouriteList, function( index, value)
+						{
+							if(retrievedFavouriteList[index].name == retrievedTrails.name ) 
+							{
+								var tempHTML = '<a href="#trailInfo" data-transition="slide" data-role="button" class="ui-btn ui-corner-all ui-mini test" id="favourite' + retrievedFavouriteList[index].name + '"><li><img src="' + retrievedFavouriteList[index].image + '"/><h3>' + retrievedFavouriteList[index].name + '</h3><p>' + retrievedFavouriteList[index].description + '</p></li></a>';
+								$( ".myFavouritesList" ).append($(tempHTML));
+								alert(retrievedFavouriteList[index].name);
+								// var posX = retrievedHazardList[index].xCoord;
+								// var posY = retrievedHazardList[index].yCoord;
+								// var tempHazName = retrievedHazardList[index].hazardName;
+								// var tempHazDet = retrievedHazardList[index].hazardDetails;
+								// var tempID = tempHazName+"Overlay";
+								// var tempHTML = '<div id="'+tempID+'" class="hazardOverlay" style="position: absolute; top:'+posY+'px; left:'+posX+'px"><img src="./img/mapOverlayElement.png"/></div>';
+								// $( ".tempOverlay" ).before($(tempHTML));
+								// $( "#"+tempID ).css({'position': 'absolute', 'top':posY, 'left':posX});
+							} */
+							// else
+							// {
+								// $(".hazardOverlay").remove();
+							// }
+							
+						// });
+						
+					// }
+					
 					// var tempHTML = '<a href="#trailInfo" data-transition="slide" data-role="button" class="ui-btn ui-corner-all ui-mini test" id="favourite' + retrievedTrails.name + '"><li><img src="' + retrievedTrails.image + '"/><h3>' + retrievedTrails.name + '</h3><p>' + retrievedTrails.description + '</p></li></a>';
 					// $(".myFavouritesList" ).append($(tempHTML));
 				// }
@@ -365,7 +393,7 @@
 					// $('.trailInfoTitle' ).html(retrievedHikeHistory.name + " Information");
 					storedHikeHistory.push(retrievedHikeHistory);
 					localStorage.setItem('yourHikeHistory', JSON.stringify(storedHikeHistory));
-					alert(retrievedHikeHistory.name);
+					// alert(retrievedHikeHistory.name);
 				}
 				else 
 				{
@@ -381,7 +409,7 @@
 					if(retrievedFavouriteList != null){
 						favouritesList.push(retrievedTrails);
 						localStorage.setItem('userFavouriteList', JSON.stringify(favouritesList));
-						alert(favouritesList[0].name);
+						// alert(favouritesList[0].name);
 					}
 					else {
 						if( (jQuery.inArray(retrievedTrails.name, retrievedFavouriteList)) != -1 ){
@@ -439,7 +467,7 @@
 				
 				$(document).on('click', '#addTrailHazard', function(evt)
 				{
-					storedHazardList = (JSON.parse(localStorage.getItem('userHazardList')));
+					retrievedHazardList = (JSON.parse(localStorage.getItem('userHazardList')));
 					var tempHazName = $('#hn').val();
 					var tempHazDet = $('#hd').val();
 					storedHazardList.push({
@@ -453,8 +481,8 @@
 					localStorage.setItem('userHazardList', JSON.stringify(storedHazardList));
 					var tempHTML= '<div id="'+tempHazName+'Overlay" class="hazardOverlay" style="position: absolute; top:'+tempY+'px; left:'+tempX+'px"><img src="./img/mapOverlayElement.png"/></div>';
 					$( ".tempOverlay" ).before($(tempHTML));
-					alert('LS==null'+tempHazName+ ' , ' + tempHazDet);
-					alert(tempX+ ' , ' + tempY);
+					// alert('LS==null'+tempHazName+ ' , ' + tempHazDet);
+					// alert(tempX+ ' , ' + tempY);
 				});
 
 				$(document).on('click', '.hazardOverlay', function(evt)
