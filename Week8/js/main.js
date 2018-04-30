@@ -145,6 +145,17 @@
 			});
 
 			$(document).on('pagebeforeshow', '#news', function(){
+
+				var newssubmit = document.getElementById('newssubmit');
+
+				newssubmit.onclick = function(){
+					var newstext = document.getElementById('shareText').value;
+          $('#newslist li:eq(0)').before('<li><h4>You User says:</h4><p>' + newstext + '</p></li>');
+					$('input[id=shareText').val('');
+					$( "#newslist" ).listview( "refresh" );
+				}
+
+
 				$(document).on('click', '#title', function(){
 					
 				});

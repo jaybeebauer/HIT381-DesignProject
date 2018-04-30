@@ -110,25 +110,28 @@
 				<h1>News</h1>
 			</div> <!-- /header -->
 
-			<div data-role="content" data-theme="a">
-				<label for="shareText">News to share:</label>
+			<div data-role="content" data-theme="a" >
+				<label for="shareText">What would you like to say?</label>
 				<input type="text" name="text-basic" id="shareText" value="">
-				<button class="ui-btn ui-btn-inline">Submit</button>
-				<ul class="styledList">
-					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
-						<img src="http://via.placeholder.com/100x100" />
-						<p>Lorem ipsum dolor sit amet...</p>
-					</li></a>
-					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
-						<p>Lorem ipsum dolor sit amet...</p>
-					</li></a>
-					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
-						<p>Lorem ipsum dolor sit amet...</p>
-					</li></a>
-					<a href="#trailInfo" data-role="button" data-transition="slide"><li>
-						<img src="http://via.placeholder.com/100x100" />
-						<p>Lorem ipsum dolor sit amet...</p>
-					</li></a>
+				<button id="newssubmit" class="ui-btn ui-btn-inline">Share</button>
+        <p></p>
+				<ul id="newslist" data-role="listview" style="margin-top: 10px;">
+          <li>
+            <h4>John Smith says:</h4>
+						<p>Just another short status update</p>
+					</li>
+          <li>
+            <h4>Joan Someone says:</h4>
+						<p>Maybe one more status update, but this is a lot longer than the last ones</p>
+					</li>
+          <li>
+            <h4>A User says:</h4>
+						<p>This is another status update</p>
+					</li>
+          <li>
+            <h4>Jane Doe says:</h4>
+						<p>This is a status update</p>
+					</li>
 				</ul>
 			</div> <!-- /content -->
 
