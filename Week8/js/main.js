@@ -22,9 +22,22 @@
 					var imageURL = $trail.find( 'Image' ).text();
 					var trailName = $trail.find( 'Name' ).text();
 					var trailDescription = $trail.find( 'Description' ).text();
+					var trailNotes = $trail.find( 'Notes' ).text();
+					var trailHazards = $trail.find( 'Hazards' ).text();
+					var trailLength = $trail.find( 'Length' ).text();
+					var trailSurface = $trail.find( 'Surface' ).text();
+					var trailContact = $trail.find( 'Contact' ).text();
+					var trailBackpackingAllowed = $trail.find( 'BackpackingAllowed' ).text();
+					var trailBicyclesAllowed = $trail.find( 'BicyclesAllowed' ).text();
+					var trailFitnessTrail = $trail.find( 'FitnessTrail' ).text();
+					var trailWaterTrail = $trail.find( 'WaterTrail' ).text();
+					var trailTrailStatus = $trail.find( 'TrailStatus' ).text();
+					var trailAlternativeName = $trail.find( 'AlternativeName' ).text();
 					// Output trail information as HTML and append to index.html for retrieval
 					var tempHTML = '<a href="#trailInfo" data-transition="slide" data-role="button" class="test" id="Trail ' + trailId + '"><li><img src="' + imageURL + '"/><h3>' + trailName + '</h3><p>' + trailDescription + '</p></li></a>';
+					var hiddenTempHTML = '<p style="visibility: hidden">'+ trailNotes + trailHazards+'</p>'
 					$( ".trailData" ).append( $( tempHTML ) );
+					// $( ".trailData" ).append( $( hiddenTempHTML ) );
 				});
 			}
 		});
@@ -51,11 +64,14 @@
 				selectedTrail.trailStatus = "";
 				selectedTrail.alternativeName = "";
 			
-			// 
+			// Variable for temporarily storing the user's favourited trails
 			var favouritesList = [];
 			
 			// Variable for temporarily storing historicTrailData objects
 			var storedHikeHistory = [];
+				
+			// Variable for temporarily storing hazards posted to the trailMap screen
+			var storedHazardList = [];
 				
 			// Retrieve user's favouritesList from localStorage
 			var retrievedFavouriteList = ( JSON.parse( localStorage.getItem( 'userFavouriteList' ) ) );
@@ -138,7 +154,6 @@
 					$.each( selectedTrail, function( key, value )
 					{
 						
-						// alert( key + ":" + value );
 					});
 				});
 				
@@ -340,37 +355,6 @@
 				// }
 				
 			});
-
-			$(document).on('pagebeforeshow', '#search', function(){
-				var retrievedTrails = (JSON.parse(localStorage.getItem('yourTrails')));
-				$(document).on('click', '#findSearchCriteria', function(){
-					var tempSearchCriteria = $('#searchCriteria').val();
-					if(localStorage.length > 0){
-						$.each( retrievedTrails, function( key, value) 
-						{ 
-							if( tempSearchCriteria == value )
-							{
-								
-								// alert(value);
-								var tempHTML = '<li><a href="#trailInfo" data-transition="slide" data-role="button" id="historic' + retrievedTrails.name + '" class="ui-btn ui-corner-all ui-mini test"><img src="' + retrievedTrails.image + '"/><h3>' + retrievedTrails.name + '</h3><p>' + retrievedTrails.description + '</p></a></li>';
-								$('.searchResults').html("Result found!");
-								$('.searchResults').append($(tempHTML));
-								return (0>1)
-							}
-							else
-							{
-								$('.searchResults').html("Result not found");
-								// alert(tempSearchCriteria +" != "+ value);
-							}
-						});
-					}
-					else
-					{
-						$('.searchResults').html("Result not found");
-					}
-				});
-
-			});
 			
 			$(document).on('pagebeforeshow', '#trailInfo', function(){
 				var retrievedTrails = (JSON.parse(localStorage.getItem('yourTrails')));
@@ -378,13 +362,14 @@
 				var retrievedHikeHistory = (JSON.parse(localStorage.getItem('yourHikeHistory')));
 				if(retrievedHikeHistory != null)
 				{
+					// $('.trailInfoTitle' ).html(retrievedHikeHistory.name + " Information");
 					storedHikeHistory.push(retrievedHikeHistory);
 					localStorage.setItem('yourHikeHistory', JSON.stringify(storedHikeHistory));
 					alert(retrievedHikeHistory.name);
 				}
 				else 
 				{
-					if( (jQuery.inArray(retrievedTrails.name, retrievedHikeHistory)) > -1 ){
+					if( (jQuery.inArray(retrievedTrails.name, retrievedHikeHistory)) != -1 ){
 						$('#myFavourite').hide();
 						$('.trailInfoFavourite').html("");
 					} 
@@ -399,7 +384,7 @@
 						alert(favouritesList[0].name);
 					}
 					else {
-						if( (jQuery.inArray(retrievedTrails.name, retrievedFavouriteList)) > -1 ){
+						if( (jQuery.inArray(retrievedTrails.name, retrievedFavouriteList)) != -1 ){
 							$('#myFavourite').hide();
 							$('.trailInfoFavourite').html("");
 						} 
@@ -413,10 +398,91 @@
 			});
 			
 			$(document).on('pagebeforeshow', '#trailMap', function(){
-				$(document).on('click', '#trailHazardMap', function(e){
+				var retrievedHazardList = (JSON.parse(localStorage.getItem('userHazardList')));
+				var tempX = "";
+				var tempY = "";
+				
+				if(localStorage.getItem('userHazardList') != null )
+				{
+					$.each( retrievedHazardList, function( index, value)
+					{
+						if(retrievedHazardList[index].mapName == $(".trailMapTitle").text() ) 
+						{
+							var posX = retrievedHazardList[index].xCoord;
+							var posY = retrievedHazardList[index].yCoord;
+							var tempHazName = retrievedHazardList[index].hazardName;
+							var tempHazDet = retrievedHazardList[index].hazardDetails;
+							var tempID = tempHazName+"Overlay";
+							var tempHTML = '<div id="'+tempID+'" class="hazardOverlay" style="position: absolute; top:'+posY+'px; left:'+posX+'px"><img src="./img/mapOverlayElement.png"/></div>';
+							$( ".tempOverlay" ).before($(tempHTML));
+							$( "#"+tempID ).css({'position': 'absolute', 'top':posY, 'left':posX});
+						}
+						else
+						{
+							$(".hazardOverlay").remove();
+						}
+						
+					});
+					
+				}
+				
+				$(document).on('click', '#trailHazardMap', function(e)
+				{
+					var offset = $(this).offset();
 					var posX = e.pageX;
 					var posY = e.pageY;
-					alert(posX+ ' , ' + posY);
+					tempX = posX;
+					tempY = posY;
+					$( "#popupAddHazard" ).popup( "open", {x: posX, y: posY} );
+					e.preventDefault();
+				});
+				
+				$(document).on('click', '#addTrailHazard', function(evt)
+				{
+					storedHazardList = (JSON.parse(localStorage.getItem('userHazardList')));
+					var tempHazName = $('#hn').val();
+					var tempHazDet = $('#hd').val();
+					storedHazardList.push({
+						"mapName": $(".trailMapTitle").text(),
+						"xCoord": tempX,
+						"yCoord": tempY,
+						"hazardName": tempHazName,
+						"hazardDetails": tempHazDet
+					});
+					
+					localStorage.setItem('userHazardList', JSON.stringify(storedHazardList));
+					var tempHTML= '<div id="'+tempHazName+'Overlay" class="hazardOverlay" style="position: absolute; top:'+tempY+'px; left:'+tempX+'px"><img src="./img/mapOverlayElement.png"/></div>';
+					$( ".tempOverlay" ).before($(tempHTML));
+					alert('LS==null'+tempHazName+ ' , ' + tempHazDet);
+					alert(tempX+ ' , ' + tempY);
+				});
+
+				$(document).on('click', '.hazardOverlay', function(evt)
+				{
+					var posX = evt.pageX;
+					var posY = evt.pageY;
+					var retrievedHazardList = (JSON.parse(localStorage.getItem('userHazardList')));
+					$( "#popupShowHazard" ).popup( "open", {x: posX, y: posY} );
+					evt.preventDefault();
+					
+					var tempHazName = ( $(this).attr('id') ).substr( 0, $(this).attr('id').length-7 );
+					var tempHazDet = "";
+					$('#selectedHazardName').html(tempHazName);
+					$.each(retrievedHazardList, function(index) 
+					{
+						tempHazDet = retrievedHazardList[index].hazardDetails;
+						$.each( this, function( name, value)
+						{
+								if(tempHazDet == value)
+								{
+									if(retrievedHazardList[index].hazardName == tempHazName)
+									{									
+										$('#selectedHazardDetails').html(tempHazDet);
+										return (0 > 1);
+									}
+								}
+						});
+					});	
 				});
 			});
 				

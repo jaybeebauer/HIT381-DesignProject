@@ -162,6 +162,15 @@ textarea {
     cursor: pointer;
 }
 
+.popupContent {
+	padding-left: 10px;
+	padding-top:20px;
+	padding-bottom:10px;
+	padding-right:20px;
+}
+
+
+
 /* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px){
     .modal-content {
