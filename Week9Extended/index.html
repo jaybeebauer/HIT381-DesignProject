@@ -49,6 +49,7 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/lib/dots.css">
 		<link rel="stylesheet" href="css/vendor/jquery.mobile-1.4.5.css">
 		<script src="js/vendor/jquery-2.1.0.min.js"></script>
 		<script src="js/vendor/jquery.mobile-1.4.5.min.js"></script>
@@ -57,7 +58,154 @@
     </head>
     <body>
 
-		<!-- Home page -->
+      <!-- Onboarding1 page -->
+  		<section data-role="page" data-theme="a" id="onboard1">
+  			<div data-role="content" data-theme="a">
+          <div class="onboard">
+            <h1>Trail Magic</h1>
+            <img src="/img/logo.jpg" alt="Trail Magic Logo" style="width: 217px; margin: 0 auto;"/>
+            <div>
+              <h2>Welcome</h2>
+              <p>Join an ever growing community who rely on Trail Magic to navigate trails and share experiances.</p>
+            </div>
+            <div class="table">
+              <div class="cell">
+                <ul class="dots">
+                  <li class="active"><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+  			</div> <!-- /content -->
+  			<div data-role="footer" data-position="fixed">
+          <div data-role="navbar">
+  					<ul>
+  						<li><a href="#onboard2" data-role="button" data-transition="slide">Next</a></li>
+              <li><a href="#onboard5" data-role="button" data-transition="slide">Skip</a></li>
+  					</ul>
+  				</div> <!-- /navbar -->
+  			</div> <!-- /footer -->
+  		</section> <!-- /page -->
+
+      <!-- Onboarding2 page -->
+      <section data-role="page" data-theme="a" id="onboard2">
+        <div data-role="content" data-theme="a">
+          <div class="onboard">
+            <img src="/img/viewinghazards.jpg" style="width: 300px; height: 300px; margin: 0 auto;"/>
+            <div>
+              <h2>Viewing Hazards</h2>
+              <p>Viewing hazards is easy, simply tap the red circles and the hazard will appear. Tap the X to hide it again.</p>
+            </div>
+            <div class="table">
+              <div class="cell">
+                <ul class="dots">
+                  <li><a href="#"></a></li>
+                  <li class="active"><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /content -->
+        <div data-role="footer" data-position="fixed">
+          <div data-role="navbar">
+            <ul>
+              <li><a href="#onboard3" data-role="button" data-transition="slide">Next</a></li>
+              <li><a href="#onboard5" data-role="button" data-transition="slide">Skip</a></li>
+            </ul>
+          </div> <!-- /navbar -->
+        </div> <!-- /footer -->
+      </section> <!-- /page -->
+
+      <!-- Onboarding3 page -->
+      <section data-role="page" data-theme="a" id="onboard3">
+        <div data-role="content" data-theme="a">
+          <div class="onboard">
+            <img src="/img/addinghazards.jpg" style="width: 300px; height: 300px; margin: 0 auto;"/>
+            <div>
+              <h2>Adding Hazards</h2>
+              <p>Adding hazards is a breeze, just tap the location of the new hazard and fill in the form, then click Add.</p>
+            </div>
+            <div class="table">
+              <div class="cell">
+                <ul class="dots">
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <li class="active"><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /content -->
+        <div data-role="footer" data-position="fixed">
+          <div data-role="navbar">
+            <ul>
+              <li><a href="#onboard4" data-role="button" data-transition="slide">Next</a></li>
+              <li><a href="#onboard5" data-role="button" data-transition="slide">Skip</a></li>
+            </ul>
+          </div> <!-- /navbar -->
+        </div> <!-- /footer -->
+      </section> <!-- /page -->
+
+      <!-- Onboarding4 page -->
+      <section data-role="page" data-theme="a" id="onboard4">
+        <div data-role="content" data-theme="a">
+          <div class="onboard">
+            <img src="/img/social.jpg" style="width: 300px; height: 300px; margin: 0 auto;"/>
+            <div>
+              <h2>Share Experiance</h2>
+              <p>The whole point of the app is to share with others! Let everyone know what you've achieved and share images.</p>
+            </div>
+            <div class="table">
+              <div class="cell">
+                <ul class="dots">
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <li class="active"><a href="#"></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /content -->
+        <div data-role="footer" data-position="fixed">
+          <div data-role="navbar">
+            <ul>
+              <li><a href="#onboard5" data-role="button" data-transition="slide">Next</a></li>
+              <li><a href="#onboard5" data-role="button" data-transition="slide">Skip</a></li>
+            </ul>
+          </div> <!-- /navbar -->
+        </div> <!-- /footer -->
+      </section> <!-- /page -->
+
+      <!-- Onboarding5 page -->
+      <section data-role="page" data-theme="a" id="onboard5">
+        <div data-role="content" data-theme="a">
+          <div class="onboard">
+            <div>
+              <h1>Register</h1>
+              <form>
+                <label for="fullname">Full Name:</label>
+                <input type="text" name="fullname" id="fullname" value="" placeholder="Full Name">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" value="" placeholder="Email">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" value="" autocomplete="off" placeholder="Password">
+                <label for="confirmpassword">Confirm Password:</label>
+                <input type="password" name="confirmpassword" id="confirmpassword" value="" autocomplete="off" placeholder="Confirm Password">
+                <input type="button" value="Start Trailing" onclick="window.location.href='#home'">
+              </form>
+            </div>
+          </div>
+        </div> <!-- /content -->
+      </section> <!-- /page -->
+
+    <!-- Home page -->
 		<section data-role="page" data-theme="a" id="home">
 			<div data-role="header" data-position="fixed">
 				<!-- Insert Logo Here? -->
@@ -200,7 +348,7 @@
 			</div> <!-- /footer -->
 
 		</section> <!-- /page -->
-		
+
 		<!-- Hike History page -->
 		<!-- IN PROGRESS: Bug fixing -->
 		<section data-role="page" data-theme="a" id="hikeHistory">
@@ -240,7 +388,7 @@
 			</div> <!-- /footer -->
 
 		</section><!-- /page -->
-	
+
 		<!-- Trail Info Page -->
 		<section data-role="page" data-theme="a" id="trailInfo">
 			<div data-role="header" data-add-back-btn="true" data-position="fixed">
@@ -330,7 +478,7 @@
 			</div> <!-- /content -->
 			<div data-role="footer" data-position="fixed">
 				<div data-role="navbar">
-					
+
 				</div><!-- /navbar -->
 			</div> <!-- /footer -->
 		</section><!-- /page -->

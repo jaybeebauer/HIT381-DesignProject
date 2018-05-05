@@ -10,6 +10,7 @@
     ========================================================================== */
 @import url("lib/thumbnaillist.css");
 @import url("lib/thumbnailgrid.css");
+@import url("lib/dots.css")
 
 /* ==========================================================================
    Base styles: opinionated defaults
