@@ -22,6 +22,17 @@
 				 }
 		);
 
+		//$("#onboard1").css("display","flex");
+		//$("#onboard1").css("flex-direction","column");
+		//$("#onboard3").css("display","flex");
+		//$("#onboard3").css("flex-direction","column");
+		//$("#onboard4").css("display","flex");
+		//$("#onboard4").css("flex-direction","column");
+		//$(document).on('pagebeforeshow', '#onboard2', function(){
+		//	$("#onboard2").css("display","flex");
+		//	$("#onboard2").css("flex-direction","column");
+		//});
+
 		$("#onboard1").swipeleft(function() {
     	$.mobile.changePage("#onboard2");
 		});
