@@ -16,40 +16,34 @@
 		var onboard = localStorage.onboardComplete !== undefined;
 		if (onboard) $.mobile.navigate("#home");
 		$("#registrationSubmit").click( function()
-				 {
-					 localStorage.setItem('onboardComplete', 1)
-					 $.mobile.navigate("#home");
-				 }
+			{
+				localStorage.setItem('onboardComplete', 1)
+				$.mobile.navigate("#home", {transition:"slide"});
+			}
 		);
 
-		//$("#onboard1").css("display","flex");
-		//$("#onboard1").css("flex-direction","column");
-		//$("#onboard3").css("display","flex");
-		//$("#onboard3").css("flex-direction","column");
-		//$("#onboard4").css("display","flex");
-		//$("#onboard4").css("flex-direction","column");
-		//$(document).on('pagebeforeshow', '#onboard2', function(){
-		//	$("#onboard2").css("display","flex");
-		//	$("#onboard2").css("flex-direction","column");
-		//});
-
 		$("#onboard1").swipeleft(function() {
-    	$.mobile.changePage("#onboard2");
+			$.mobile.changePage("#onboard2", {transition:"slide"});
 		});
+		
 		$("#onboard2").swiperight(function() {
-    	$.mobile.changePage("#onboard1");
+			$.mobile.changePage("#onboard1", {transition:"slide", reverse:"true"});
 		});
+		
 		$("#onboard2").swipeleft(function() {
-    	$.mobile.changePage("#onboard3");
+			$.mobile.changePage("#onboard3", {transition:"slide"});
 		});
+		
 		$("#onboard3").swiperight(function() {
-    	$.mobile.changePage("#onboard2");
+			$.mobile.changePage("#onboard2", {transition:"slide", reverse:"true"});
 		});
+		
 		$("#onboard3").swipeleft(function() {
-    	$.mobile.changePage("#onboard4");
+			$.mobile.changePage("#onboard4", {transition:"slide"});
 		});
+		
 		$("#onboard4").swiperight(function() {
-    	$.mobile.changePage("#onboard3");
+			$.mobile.changePage("#onboard3", {transition:"slide", reverse:"true"});
 		});
 
 		// When the document has finished loading, load the file traillist.xml to populate the application with default trail data
