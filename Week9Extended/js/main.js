@@ -22,6 +22,25 @@
 				 }
 		);
 
+		$("#onboard1").swipeleft(function() {
+    	$.mobile.changePage("#onboard2");
+		});
+		$("#onboard2").swiperight(function() {
+    	$.mobile.changePage("#onboard1");
+		});
+		$("#onboard2").swipeleft(function() {
+    	$.mobile.changePage("#onboard3");
+		});
+		$("#onboard3").swiperight(function() {
+    	$.mobile.changePage("#onboard2");
+		});
+		$("#onboard3").swipeleft(function() {
+    	$.mobile.changePage("#onboard4");
+		});
+		$("#onboard4").swiperight(function() {
+    	$.mobile.changePage("#onboard3");
+		});
+
 		// When the document has finished loading, load the file traillist.xml to populate the application with default trail data
 		$.ajax({
 			type: "GET" ,
