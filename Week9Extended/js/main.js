@@ -6,9 +6,22 @@
 */
 
 ( function()
-{	
-	$( document ).ready( function() 
+{
+	$( document ).ready( function()
 	{
+
+		//This function sets the variable onboardComplete in localStorage to 1 once user has completed the onboarding steps, will then skip it each time a user runs the app
+		//delete localStorage.onboardComplete ; //This is for testing to see first page again
+		//console.log(localStorage.onboardComplete);
+		var onboard = localStorage.onboardComplete !== undefined;
+		if (onboard) $.mobile.navigate("#home");
+		$("#registrationSubmit").click( function()
+				 {
+					 localStorage.setItem('onboardComplete', 1)
+					 $.mobile.navigate("#home");
+				 }
+		);
+
 		// When the document has finished loading, load the file traillist.xml to populate the application with default trail data
 		$.ajax({
 			type: "GET" ,
@@ -41,12 +54,12 @@
 				});
 			}
 		});
-		
+
 		// Check to see if localStorage is supported by the browser
-		if ( Modernizr.localstorage ) 
+		if ( Modernizr.localstorage )
 		{
 			console.log( "Local storage is supported by this browser" );
-			
+
 			// Variable for temporarily storing the user's currently selected trail
 			var selectedTrail = {};
 				selectedTrail.name = "";
@@ -63,20 +76,20 @@
 				selectedTrail.waterTrail = "";
 				selectedTrail.trailStatus = "";
 				selectedTrail.alternativeName = "";
-			
+
 			// Variable for temporarily storing the user's favourited trails
 			var favouritesList = [];
-			
+
 			// Variable for temporarily storing historicTrailData objects
 			var storedHikeHistory = [];
-				
+
 			// Variable for temporarily storing hazards posted to the trailMap screen
 			var storedHazardList = [];
-				
+
 			// Retrieve user's favouritesList from localStorage
 			var retrievedFavouriteList = ( JSON.parse( localStorage.getItem( 'userFavouriteList' ) ) );
-			
-			if (localStorage.getItem('userFavouriteList') === null) 
+
+			if (localStorage.getItem('userFavouriteList') === null)
 			{
 				$( '#favouritesButton' ).hide();
 			}
@@ -84,8 +97,8 @@
 			{
 				$( '#favouritesButton' ).show();
 			}
-			
-			if (localStorage.getItem('yourHikeHistory') === null) 
+
+			if (localStorage.getItem('yourHikeHistory') === null)
 			{
 				$( '#hikeHistoryButton' ).hide();
 			}
@@ -93,10 +106,10 @@
 			{
 				$( '#hikeHistoryButton' ).show();
 			}
-	
+
 			$( document ).on( 'pagebeforeshow', '#home', function()
 			{
-				if (localStorage.getItem('userFavouriteList') === null) 
+				if (localStorage.getItem('userFavouriteList') === null)
 				{
 					$( '#favouritesButton' ).hide();
 				}
@@ -104,8 +117,8 @@
 				{
 					$( '#favouritesButton' ).show();
 				}
-				
-				if (localStorage.getItem('yourHikeHistory') === null) 
+
+				if (localStorage.getItem('yourHikeHistory') === null)
 				{
 					$( '#hikeHistoryButton' ).hide();
 				}
@@ -113,9 +126,9 @@
 				{
 					$( '#hikeHistoryButton' ).show();
 				}
-			
+
 			});
-	
+
 			$(document).on('pagebeforeshow', '#hikeSelection', function(){
 				$(document).on('click', '.test', function(){
 					var tempTrailName = $(this).attr("id");
@@ -124,7 +137,7 @@
 					$('.trailInfoTitle' ).html(tempTrailName + " Information");
 					$('.trailInfoFavourite').html(tempTrailName+" added to Favourites");
 					$('.trailMapTitle').html(tempTrailName + " Map");
-					
+
 					selectedTrail.name = tempTrailName;
 					selectedTrail.image = tempImageURL;
 					selectedTrail.description = tempTrailDescription;
@@ -143,14 +156,14 @@
 					localStorage.setItem('yourHikeHistory', JSON.stringify(selectedTrail));
 					$.each( selectedTrail, function( key, value )
 					{
-						
+
 					});
 				});
-				
+
 			});
 
 			$(document).on('pagebeforeshow', '#news', function(){
-				
+
 				var newssubmit = document.getElementById('newssubmit');
 
 				newssubmit.onclick = function(){
@@ -159,12 +172,12 @@
 					$('input[id=shareText').val('');
 					$( "#newslist" ).listview( "refresh" );
 				}
-				
+
 				$(document).on('click', '#title', function(){
-					
+
 				});
 			});
-			
+
 			$(document).on('pagebeforeshow', '#photos', function(){
 				// Get the modal
 				var modal = document.getElementById('myModal');
@@ -178,7 +191,7 @@
 					modalImg.src = this.src;
 					captionText.innerHTML = this.alt;
 				}
-				
+
 				var img = document.getElementById('img02');
 				var modalImg = document.getElementById("modalUserImg");
 				var captionText = document.getElementById("caption");
@@ -187,7 +200,7 @@
 					modalImg.src = this.src;
 					captionText.innerHTML = this.alt;
 				}
-				
+
 				var img = document.getElementById('img03');
 				var modalImg = document.getElementById("modalUserImg");
 				var captionText = document.getElementById("caption");
@@ -196,7 +209,7 @@
 					modalImg.src = this.src;
 					captionText.innerHTML = this.alt;
 				}
-				
+
 				var img = document.getElementById('img04');
 				var modalImg = document.getElementById("modalUserImg");
 				var captionText = document.getElementById("caption");
@@ -205,7 +218,7 @@
 					modalImg.src = this.src;
 					captionText.innerHTML = this.alt;
 				}
-				
+
 				var img = document.getElementById('img05');
 				var modalImg = document.getElementById("modalUserImg");
 				var captionText = document.getElementById("caption");
@@ -214,7 +227,7 @@
 					modalImg.src = this.src;
 					captionText.innerHTML = this.alt;
 				}
-				
+
 				var img = document.getElementById('img06');
 				var modalImg = document.getElementById("modalUserImg");
 				var captionText = document.getElementById("caption");
@@ -223,7 +236,7 @@
 					modalImg.src = this.src;
 					captionText.innerHTML = this.alt;
 				}
-				
+
 				var img = document.getElementById('img07');
 				var modalImg = document.getElementById("modalUserImg");
 				var captionText = document.getElementById("caption");
@@ -232,7 +245,7 @@
 					modalImg.src = this.src;
 					captionText.innerHTML = this.alt;
 				}
-				
+
 				var img = document.getElementById('img08');
 				var modalImg = document.getElementById("modalUserImg");
 				var captionText = document.getElementById("caption");
@@ -241,7 +254,7 @@
 					modalImg.src = this.src;
 					captionText.innerHTML = this.alt;
 				}
-				
+
 				var img = document.getElementById('img09');
 				var modalImg = document.getElementById("modalUserImg");
 				var captionText = document.getElementById("caption");
@@ -250,7 +263,7 @@
 					modalImg.src = this.src;
 					captionText.innerHTML = this.alt;
 				}
-				
+
 				var img = document.getElementById('img10');
 				var modalImg = document.getElementById("modalUserImg");
 				var captionText = document.getElementById("caption");
@@ -259,7 +272,7 @@
 					modalImg.src = this.src;
 					captionText.innerHTML = this.alt;
 				}
-				
+
 				var img = document.getElementById('img11');
 				var modalImg = document.getElementById("modalUserImg");
 				var captionText = document.getElementById("caption");
@@ -268,7 +281,7 @@
 					modalImg.src = this.src;
 					captionText.innerHTML = this.alt;
 				}
-				
+
 				var img = document.getElementById('img12');
 				var modalImg = document.getElementById("modalUserImg");
 				var captionText = document.getElementById("caption");
@@ -277,7 +290,7 @@
 					modalImg.src = this.src;
 					captionText.innerHTML = this.alt;
 				}
-				
+
 				var img = document.getElementById('img13');
 				var modalImg = document.getElementById("modalUserImg");
 				var captionText = document.getElementById("caption");
@@ -286,7 +299,7 @@
 					modalImg.src = this.src;
 					captionText.innerHTML = this.alt;
 				}
-				
+
 				var img = document.getElementById('img14');
 				var modalImg = document.getElementById("modalUserImg");
 				var captionText = document.getElementById("caption");
@@ -295,7 +308,7 @@
 					modalImg.src = this.src;
 					captionText.innerHTML = this.alt;
 				}
-				
+
 				var img = document.getElementById('img15');
 				var modalImg = document.getElementById("modalUserImg");
 				var captionText = document.getElementById("caption");
@@ -311,9 +324,9 @@
 				// When the user clicks on <span> (x), close the modal
 				span.onclick = function() {
 				  modal.style.display = "none";
-				} 
+				}
 			});
-			
+
 			$(document).on('pagebeforeshow', '#hikeHistory', function(){
 				var retrievedTrails = (JSON.parse(localStorage.getItem('yourTrails')));
 				var retrievedHikeHistory = (JSON.parse(localStorage.getItem('yourHikeHistory')));
@@ -331,7 +344,7 @@
 							$(".historicTrailData" ).append($(tempHTML2));
 						// }
 					// }
-				});				
+				});
 			});
 
 			$(document).on('pagebeforeshow', '#favourites', function(){
@@ -339,7 +352,7 @@
 				var retrievedTrails = (JSON.parse(localStorage.getItem('yourTrails')));
 				// Check to make sure there are no duplicate entries in myFavouritesList
 				// var favouritesCheck = $('.myFavouritesList').text().indexOf(retrievedFavouriteList.name) > -1;
-				// if(favouritesCheck == false) 
+				// if(favouritesCheck == false)
 				// {
 					$.each(retrievedFavouriteList, function( index, value ) {
 					  var favouritesCheck = $('.myFavouritesList').text().indexOf(retrievedFavouriteList[index].name) > -1;
@@ -350,12 +363,12 @@
 						// alert( index + ": " + retrievedFavouriteList[index].name + favouritesCheck );
 					  }
 					});
-					
+
 					/* if(localStorage.getItem('userFavouriteList') != null )
 					{
 						$.each( retrievedFavouriteList, function( index, value)
 						{
-							if(retrievedFavouriteList[index].name == retrievedTrails.name ) 
+							if(retrievedFavouriteList[index].name == retrievedTrails.name )
 							{
 								var tempHTML = '<a href="#trailInfo" data-transition="slide" data-role="button" class="ui-btn ui-corner-all ui-mini test" id="favourite' + retrievedFavouriteList[index].name + '"><li><img src="' + retrievedFavouriteList[index].image + '"/><h3>' + retrievedFavouriteList[index].name + '</h3><p>' + retrievedFavouriteList[index].description + '</p></li></a>';
 								$( ".myFavouritesList" ).append($(tempHTML));
@@ -373,17 +386,17 @@
 							// {
 								// $(".hazardOverlay").remove();
 							// }
-							
+
 						// });
-						
+
 					// }
-					
+
 					// var tempHTML = '<a href="#trailInfo" data-transition="slide" data-role="button" class="ui-btn ui-corner-all ui-mini test" id="favourite' + retrievedTrails.name + '"><li><img src="' + retrievedTrails.image + '"/><h3>' + retrievedTrails.name + '</h3><p>' + retrievedTrails.description + '</p></li></a>';
 					// $(".myFavouritesList" ).append($(tempHTML));
 				// }
-				
+
 			});
-			
+
 			$(document).on('pagebeforeshow', '#trailInfo', function(){
 				var retrievedTrails = (JSON.parse(localStorage.getItem('yourTrails')));
 				var retrievedFavouriteList = (JSON.parse(localStorage.getItem('userFavouriteList')));
@@ -395,12 +408,12 @@
 					localStorage.setItem('yourHikeHistory', JSON.stringify(storedHikeHistory));
 					// alert(retrievedHikeHistory.name);
 				}
-				else 
+				else
 				{
 					if( (jQuery.inArray(retrievedTrails.name, retrievedHikeHistory)) != -1 ){
 						$('#myFavourite').hide();
 						$('.trailInfoFavourite').html("");
-					} 
+					}
 					else {
 						localStorage.setItem('yourHikeHistory', JSON.stringify(retrievedTrails));
 					}
@@ -415,26 +428,26 @@
 						if( (jQuery.inArray(retrievedTrails.name, retrievedFavouriteList)) != -1 ){
 							$('#myFavourite').hide();
 							$('.trailInfoFavourite').html("");
-						} 
+						}
 						else {
 							localStorage.setItem('userFavouriteList', JSON.stringify(retrievedTrails));
 						}
-					
+
 					}
-					
+
 				});
 			});
-			
+
 			$(document).on('pagebeforeshow', '#trailMap', function(){
 				var retrievedHazardList = (JSON.parse(localStorage.getItem('userHazardList')));
 				var tempX = "";
 				var tempY = "";
-				
+
 				if(localStorage.getItem('userHazardList') != null )
 				{
 					$.each( retrievedHazardList, function( index, value)
 					{
-						if(retrievedHazardList[index].mapName == $(".trailMapTitle").text() ) 
+						if(retrievedHazardList[index].mapName == $(".trailMapTitle").text() )
 						{
 							var posX = retrievedHazardList[index].xCoord;
 							var posY = retrievedHazardList[index].yCoord;
@@ -449,11 +462,11 @@
 						{
 							$(".hazardOverlay").remove();
 						}
-						
+
 					});
-					
+
 				}
-				
+
 				$(document).on('click', '#trailHazardMap', function(e)
 				{
 					var offset = $(this).offset();
@@ -464,7 +477,7 @@
 					$( "#popupAddHazard" ).popup( "open", {x: posX, y: posY} );
 					e.preventDefault();
 				});
-				
+
 				$(document).on('click', '#addTrailHazard', function(evt)
 				{
 					retrievedHazardList = (JSON.parse(localStorage.getItem('userHazardList')));
@@ -477,7 +490,7 @@
 						"hazardName": tempHazName,
 						"hazardDetails": tempHazDet
 					});
-					
+
 					localStorage.setItem('userHazardList', JSON.stringify(storedHazardList));
 					var tempHTML= '<div id="'+tempHazName+'Overlay" class="hazardOverlay" style="position: absolute; top:'+tempY+'px; left:'+tempX+'px"><img src="./img/mapOverlayElement.png"/></div>';
 					$( ".tempOverlay" ).before($(tempHTML));
@@ -492,11 +505,11 @@
 					var retrievedHazardList = (JSON.parse(localStorage.getItem('userHazardList')));
 					$( "#popupShowHazard" ).popup( "open", {x: posX, y: posY} );
 					evt.preventDefault();
-					
+
 					var tempHazName = ( $(this).attr('id') ).substr( 0, $(this).attr('id').length-7 );
 					var tempHazDet = "";
 					$('#selectedHazardName').html(tempHazName);
-					$.each(retrievedHazardList, function(index) 
+					$.each(retrievedHazardList, function(index)
 					{
 						tempHazDet = retrievedHazardList[index].hazardDetails;
 						$.each( this, function( name, value)
@@ -504,16 +517,16 @@
 								if(tempHazDet == value)
 								{
 									if(retrievedHazardList[index].hazardName == tempHazName)
-									{									
+									{
 										$('#selectedHazardDetails').html(tempHazDet);
 										return (0 > 1);
 									}
 								}
 						});
-					});	
+					});
 				});
 			});
-				
+
 		}
 		// If the user's browser doesn't support localStorage, let them know
 		else
@@ -521,7 +534,7 @@
 			$('.message').text("Unfortunately your browser doesn't support local storage. This is required for some features of the application to function correctly.");
 			$('.message').show();
 		}
-		
+
 	});
-	
+
 } )();
