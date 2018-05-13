@@ -62,40 +62,42 @@
 
 	<trail>
 		<Id>4</Id>
-		<Name>Trail 4</Name>
-		<location></location>
-		<Description>This is to describe the trail</Description>
-		<Notes>Blah some notes here</Notes>
-		<Hazards>List hazards here</Hazards>
-		<Image>http://via.placeholder.com/100x100</Image>
-		<Length>3.00</Length>
-		<Surface>Rough</Surface>
-		<Contact>Some Guy - 0404111111</Contact>
+		<Name>Blackboy Ridge</Name>
+		<location>Upper Chittering</location>
+		<Description>The hidden walk trail on this reserve is seasonally abundant in wildflowers ~ wattles, parrotbush, orchids… It boasts fantastic views across the valley from the lookout at the top of the trail. It is 1.5 km return and is steep in places.</Description>
+		<Notes>TODO</Notes>
+		<Hazards>TODO</Hazards>
+		<Image>/img/trailimage/Blackboy_Ridge.jpg</Image>
+		<Map>/img/trailmap/Blackboy_Ridge_Map.jpg</Map>
+		<Length>1.50</Length>
+		<Surface>Smooth with Hill Climb</Surface>
+		<Contact>Chittering Visitor Centre - (08) 9576 1100</Contact>
 		<BackpackingAllowed>False</BackpackingAllowed>
-		<BicyclesAllowed>True</BicyclesAllowed>
+		<BicyclesAllowed>False</BicyclesAllowed>
 		<FitnessTrail>False</FitnessTrail>
-		<WaterTrail>True</WaterTrail>
+		<WaterTrail>False</WaterTrail>
 		<TrailStatus>Open</TrailStatus>
-		<AlternativeName>Killers Trail</AlternativeName>
+		<AlternativeName>N/A</AlternativeName>
 	</trail>
 
 	<trail>
 		<Id>5</Id>
-		<Name>Trail 5</Name>
-		<location></location>
-		<Description>This is to describe the trail</Description>
-		<Notes>Blah some notes here</Notes>
-		<Hazards>List hazards here</Hazards>
-		<Image>http://via.placeholder.com/100x100</Image>
-		<Length>3.00</Length>
-		<Surface>Rough</Surface>
-		<Contact>Some Guy - 0404111111</Contact>
+		<Name>Bluff Knoll</Name>
+		<location>Stirling Range National Park</location>
+		<Description>Located in the Stirling Range National Park, Bluff Knoll is the third highest and one of the most spectacular peaks in Western Australia. The trail features include abundant wildflowers, birdlife, reptiles, exceptional scenery and views of the Stirling Ranges and geological formations.</Description>
+		<Notes>TODO</Notes>
+		<Hazards>TODO</Hazards>
+		<Image>/img/trailimage/Bluff_Knoll.jpg</Image>
+		<Map>/img/trailmap/Bluff_Knoll_Map.jpg</Map>
+		<Length>6.00</Length>
+		<Surface>Rough with Steep Hill Climb</Surface>
+		<Contact>Department of Biodiversity, Conservation and Attractions, Parks and Wildlife Service - 08 9842 4500</Contact>
 		<BackpackingAllowed>False</BackpackingAllowed>
-		<BicyclesAllowed>True</BicyclesAllowed>
+		<BicyclesAllowed>False</BicyclesAllowed>
 		<FitnessTrail>False</FitnessTrail>
-		<WaterTrail>True</WaterTrail>
+		<WaterTrail>False</WaterTrail>
 		<TrailStatus>Open</TrailStatus>
-		<AlternativeName>Killers Trail</AlternativeName>
+		<AlternativeName>N/A</AlternativeName>
 	</trail>
 
 </traillist>
