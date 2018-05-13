@@ -1,4 +1,4 @@
 /*------------------
 Maps Style
 ------------------*/
-#trailMap, #map-canvas { width: 100%; height: 96%; padding: 0; }
+#trailMap, #mapid { width: 100%; height: 100%; padding: 0; }

@@ -464,41 +464,40 @@
 
 			$(document).on('pagebeforeshow', '#trailMap', function(){
 
-				var defaultLatLng = new google.maps.LatLng(-33.94396729, 115.0741474);  // Default to Darwin, NT when no geolocation support
-		    if ( navigator.geolocation ) {
-		        function success(pos) {
-		            // Location found, show map with these coordinates
-		            drawMap(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-		        }
-		        function fail(error) {
-		            drawMap(defaultLatLng);  // Failed to find location, show default map
-		        }
-		        // Find the users current position.  Cache the location for 5 minutes, timeout after 6 seconds
-		        navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 6000});
-		    } else {
-		        drawMap(defaultLatLng);  // No geolocation support, show default map
-		    }
-		    function drawMap(latlng) {
-		        var myOptions = {
-		            zoom: 10,
-		            center: latlng,
-		            mapTypeId: google.maps.MapTypeId.ROADMAP
-		        };
-		        var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
-		        // Add an overlay to the map of current lat/lng
-		        var marker = new google.maps.Marker({
-		            position: latlng,
-		            map: map,
-		            title: "Darwin"
-		        });
+				//INSERT MAP HERE
+				//This sets the map and allows acccess using token
+				var mymap = L.map('mapid');
+				L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+			    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+			    maxZoom: 18,
+			    id: 'mapbox.streets',
+			    accessToken: 'pk.eyJ1Ijoiam9zaHliZWUiLCJhIjoiY2poNHBvbmI1MTFxNDJ3bzJzamNhYWtrcCJ9.ylGldaVSlDpQrJ_v325E4w'
+				}).addTo(mymap);
 
-						var ctaLayer = new google.maps.KmlLayer({
-          		url: '../database/10_Mile_Brook_Trail.kml',
-          		map: map
-        		});
-		    }
+				//This pulls out the kml file, which is only one at the minute and puts it on the map and then centers the map, will need to change kml files to xml extension
+				//Need to have this run when the certain map is clicked not just load all the time
+				var runLayer = omnivore.kml('../database/10_Mile_Brook_Trail.xml')
+				    .on('ready', function() {
+				        mymap.fitBounds(runLayer.getBounds());
+				    })
+				    .addTo(mymap);
 
-				//Old map hazard plotting
+				//This creates the click event and gets the lat and long of the click, can then store in this for adding Hazard
+				var popup = L.popup();
+				function onMapClick(e) {
+				    popup
+				        .setLatLng(e.latlng)
+				        .setContent("You clicked the map at " + e.latlng.toString())
+				        .openOn(mymap);
+				}
+
+				mymap.on('click', onMapClick);
+
+				//This is an example hazard point
+				var marker = L.marker([-33.946374, 115.097917]).addTo(mymap);
+				marker.bindPopup("<b>Hazard</b><br>This is example hazard").openPopup();
+
+				//OLD MAP HAZARD PLOTTING
 				var retrievedHazardList = (JSON.parse(localStorage.getItem('userHazardList')));
 				var tempX = "";
 				var tempY = "";
