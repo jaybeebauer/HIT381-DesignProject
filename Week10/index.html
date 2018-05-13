@@ -54,6 +54,7 @@
 		<script src="js/vendor/jquery-2.1.0.min.js"></script>
 		<script src="js/vendor/jquery.mobile-1.4.5.min.js"></script>
 		<script src="js/vendor/modernizr-2.7.1.min.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
     </head>
     <body>
@@ -415,50 +416,14 @@
 				<a href="#home" data-direction="reverse" data-transition="slide" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-home returnHome">Home</a>
 				<h1 class="trailMapTitle">Trail Map</h1>
 			</div> <!-- /header -->
-			<div data-role="content" data-theme="a">
-
-				<br>
-				<!-- Info will be selected from the XML file(based on what the user selected) so this page is populated with appropriate data -->
-				<img src="./img/StaticMap.jpg" usemap="#image-map"/>
-				<map name="image-map" id="trailHazardMap">
-					<div class="tempOverlay"></div>
-					<!-- <div id="hazardOverlay" style="position: absolute; top:50%; left:90px"><img src="./img/mapOverlayElement.png"/> Test Overlay</div> -->
-					<area target="" alt="Trail Map" title="Trail Map" href="#popupShowHazard" coords="608,1,2,805" shape="rect" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" role="button" aria-haspopup="true" aria-owns="popupShowHazard" aria-expanded="false">
-					<!-- <area target="" alt="Hazard A" title="Hazard A" href="#popupShowHazard" coords="" shape="circle" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" role="button" aria-haspopup="true" aria-owns="popupShowHazard" aria-expanded="false"> -->
-					<!-- <area target="" alt="Hazard B" title="Hazard B" href="#popupShowHazard" coords="257,328,16" shape="circle" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" role="button" aria-haspopup="true" aria-owns="popupShowHazard" aria-expanded="false"> -->
-					<!-- <area target="" alt="Hazard C" title="Hazard C" href="#popupShowHazard" coords="406,200,14" shape="circle" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" role="button" aria-haspopup="true" aria-owns="popupShowHazard" aria-expanded="false"> -->
-				</map>
-
-				<!-- Modals/Dialogs for Trail Map here -->
-				<div data-role="popup" id="popupAddHazard" data-arrow="true">
-					<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-					<form name="addHazard" action="">
-						<div class="popupContent">
-							<h3>Add Hazard</h3>
-							<label for="hn" class="ui-hidden-accessible">Hazard Name:</label>
-							<input type="text" name="hname" id="hn" value="" placeholder="Hazard Name" data-theme="a">
-							<label for="hd" class="ui-hidden-accessible">Hazard Detail:</label>
-							<textarea name="hdetail" id="hd" value="" placeholder="Hazard Detail" data-theme="a"></textarea>
-							<a href="#" data-theme="a" data-rel="back" id="addTrailHazard" class="ui-btn ui-btn-inline ui-mini ui-corner-all">Add</a>
-							<!-- <button type="button" data-theme="a" data-rel="back" id="addTrailHazard">Add</button> -->
-						</div>
-					</form>
-				</div>
-				<div data-role="popup" id="popupShowHazard" data-arrow="true">
-					<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-					<form name="showHazard" action="">
-						<div class="popupContent">
-							<h3>Hazard</h3>
-							<h4 id="selectedHazardName">Name of Hazard</h4>
-							<p id="selectedHazardDetails">This is the description of Hazard</p>
-						</div>
-					</form>
-				</div>
-
+      <div role="main" class="ui-content" id="map-canvas">
+        <!-- map loads here... -->
 			</div> <!-- /content -->
 			<div data-role="footer" data-position="fixed">
 				<div data-role="navbar">
-
+          <ul>
+          <li><a href="#" data-role="button" >Social</a></li>
+        </ul>
 				</div><!-- /navbar -->
 			</div> <!-- /footer -->
 		</section><!-- /page -->

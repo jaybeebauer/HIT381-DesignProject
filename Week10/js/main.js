@@ -25,23 +25,23 @@
 		$("#onboard1").swipeleft(function() {
 			$.mobile.changePage("#onboard2", {transition:"slide"});
 		});
-		
+
 		$("#onboard2").swiperight(function() {
 			$.mobile.changePage("#onboard1", {transition:"slide", reverse:"true"});
 		});
-		
+
 		$("#onboard2").swipeleft(function() {
 			$.mobile.changePage("#onboard3", {transition:"slide"});
 		});
-		
+
 		$("#onboard3").swiperight(function() {
 			$.mobile.changePage("#onboard2", {transition:"slide", reverse:"true"});
 		});
-		
+
 		$("#onboard3").swipeleft(function() {
 			$.mobile.changePage("#onboard4", {transition:"slide"});
 		});
-		
+
 		$("#onboard4").swiperight(function() {
 			$.mobile.changePage("#onboard3", {transition:"slide", reverse:"true"});
 		});
@@ -463,6 +463,42 @@
 			});
 
 			$(document).on('pagebeforeshow', '#trailMap', function(){
+
+				var defaultLatLng = new google.maps.LatLng(-33.94396729, 115.0741474);  // Default to Darwin, NT when no geolocation support
+		    if ( navigator.geolocation ) {
+		        function success(pos) {
+		            // Location found, show map with these coordinates
+		            drawMap(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+		        }
+		        function fail(error) {
+		            drawMap(defaultLatLng);  // Failed to find location, show default map
+		        }
+		        // Find the users current position.  Cache the location for 5 minutes, timeout after 6 seconds
+		        navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 6000});
+		    } else {
+		        drawMap(defaultLatLng);  // No geolocation support, show default map
+		    }
+		    function drawMap(latlng) {
+		        var myOptions = {
+		            zoom: 10,
+		            center: latlng,
+		            mapTypeId: google.maps.MapTypeId.ROADMAP
+		        };
+		        var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+		        // Add an overlay to the map of current lat/lng
+		        var marker = new google.maps.Marker({
+		            position: latlng,
+		            map: map,
+		            title: "Darwin"
+		        });
+
+						var ctaLayer = new google.maps.KmlLayer({
+          		url: '../database/10_Mile_Brook_Trail.kml',
+          		map: map
+        		});
+		    }
+
+				//Old map hazard plotting
 				var retrievedHazardList = (JSON.parse(localStorage.getItem('userHazardList')));
 				var tempX = "";
 				var tempY = "";
