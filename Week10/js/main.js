@@ -56,11 +56,13 @@
 				$( xml ).find( 'trail' ).each( function(){
 					var $trail = $( this );
 					var trailId = $trail.find( 'Id' ).text();
-					var imageURL = $trail.find( 'Image' ).text();
 					var trailName = $trail.find( 'Name' ).text();
+					var trailLocation = $trail.find( 'location' ).text();
 					var trailDescription = $trail.find( 'Description' ).text();
 					var trailNotes = $trail.find( 'Notes' ).text();
 					var trailHazards = $trail.find( 'Hazards' ).text();
+					var imageURL = $trail.find( 'Image' ).text();
+					var trailMap = $trail.find( 'Map' ).text();
 					var trailLength = $trail.find( 'Length' ).text();
 					var trailSurface = $trail.find( 'Surface' ).text();
 					var trailContact = $trail.find( 'Contact' ).text();
@@ -71,8 +73,8 @@
 					var trailTrailStatus = $trail.find( 'TrailStatus' ).text();
 					var trailAlternativeName = $trail.find( 'AlternativeName' ).text();
 					// Output trail information as HTML and append to index.html for retrieval
-					var tempHTML = '<a href="#trailInfo" data-transition="slide" data-role="button" class="test" id="Trail ' + trailId + '"><li><img src="' + imageURL + '"/><h3>' + trailName + '</h3><p>' + trailDescription + '</p></li></a>';
-					var hiddenTempHTML = '<p style="visibility: hidden">'+ trailNotes + trailHazards+'</p>'
+					var tempHTML = '<a href="#trailInfo" data-transition="slide" data-role="button" class="test" id="Trail ' + trailId + '"><li><img src="' + imageURL + '" class="trailImageThumbnail"/><h3>' + trailName + '</h3><p>' + trailDescription + '</p><p id="trailNotes' + trailId + '" class="hideMe">'+ trailNotes +'</p></li></a>';
+					var hiddenTempHTML = '<p class="hideMe" style="visibility: hidden">'+ trailNotes + trailHazards +'</p>';
 					$( ".trailData" ).append( $( tempHTML ) );
 					// $( ".trailData" ).append( $( hiddenTempHTML ) );
 				});
@@ -88,6 +90,7 @@
 			var selectedTrail = {};
 				selectedTrail.name = "";
 				selectedTrail.image = "";
+				selectedTrail.map = "";
 				selectedTrail.description = "";
 				selectedTrail.notes = "";
 				selectedTrail.hazards = "";
@@ -158,14 +161,16 @@
 					var tempTrailName = $(this).attr("id");
 					var tempImageURL = $('.test img').attr("src");
 					var tempTrailDescription = $(this).find('p').text();
+					var tempTrailNotes =$('.hideMe').text();
 					$('.trailInfoTitle' ).html(tempTrailName + " Information");
 					$('.trailInfoFavourite').html(tempTrailName+" added to Favourites");
 					$('.trailMapTitle').html(tempTrailName + " Map");
+					$('#trailInfoNotes').html(tempTrailNotes);
 
 					selectedTrail.name = tempTrailName;
 					selectedTrail.image = tempImageURL;
 					selectedTrail.description = tempTrailDescription;
-					selectedTrail.notes = "";
+					selectedTrail.notes = tempTrailNotes;
 					// selectedTrail.hazards = "";
 					// selectedTrail.length = "";
 					// selectedTrail.surface = "";
@@ -364,7 +369,7 @@
 					// {
 						// if(historyCheck == false)
 						// {
-							var tempHTML2 = '<li><a href="#trailInfo" data-transition="slide" data-role="button" id="historic' + retrievedHikeHistory[index].name + '" class="ui-btn ui-corner-all ui-mini test"><img src="' + retrievedHikeHistory[index].image + '"/><h3>' + retrievedHikeHistory[index].name + '</h3><p>' + retrievedHikeHistory[index].description + '</p></a></li>';
+							var tempHTML2 = '<li><a href="#trailInfo" data-transition="slide" data-role="button" id="historic' + retrievedHikeHistory[index].name + '" class="ui-btn ui-corner-all ui-mini test"><img class="trailImageThumbnail" src="' + retrievedHikeHistory[index].image + '"/><h3>' + retrievedHikeHistory[index].name + '</h3><p>' + retrievedHikeHistory[index].description + '</p></a></li>';
 							$(".historicTrailData" ).append($(tempHTML2));
 						// }
 					// }

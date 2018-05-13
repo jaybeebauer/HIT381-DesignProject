@@ -8,10 +8,12 @@
  /* ==========================================================================
     Include styles
     ========================================================================== */
+/* @import url("vendor/themes/Trail1.css"); */
 @import url("lib/thumbnaillist.css");
 @import url("lib/thumbnailgrid.css");
 @import url("lib/dots.css");
 @import url("lib/flexibleareas.css");
+
 
 /* ==========================================================================
    Base styles: opinionated defaults
@@ -74,15 +76,39 @@ textarea {
 
 .styledList li {
 	list-style-type:none;
+	/* overflow:hidden; */
+	/* overflow-wrap: break-word; */
+	/* text-overflow: ellipsis; */
+	/* margin-left:0.5em;
+	margin-right:0.5em; */
 }
 
 .styledList li img {
 	float: left;
 }
 
+.trailImageThumbnail {
+	width: 100px;
+	height: 100px;
+}
+
+.hideMe {
+	height:0px;
+	width:0px;
+	visibility: hidden;
+}
+
+.test{
+	white-space: normal !important;
+}
+
 .styledList p {
 	float: left;
 	font: 200 12px/1.5 Georgia, Times New Roman, serif;
+/* 	overflow:hidden;
+	overflow-wrap: break-word;
+	text-overflow: ellipsis;*/
+	display:inline;
 	padding-left: 1.25em;
 }
 
@@ -94,6 +120,8 @@ textarea {
 
 .userImg {
     border-radius: 5px;
+	height: 100px;
+	width: 100px;
     cursor: pointer;
     transition: 0.3s;
 }

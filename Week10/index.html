@@ -46,11 +46,10 @@
         <!--
         <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
         -->
-
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/lib/dots.css">
 		<link rel="stylesheet" href="css/vendor/jquery.mobile-1.4.5.css">
+		<link rel="stylesheet" href="themes/Trail1.css">
 		<script src="js/vendor/jquery-2.1.0.min.js"></script>
 		<script src="js/vendor/jquery.mobile-1.4.5.min.js"></script>
 		<script src="js/vendor/modernizr-2.7.1.min.js"></script>
@@ -277,21 +276,21 @@
 			<div data-role="content" data-theme="a">
 				<div class="thumbnailgrid">
 					<ul>
-						<li><a href="#"><img class="userImg" id="img01" src="http://via.placeholder.com/100x100" alt="User Image 1"/></a></li>
-						<li><a href="#"><img class="userImg" id="img02" src="http://via.placeholder.com/100x100" alt="User Image 2"/></a></li>
-						<li><a href="#"><img class="userImg" id="img03" src="http://via.placeholder.com/100x100" alt="User Image 3"/></a></li>
-						<li><a href="#"><img class="userImg" id="img04" src="http://via.placeholder.com/100x100" alt="User Image 4"/></a></li>
-						<li><a href="#"><img class="userImg" id="img05" src="http://via.placeholder.com/100x100" alt="User Image 5"/></a></li>
-						<li><a href="#"><img class="userImg" id="img06" src="http://via.placeholder.com/100x100" alt="User Image 6"/></a></li>
-						<li><a href="#"><img class="userImg" id="img07" src="http://via.placeholder.com/100x100" alt="User Image 7"/></a></li>
-						<li><a href="#"><img class="userImg" id="img08" src="http://via.placeholder.com/100x100" alt="User Image 8"/></a></li>
-						<li><a href="#"><img class="userImg" id="img09" src="http://via.placeholder.com/100x100" alt="User Image 9"/></a></li>
-						<li><a href="#"><img class="userImg" id="img10" src="http://via.placeholder.com/100x100" alt="User Image 10"/></a></li>
-						<li><a href="#"><img class="userImg" id="img11" src="http://via.placeholder.com/100x100" alt="User Image 11"/></a></li>
-						<li><a href="#"><img class="userImg" id="img12" src="http://via.placeholder.com/100x100" alt="User Image 12"/></a></li>
-						<li><a href="#"><img class="userImg" id="img13" src="http://via.placeholder.com/100x100" alt="User Image 13"/></a></li>
-						<li><a href="#"><img class="userImg" id="img14" src="http://via.placeholder.com/100x100" alt="User Image 14"/></a></li>
-						<li><a href="#"><img class="userImg" id="img15" src="http://via.placeholder.com/100x100" alt="User Image 15"/></a></li>
+						<li><a href="#"><img class="userImg" id="img01" src="./img/photos/img01.jpg" alt="User Image 1"/></a></li>
+						<li><a href="#"><img class="userImg" id="img02" src="./img/photos/img02.jpg" alt="User Image 2"/></a></li>
+						<li><a href="#"><img class="userImg" id="img03" src="./img/photos/img03.jpg" alt="User Image 3"/></a></li>
+						<li><a href="#"><img class="userImg" id="img04" src="./img/photos/img04.jpg" alt="User Image 4"/></a></li>
+						<li><a href="#"><img class="userImg" id="img05" src="./img/photos/img05.jpeg" alt="User Image 5"/></a></li>
+						<li><a href="#"><img class="userImg" id="img06" src="./img/photos/img06.jpeg" alt="User Image 6"/></a></li>
+						<li><a href="#"><img class="userImg" id="img07" src="./img/photos/img07.jpg" alt="User Image 7"/></a></li>
+						<li><a href="#"><img class="userImg" id="img08" src="./img/photos/img08.jpg" alt="User Image 8"/></a></li>
+						<li><a href="#"><img class="userImg" id="img09" src="./img/photos/img09.jpg" alt="User Image 9"/></a></li>
+						<li><a href="#"><img class="userImg" id="img10" src="./img/photos/img10.jpg" alt="User Image 10"/></a></li>
+						<li><a href="#"><img class="userImg" id="img11" src="./img/photos/img11.jpg" alt="User Image 11"/></a></li>
+						<li><a href="#"><img class="userImg" id="img12" src="./img/photos/img12.jpg" alt="User Image 12"/></a></li>
+						<li><a href="#"><img class="userImg" id="img13" src="./img/photos/img13.jpg" alt="User Image 13"/></a></li>
+						<li><a href="#"><img class="userImg" id="img14" src="./img/photos/img14.jpg" alt="User Image 14"/></a></li>
+						<li><a href="#"><img class="userImg" id="img15" src="./img/photos/img15.jpg" alt="User Image 15"/></a></li>
 					</ul>
 				</div>
         <!-- Modals/Dialogs for photos here -->
@@ -385,7 +384,7 @@
 				</ul>
 				<p>Click the image to navigate to the map screen or press the Select button</p>
 				<h3>Notes:</h3>
-				<p>Lorem Ipsum</p>
+				<p id="trailInfoNotes">Lorem Ipsum</p>
 				<h3>Hazards</h3>
 				<ul>
 					<li>Haz 1</li>
