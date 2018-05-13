@@ -2,61 +2,68 @@
 <traillist>
 	<trail>
 		<Id>1</Id>
-		<Name>Trail 1</Name>
-		<Description>This is to describe the trail</Description>
-		<Notes>Blah some notes here</Notes>
-		<Hazards>List hazards here</Hazards>
-		<Image>http://via.placeholder.com/100x100</Image>
-		<Length>5.00</Length>
+		<Name>10 Mile Brook Trail</Name>
+		<location>Margaret River</location>
+		<Description>10 Mile Brook Trail is a pleasant walk or cycle out to 10 Mile Brook Dam, named after the tiny brook that was dammed in the mid-1990s to create a new supply of water for the quickly growing Margaret River and other townships.</Description>
+		<Notes>TODO</Notes>
+		<Hazards>TODO</Hazards>
+		<Image>/img/trailimage/10_Mile_Brook.jpg</Image>
+		<Map>/img/trailmap/10_Mile_Brook_Map.jpg</Map>
+		<Length>15.00</Length>
 		<Surface>Smooth</Surface>
-		<Contact>Some Guy - 0404111111</Contact>
+		<Contact>Department of Biodiversity, Conservation and Attractions, Parks and Wildlife Service - (08) 9840 0400</Contact>
 		<BackpackingAllowed>False</BackpackingAllowed>
 		<BicyclesAllowed>True</BicyclesAllowed>
 		<FitnessTrail>False</FitnessTrail>
-		<WaterTrail>False</WaterTrail>
+		<WaterTrail>True</WaterTrail>
 		<TrailStatus>Open</TrailStatus>
-		<AlternativeName>Awesome Trail</AlternativeName>
+		<AlternativeName>Old Kate Trail</AlternativeName>
 	</trail>
 
 	<trail>
 		<Id>2</Id>
-		<Name>Trail 2</Name>
-		<Description>This is to describe the trail</Description>
-		<Notes>Blah some notes here</Notes>
-		<Hazards>List hazards here</Hazards>
-		<Image>http://via.placeholder.com/100x100</Image>
-		<Length>3.00</Length>
-		<Surface>Rough</Surface>
-		<Contact>Some Guy - 0404111111</Contact>
+		<Name>Baigup Wetland</Name>
+		<location>Bayswater/Maylands</location>
+		<Description>This is an easy one kilometre walk along a sealed dual-purpose path through a Bush Forever site on the Swan River foreshore. Native vegetation and a variety of bush and water birds provide interest. Carpark, toilets, picnic area and playground near Garrett Road Bridge make an ideal family-friendly starting point.</Description>
+		<Notes>TODO</Notes>
+		<Hazards>TODO</Hazards>
+		<Image>/img/trailimage/Baigup_Wetland.jpg</Image>
+		<Map>/img/trailmap/Baigup_Wetland_Map.jpg</Map>
+		<Length>1.00</Length>
+		<Surface>Smooth</Surface>
+		<Contact>Baigup Wetland Interest Group - (08) 9370 5437</Contact>
 		<BackpackingAllowed>False</BackpackingAllowed>
 		<BicyclesAllowed>True</BicyclesAllowed>
 		<FitnessTrail>False</FitnessTrail>
 		<WaterTrail>True</WaterTrail>
 		<TrailStatus>Open</TrailStatus>
-		<AlternativeName>Killers Trail</AlternativeName>
+		<AlternativeName>N/A</AlternativeName>
 	</trail>
 
 	<trail>
 		<Id>3</Id>
-		<Name>Trail 3</Name>
-		<Description>This is to describe the trail</Description>
-		<Notes>Blah some notes here</Notes>
-		<Hazards>List hazards here</Hazards>
-		<Image>http://via.placeholder.com/100x100</Image>
-		<Length>3.00</Length>
-		<Surface>Rough</Surface>
-		<Contact>Some Guy - 0404111111</Contact>
+		<Name>Bells Rapids River Walk</Name>
+		<location>Swan Valley</location>
+		<Description>An easy 2.5 kilometre loop walk at Bells Rapids - known for being one of the best vantage points on the Swan River for the Avon Descent event, with its majestic boulders and rushing waters in the winter.</Description>
+		<Notes>TODO</Notes>
+		<Hazards>TODO</Hazards>
+		<Image>/img/trailimage/Bells_Rapids.jpg</Image>
+		<Map>/img/trailmap/Bells_Rapids_Map.jpg</Map>
+		<Length>2.50</Length>
+		<Surface>Smooth</Surface>
+		<Contact>City of Swan - (08) 9267 9267 option 6</Contact>
 		<BackpackingAllowed>False</BackpackingAllowed>
-		<BicyclesAllowed>True</BicyclesAllowed>
+		<BicyclesAllowed>False</BicyclesAllowed>
 		<FitnessTrail>False</FitnessTrail>
 		<WaterTrail>True</WaterTrail>
 		<TrailStatus>Open</TrailStatus>
-		<AlternativeName>Killers Trail</AlternativeName>
+		<AlternativeName>N/A</AlternativeName>
 	</trail>
 
 	<trail>
 		<Id>4</Id>
 		<Name>Trail 4</Name>
+		<location></location>
 		<Description>This is to describe the trail</Description>
 		<Notes>Blah some notes here</Notes>
 		<Hazards>List hazards here</Hazards>
@@ -75,6 +82,7 @@
 	<trail>
 		<Id>5</Id>
 		<Name>Trail 5</Name>
+		<location></location>
 		<Description>This is to describe the trail</Description>
 		<Notes>Blah some notes here</Notes>
 		<Hazards>List hazards here</Hazards>
