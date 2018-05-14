@@ -13,7 +13,7 @@
 @import url("lib/thumbnailgrid.css");
 @import url("lib/dots.css");
 @import url("lib/flexibleareas.css");
-
+@import url("lib/map.css");
 
 /* ==========================================================================
    Base styles: opinionated defaults
@@ -76,55 +76,15 @@ textarea {
 
 .styledList li {
 	list-style-type:none;
-	/* overflow:hidden; */
-	/* overflow-wrap: break-word; */
-	/* text-overflow: ellipsis; */
-	/* margin-left:0.5em;
-	margin-right:0.5em; */
 }
 
 .styledList li img {
 	float: left;
 }
 
-.trailImageThumbnail {
-	width: 100px;
-	height: 100px;
-}
-
-.trailImageFull{
-	width: 100%;
-	height: 260px; 
-}
-
-.trailMapFull{
-	width: 100%;
-}
-
-.hideMe {
-	height:0px;
-	width:0px;
-	visibility: hidden;
-}
-
-.test{
-	white-space: normal !important;
-}
-
-#hikeHistoryButton {
-	display: block;
-}
-
-#favouritesButton {
-	display: block;
-}
-
 .styledList p {
 	float: left;
 	font: 200 12px/1.5 Georgia, Times New Roman, serif;
-/* 	overflow:hidden;
-	overflow-wrap: break-word;
-	text-overflow: ellipsis;*/
 	display:inline;
 	padding-left: 1.25em;
 }
@@ -222,6 +182,44 @@ textarea {
         width: 100%;
     }
 }
+
+.trailImageThumbnail {
+	width: 100px;
+	height: 100px;
+}
+
+.trailImageFull{
+	width: 100%;
+	height: 260px; 
+}
+
+.trailMapFull{
+	width: 100%;
+}
+
+.hideMe {
+	height:0px;
+	width:0px;
+	visibility: hidden;
+}
+
+.test{
+	white-space: normal !important;
+}
+
+#hikeHistoryButton {
+	display: block;
+}
+
+#favouritesButton {
+	display: block;
+}
+
+
+
+
+
+
 
 
 

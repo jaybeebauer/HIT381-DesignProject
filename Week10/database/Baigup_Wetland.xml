@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Baigup Wetland Trail Guide.kml</name>
+	<StyleMap id="msn_ylw-pushpin1">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ffff00aa</color>
+			<width>2.5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ffff00aa</color>
+			<width>2.5</width>
+		</LineStyle>
+	</Style>
+	<Placemark>
+		<name>Baigup Wetland Trail Guide</name>
+		<description>This virtual trail is a mixed theme trail guide exploring the different layers of Baigup heritage.</description>
+		<styleUrl>#msn_ylw-pushpin1</styleUrl>
+		<LineString>
+			<tessellate>1</tessellate>
+			<coordinates>
+				115.9071815030709,-31.93556380095496,0 115.9073890911221,-31.93556522508395,0 115.907498230657,-31.93555743649731,0 115.9075381935693,-31.93554892313969,0 115.9075970785485,-31.9355292575171,0 115.9076544275882,-31.93549808698019,0 115.9077369596781,-31.93544051642155,0 115.9079471961981,-31.93519683759788,0 115.9081696048725,-31.93499181429243,0 115.9085529646571,-31.93465828816956,0 115.9089966878464,-31.93426725399307,0 115.9093236588221,-31.9339898280619,0 115.9098833940293,-31.93350283097415,0 115.9102921000435,-31.93317604467008,0 115.9109061721417,-31.93267792747664,0 115.9111969278069,-31.93244316475695,0 115.9114156353041,-31.93228767012061,0 115.9117918728461,-31.93208118425854,0 115.911996287437,-31.9319974425899,0 115.9121569230522,-31.93193273144414,0 115.9123776791148,-31.93186534025407,0 115.912688375418,-31.93177328497487,0 115.9130309203893,-31.93167454608746,0 115.9133192490789,-31.9316002963457,0 115.9134339298584,-31.9315873533055,0 115.9135514202563,-31.93157222817204,0 115.9137948623771,-31.93154007647561,0 115.914268483546,-31.93148745533176,0 115.9147211270477,-31.93143126836537,0 115.9152397406955,-31.93137290922595,0 115.9153399189831,-31.93138426062647,0 115.9154094791835,-31.93139756493849,0 115.9154785471989,-31.93141962599999,0 115.915553596742,-31.93146032198484,0 115.915620774355,-31.93150345207989,0 115.9156693600383,-31.93153187742862,0 115.9157228095985,-31.93152741468352,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+</Document>
+</kml>

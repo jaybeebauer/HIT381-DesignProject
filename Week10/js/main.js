@@ -500,9 +500,51 @@
 			$(document).on('pagebeforeshow', '#trailMap', function()
 			{
 				var retrievedHazardList = (JSON.parse(localStorage.getItem('userHazardList')));
-				var tempX = "";
-				var tempY = "";
+				
+				// Draw Map Function
+				// Select the mapid div in the page, clear it and change its id to 'mymap' to avoid 'map container is already initialized' error
+				// Code adapted from StackOverflow (https://stackoverflow.com/questions/19186428/refresh-leaflet-map-map-container-is-already-initialized) Artem_Kovalyov's answer
+				$('#mapid').html("<div role='main' class='ui-content' id='mymap'></div>");
+				// This sets the map and allows acccess using token
+				var mymap = L.map('mymap');
+				L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+					attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+					maxZoom: 18,
+					id: 'mapbox.streets',
+					accessToken: 'pk.eyJ1Ijoiam9zaHliZWUiLCJhIjoiY2poNHBvbmI1MTFxNDJ3bzJzamNhYWtrcCJ9.ylGldaVSlDpQrJ_v325E4w'
+				}).addTo(mymap);
 
+				// Get the name of the map that we want to display from the heading (trailMapTitle class)
+				var tempMapSelector = $('.trailMapTitle').text();
+				tempMapSelector = tempMapSelector.slice(0,-4);
+				tempMapSelector = tempMapSelector.split(' ').join('_');
+				
+				// Find the kml file for the map that we want to display, fit the coordinates
+				// to the map frame, centre it and display it
+				var runLayer = omnivore.kml('./database/'+tempMapSelector+'.xml')
+					.on('ready', function() {
+						mymap.fitBounds(runLayer.getBounds());
+					})
+					.addTo(mymap);
+
+				// Click function that gets the latitude and longitude of click location on
+				// current map and opens the addHazard popup.
+				var popup = L.popup();
+				var tempLat = "";
+				var tempLng = "";
+				function onMapClick(e) {
+					tempLat = e.latlng.lat;
+					tempLng = e.latlng.lng;
+					popup
+						.setLatLng(e.latlng)
+						.setContent("<form name='addHazard' action=''><div class='popupContent'><h3>Add Hazard</h3><br><label for='hn' class='ui-hidden-accessible'>Hazard Name:</label><input type='text' name='hname' id='hn' value='' placeholder='Hazard Name' data-theme='a'><br><br><label for='hd' class='ui-hidden-accessible'>Hazard Detail:</label><textarea name='hdetail' id='hd' value='' placeholder='Hazard Detail' data-theme='a'></textarea><br><a href='#' data-theme='a' id='addTrailHazard' class='ui-btn ui-btn-inline ui-mini ui-corner-all'>Add</a></div></form>")
+						.openOn(mymap);
+						
+				}
+				mymap.on('click', onMapClick);
+				
+				// Check to see if the user has added any hazards before. If they have, retrieve
+				// them from localStorage and display them on the map.
 				if(localStorage.getItem('userHazardList') != null )
 				{
 					$.each( retrievedHazardList, function( index, value)
@@ -513,31 +555,17 @@
 							var posY = retrievedHazardList[index].yCoord;
 							var tempHazName = retrievedHazardList[index].hazardName;
 							var tempHazDet = retrievedHazardList[index].hazardDetails;
-							var tempID = tempHazName+"Overlay";
-							var tempHTML = '<div id="'+tempID+'" class="hazardOverlay" style="position: absolute; top:'+posY+'px; left:'+posX+'px"><img src="./img/mapOverlayElement.png"/></div>';
-							$( ".tempOverlay" ).before($(tempHTML));
-							$( "#"+tempID ).css({'position': 'absolute', 'top':posY, 'left':posX});
+							var marker = L.marker([posX, posY]).addTo(mymap);
+							marker.bindPopup("<b>Hazard: </b>"+tempHazName+"<br>"+tempHazDet).openPopup();
+							
 						}
-						else
-						{
-							$(".hazardOverlay").remove();
-						}
-
 					});
 
 				}
-
-				$(document).on('click', '#trailHazardMap', function(e)
-				{
-					var offset = $(this).offset();
-					var posX = e.pageX;
-					var posY = e.pageY;
-					tempX = posX;
-					tempY = posY;
-					$( "#popupAddHazard" ).popup( "open", {x: posX, y: posY} );
-					e.preventDefault();
-				});
-
+				
+				// When the user clicks on the addTrailHazard button in the addHazard popup,
+				// store the relevant details in localStorage and place a new hazard marker on
+				// the map
 				$(document).on('click', '#addTrailHazard', function(evt)
 				{
 					retrievedHazardList = (JSON.parse(localStorage.getItem('userHazardList')));
@@ -545,46 +573,107 @@
 					var tempHazDet = $('#hd').val();
 					storedHazardList.push({
 						"mapName": $(".trailMapTitle").text(),
-						"xCoord": tempX,
-						"yCoord": tempY,
+						"xCoord": tempLat,
+						"yCoord": tempLng,
 						"hazardName": tempHazName,
 						"hazardDetails": tempHazDet
 					});
-
+					mymap.closePopup();
+					var marker = L.marker([tempLat, tempLng]).addTo(mymap);
 					localStorage.setItem('userHazardList', JSON.stringify(storedHazardList));
-					var tempHTML= '<div id="'+tempHazName+'Overlay" class="hazardOverlay" style="position: absolute; top:'+tempY+'px; left:'+tempX+'px"><img src="./img/mapOverlayElement.png"/></div>';
-					$( ".tempOverlay" ).before($(tempHTML));
+					marker.bindPopup("<b>Hazard: </b>"+tempHazName+"<br>"+tempHazDet).openPopup();
+				});
+				
+				//This is an example hazard point
+				// var marker = L.marker([-33.946374, 115.097917]).addTo(mymap);
+				// marker.bindPopup("<b>Hazard</b><br>This is example hazard").openPopup();
+				//OLD MAP HAZARD PLOTTING
+				// var retrievedHazardList = (JSON.parse(localStorage.getItem('userHazardList')));
+				// var tempX = "";
+				// var tempY = "";
+
+				// if(localStorage.getItem('userHazardList') != null )
+				// {
+					// $.each( retrievedHazardList, function( index, value)
+					// {
+						// if(retrievedHazardList[index].mapName == $(".trailMapTitle").text() )
+						// {
+							// var posX = retrievedHazardList[index].xCoord;
+							// var posY = retrievedHazardList[index].yCoord;
+							// var tempHazName = retrievedHazardList[index].hazardName;
+							// var tempHazDet = retrievedHazardList[index].hazardDetails;
+							// var tempID = tempHazName+"Overlay";
+							// var tempHTML = '<div id="'+tempID+'" class="hazardOverlay" style="position: absolute; top:'+posY+'px; left:'+posX+'px"><img src="./img/mapOverlayElement.png"/></div>';
+							// $( ".tempOverlay" ).before($(tempHTML));
+							// $( "#"+tempID ).css({'position': 'absolute', 'top':posY, 'left':posX});
+						// }
+						// else
+						// {
+							// $(".hazardOverlay").remove();
+						// }
+
+					// });
+
+				// }
+
+				// $(document).on('click', '#trailHazardMap', function(e)
+				// {
+					// var offset = $(this).offset();
+					// var posX = e.pageX;
+					// var posY = e.pageY;
+					// tempX = posX;
+					// tempY = posY;
+					// $( "#popupAddHazard" ).popup( "open", {x: posX, y: posY} );
+					// e.preventDefault();
+				// });
+
+				// $(document).on('click', '#addTrailHazard', function(evt)
+				// {
+					// retrievedHazardList = (JSON.parse(localStorage.getItem('userHazardList')));
+					// var tempHazName = $('#hn').val();
+					// var tempHazDet = $('#hd').val();
+					// storedHazardList.push({
+						// "mapName": $(".trailMapTitle").text(),
+						// "xCoord": tempX,
+						// "yCoord": tempY,
+						// "hazardName": tempHazName,
+						// "hazardDetails": tempHazDet
+					// });
+
+					// localStorage.setItem('userHazardList', JSON.stringify(storedHazardList));
+					// var tempHTML= '<div id="'+tempHazName+'Overlay" class="hazardOverlay" style="position: absolute; top:'+tempY+'px; left:'+tempX+'px"><img src="./img/mapOverlayElement.png"/></div>';
+					// $( ".tempOverlay" ).before($(tempHTML));
 					// alert('LS==null'+tempHazName+ ' , ' + tempHazDet);
 					// alert(tempX+ ' , ' + tempY);
-				});
+				// });
 
-				$(document).on('click', '.hazardOverlay', function(evt)
-				{
-					var posX = evt.pageX;
-					var posY = evt.pageY;
-					var retrievedHazardList = (JSON.parse(localStorage.getItem('userHazardList')));
-					$( "#popupShowHazard" ).popup( "open", {x: posX, y: posY} );
-					evt.preventDefault();
+				// $(document).on('click', '.hazardOverlay', function(evt)
+				// {
+					// var posX = evt.pageX;
+					// var posY = evt.pageY;
+					// var retrievedHazardList = (JSON.parse(localStorage.getItem('userHazardList')));
+					// $( "#popupShowHazard" ).popup( "open", {x: posX, y: posY} );
+					// evt.preventDefault();
 
-					var tempHazName = ( $(this).attr('id') ).substr( 0, $(this).attr('id').length-7 );
-					var tempHazDet = "";
-					$('#selectedHazardName').html(tempHazName);
-					$.each(retrievedHazardList, function(index)
-					{
-						tempHazDet = retrievedHazardList[index].hazardDetails;
-						$.each( this, function( name, value)
-						{
-								if(tempHazDet == value)
-								{
-									if(retrievedHazardList[index].hazardName == tempHazName)
-									{
-										$('#selectedHazardDetails').html(tempHazDet);
-										return (0 > 1);
-									}
-								}
-						});
-					});
-				});
+					// var tempHazName = ( $(this).attr('id') ).substr( 0, $(this).attr('id').length-7 );
+					// var tempHazDet = "";
+					// $('#selectedHazardName').html(tempHazName);
+					// $.each(retrievedHazardList, function(index)
+					// {
+						// tempHazDet = retrievedHazardList[index].hazardDetails;
+						// $.each( this, function( name, value)
+						// {
+								// if(tempHazDet == value)
+								// {
+									// if(retrievedHazardList[index].hazardName == tempHazName)
+									// {
+										// $('#selectedHazardDetails').html(tempHazDet);
+										// return (0 > 1);
+									// }
+								// }
+						// });
+					// });
+				// });
 			});
 
 		}
