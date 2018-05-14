@@ -343,7 +343,11 @@
 			</div> <!-- /content -->
 
 			<div data-role="footer" data-position="fixed">
-				<h4></h4>
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home" data-role="button" id="clearHikeHistory">Clear Hike History</a></li>
+					</ul>
+				</div> <!-- /navbar -->
 			</div> <!-- /footer -->
 
 		</section> <!-- /page -->
@@ -379,17 +383,37 @@
 				<ul class="styledList">
 					<a href="#trailMap" data-role="button" data-transition="slide"><li>
 						<!-- Info will be selected from the XML file (based on what the user selected) so this page is populated with appropriate data -->
-						<img src="http://via.placeholder.com/300x300" />
+						<img class="trailImageFull" src="http://via.placeholder.com/300x300" />
 					</li></a>
 				</ul>
 				<p>Click the image to navigate to the map screen or press the Select button</p>
-				<h3>Notes:</h3>
+				<h3>Alternative Name</h3>
+				<p id="trailInfoAltName"></p>
+				<h3>Notes</h3>
 				<p id="trailInfoNotes">Lorem Ipsum</p>
 				<h3>Hazards</h3>
-				<ul>
+				<p id="trailInfoHazards"></p>
+				<h3>Length</h3>
+				<p id="trailInfoLength"></p>
+				<h3>Surface</h3>
+				<p id="trailInfoSurface"></p>
+				<h3>Contact</h3>
+				<p id="trailInfoContact"></p>
+				<h3>Backpacking Allowed?</h3>
+				<p id="trailInfoBPAllowed"></p>
+				<h3>Bicycles Allowed?</h3>
+				<p id="trailInfoBicyclesAllowed"></p>
+				<h3>Fitness Trail?</h3>
+				<p id="trailInfoFitTrail"></p>
+				<h3>Water Trail?</h3>
+				<p id="trailInfoWaterTrail"></p>
+				<h3>Trail Status</h3>
+				<p id="trailInfoStatus"></p>
+				
+				<!-- ul>
 					<li>Haz 1</li>
 					<li>Haz 2</li>
-				</ul>
+				</ul> -->
 
 				<!-- <p class="ui-grid-b"><a href="#trailMap" data-role="button"  data-transition="slide" class="ui-btn ui-corner-all ui-icon-check ui-btn-icon-left ui-btn-inline">Select</a><a href="#popupBasic" data-rel="popup" data-transition="pop" data-role="button" class="ui-btn-inline ui-btn ui-corner-all ui-icon-heart ui-btn-icon-left" id="myFavourite">Add to Favourites</a></p> -->
 				<!-- Favourites Popup Notification -->
@@ -418,7 +442,7 @@
 
 				<br>
 				<!-- Info will be selected from the XML file(based on what the user selected) so this page is populated with appropriate data -->
-				<img src="./img/StaticMap.jpg" usemap="#image-map"/>
+				<img class="trailMapFull" src="./img/StaticMap.jpg" usemap="#image-map"/>
 				<map name="image-map" id="trailHazardMap">
 					<div class="tempOverlay"></div>
 					<!-- <div id="hazardOverlay" style="position: absolute; top:50%; left:90px"><img src="./img/mapOverlayElement.png"/> Test Overlay</div> -->

@@ -92,6 +92,15 @@ textarea {
 	height: 100px;
 }
 
+.trailImageFull{
+	width: 100%;
+	height: 260px; 
+}
+
+.trailMapFull{
+	width: 100%;
+}
+
 .hideMe {
 	height:0px;
 	width:0px;
@@ -100,6 +109,14 @@ textarea {
 
 .test{
 	white-space: normal !important;
+}
+
+#hikeHistoryButton {
+	display: block;
+}
+
+#favouritesButton {
+	display: block;
 }
 
 .styledList p {
@@ -177,7 +194,7 @@ textarea {
 /* The Close Button */
 .close {
     position: absolute;
-    top: 15px;
+    top: 50px;
     right: 35px;
     color: #f1f1f1;
     font-size: 40px;
