@@ -48,6 +48,7 @@
         -->
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/lib//menu.css">
 		<link rel="stylesheet" href="css/vendor/jquery.mobile-1.4.5.css">
 		<link rel="stylesheet" href="css/vendor/themes/Trail1.css">
 		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin=""/>
@@ -56,13 +57,13 @@
 		<script src="js/vendor/jquery-2.1.0.min.js"></script>
 		<script src="js/vendor/jquery.mobile-1.4.5.min.js"></script>
 		<script src="js/vendor/modernizr-2.7.1.min.js"></script>
-		
+
 
     </head>
     <body>
 
 		<!-- Onboarding1 page -->
-		<section data-role="page" data-theme="a" id="onboard1">
+		<section data-role="page" data-theme="a" id="onboard1" style="height: 100%;">
 			<div data-role="content" data-theme="a" style="text-align: center;">
 				<h1>Trail Magic</h1>
 				<ul class="flexibleList">
@@ -95,7 +96,7 @@
 				<ul class="flexibleList">
 					<li><img src="./img/viewinghazards.jpg" class="tutorialImage"/></li>
 					<li><h2>Viewing Hazards</h2></li>
-					<li><p>Viewing hazards is easy, simply tap the red circles and the hazard will appear. Tap the X to hide it again.</p></li>
+					<li><p>Viewing hazards is easy, simply tap the blue marker and the hazard will appear. Tap the X to hide it again.</p></li>
 					<li>
 						<ul class="dots">
 						    <li><a data-transition="slide" data-direction="reverse" href="#onboard1"></a></li>
@@ -197,19 +198,29 @@
 				<p class="message"></p>
 			</div> <!-- /header -->
 
-			<div data-role="content" data-theme="a">
-				<ul class="styledList">
-					<li> <a href="#hikeSelection" data-role="button" data-transition="slide" id="hikeSelection">Hike Selection</a> </li>
-					<li> <a href="#news" data-role="button" data-transition="slide" id="news">News</a> </li>
-					<li> <a href="#photos" data-role="button" data-transition="slide" id="photos">Photos</a> </li>
-					<li> <a href="#hikeHistory" data-role="button" data-transition="slide" id="hikeHistoryButton">Hike History</a> </li>
-					<li> <a href="#favourites" data-role="button" data-transition="slide" id="favouritesButton">Favourites</a> </li>
-				</ul>
+			<div data-role="content" data-theme="a" style="width: 100%; height: 100%; padding: 0;">
+        <section class="container">
+        <div class="nav">
+          <div class="box">
+            <a href="#hikeSelection" id="hikeSelection"><i></i>Hike Selection</a>
+        </div>
+        <div class="box">
+          <a href="#news" id="news"><i></i>News</a>
+      </div>
+      <div class="box">
+        <a href="#photos" id="photos"><i></i>Photos</a>
+    </div>
+    <div class="box">
+      <a href="#hikeHistory" id="hikeHistoryButton"><i></i>Hike History</a>
+  </div>
+  <div class="box">
+    <a href="#favourites" id="favouritesButton"><i></i>Favourites</a>
+</div>
+</div>
+      </section>
 			</div> <!-- /content -->
 
-			<div data-role="footer" data-position="fixed">
-				<h4></h4>
-			</div> <!-- /footer -->
+
 
 		</section> <!-- /page -->
 
@@ -440,13 +451,20 @@
 			<div role="main" class="ui-content" id="mapid">
 				<!-- goes here -->
 			</div> <!-- /content -->
-			
+
 			<div data-role="footer" data-position="fixed">
 				<div data-role="navbar">
           <ul>
-          <li><a href="#" data-role="button" >Social</a></li>
+          <li><a href="#popupSocialMenu" data-rel="popup" data-transition="slideup" data-role="button" >Social</a></li>
         </ul>
 				</div><!-- /navbar -->
+        <div data-role="popup" id="popupSocialMenu" data-theme="a">
+          <ul data-role="listview" data-inset="true" style="min-width:210px;">
+              <li data-role="list-divider">Choose an action</li>
+              <li><a href="#camera">Take Photo</a></li>
+              <li><a href="#news">Share Note</a></li>
+          </ul>
+      </div>
 			</div> <!-- /footer -->
 		</section><!-- /page -->
 
