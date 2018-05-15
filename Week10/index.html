@@ -95,7 +95,7 @@
 				<ul class="flexibleList">
 					<li><img src="./img/viewinghazards.jpg" class="tutorialImage"/></li>
 					<li><h2>Viewing Hazards</h2></li>
-					<li><p>Viewing hazards is easy, simply tap the red circles and the hazard will appear. Tap the X to hide it again.</p></li>
+					<li><p>Viewing hazards is easy, simply tap the blue marker and the hazard will appear. Tap the X to hide it again.</p></li>
 					<li>
 						<ul class="dots">
 						    <li><a data-transition="slide" data-direction="reverse" href="#onboard1"></a></li>
@@ -443,10 +443,18 @@
 			
 			<div data-role="footer" data-position="fixed">
 				<div data-role="navbar">
-          <ul>
-          <li><a href="#" data-role="button" >Social</a></li>
-        </ul>
+					<ul>
+						<li><a href="#popupSocialMenu" data-rel="popup" data-transition="slideup" data-role="button" >Social</a></li>
+					</ul>
 				</div><!-- /navbar -->
+				<div data-role="popup" id="popupSocialMenu" data-theme="a">
+					<ul data-role="listview" data-inset="true" style="min-width:210px;">
+						<li data-role="list-divider">Choose an action</li>
+						<li><a href="#camera">Take Photo</a></li>
+						<li><a href="#news">Share Note</a></li>
+					</ul>
+				</div>
+				
 			</div> <!-- /footer -->
 		</section><!-- /page -->
 
