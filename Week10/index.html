@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<!-- Group: Double J, HIT381 Trail Magic Wireframe -->
+<!--Authors: Bosanquet, J   (s241391) https://github.com/Jack-Bosanquet
+             Bauer, J    (s263364) https://github.com/jaybeebauer -->
+
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>Trail Magic</title>
+        <meta name="description" content="">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+        <meta http-equiv="cleartype" content="on">
+
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+		<link rel="shortcut icon" sizes="196x196" href="img/touch/touch-icon-196x196.png">
+        <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+
+
+        <!-- Tile icon for Win8 (144x144 + tile color) -->
+        <meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <meta name="msapplication-TileColor" content="#222222">
+
+        <!-- SEO: If mobile URL is different from desktop URL, add a canonical link to the desktop page -->
+        <!--
+        <link rel="canonical" href="http://www.example.com/" >
+        -->
+
+        <!-- Add to homescreen for Chrome on Android -->
+        <!--
+        <meta name="mobile-web-app-capable" content="yes">
+        -->
+
+        <!-- For iOS web apps. Delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
+        <!--
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="">
+        -->
+
+        <!-- This script prevents links from opening in Mobile Safari. https://gist.github.com/1042026 -->
+        <!--
+        <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
+        -->
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/vendor/jquery.mobile-1.4.5.css">
+		<link rel="stylesheet" href="css/vendor/themes/Trail1.css">
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin=""/>
+		<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
+		<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+		<script src="js/vendor/jquery-2.1.0.min.js"></script>
+		<script src="js/vendor/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/vendor/modernizr-2.7.1.min.js"></script>
+		
+
+    </head>
+    <body>
+
+		<!-- Onboarding1 page -->
+		<section data-role="page" data-theme="a" id="onboard1">
+			<div data-role="content" data-theme="a" style="text-align: center;">
+				<h1>Trail Magic</h1>
+				<ul class="flexibleList">
+					<li><img src="./img/logo.jpg" alt="Trail Magic Logo" class="trailMagicLogo"/></li>
+					<li><h2>Welcome</h2></li>
+					<li><p>Join an ever growing community who rely on Trail Magic to navigate trails and share experiences.</p></li>
+					<li>
+						<ul class="dots">
+							<li class="active"><a href="#"></a></li>
+						    <li><a data-transition="slide" href="#onboard2"></a></li>
+						    <li><a data-transition="slide" href="#onboard3"></a></li>
+						    <li><a data-transition="slide" href="#onboard4"></a></li>
+						</ul>
+					</li>
+				</ul>
+			</div> <!-- /content -->
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#onboard2" data-role="button" data-transition="slide">Next</a></li>
+						<li><a href="#onboard5" data-role="button" data-transition="slide">Skip</a></li>
+					</ul>
+				</div> <!-- /navbar -->
+			</div> <!-- /footer -->
+		</section> <!-- /page -->
+
+		<!-- Onboarding2 page -->
+		<section data-role="page" data-theme="a" id="onboard2">
+			<div data-role="content" data-theme="a">
+				<ul class="flexibleList">
+					<li><img src="./img/viewinghazards.jpg" class="tutorialImage"/></li>
+					<li><h2>Viewing Hazards</h2></li>
+					<li><p>Viewing hazards is easy, simply tap the blue marker and the hazard will appear. Tap the X to hide it again.</p></li>
+					<li>
+						<ul class="dots">
+						    <li><a data-transition="slide" data-direction="reverse" href="#onboard1"></a></li>
+						    <li class="active"><a href="#"></a></li>
+						    <li><a data-transition="slide" href="#onboard3"></a></li>
+						    <li><a data-transition="slide" href="#onboard4"></a></li>
+						</ul>
+					</li>
+				</ul>
+			</div> <!-- /content -->
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#onboard3" data-role="button" data-transition="slide">Next</a></li>
+						<li><a href="#onboard5" data-role="button" data-transition="slide">Skip</a></li>
+					</ul>
+				</div> <!-- /navbar -->
+			</div> <!-- /footer -->
+		</section> <!-- /page -->
+
+      <!-- Onboarding3 page -->
+      <section data-role="page" data-theme="a" id="onboard3">
+        <div data-role="content" data-theme="a">
+            <ul class="flexibleList">
+				<li><img src="./img/addinghazards.jpg" class="tutorialImage"/></li>
+				<li><h2>Adding Hazards</h2></li>
+				<li><p>Adding hazards is a breeze, just tap the location of the new hazard and fill in the form, then click Add.</p></li>
+				<li>
+					<ul class="dots">
+					    <li><a data-transition="slide" data-direction="reverse" href="#onboard1"></a></li>
+					    <li><a data-transition="slide" data-direction="reverse" href="#onboard2"></a></li>
+					    <li class="active"><a href="#"></a></li>
+					    <li><a data-transition="slide" href="#onboard4"></a></li>
+					</ul>
+				</li>
+			</ul>
+        </div> <!-- /content -->
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+				<ul>
+				    <li><a href="#onboard4" data-role="button" data-transition="slide">Next</a></li>
+				    <li><a href="#onboard5" data-role="button" data-transition="slide">Skip</a></li>
+				</ul>
+            </div> <!-- /navbar -->
+        </div> <!-- /footer -->
+      </section> <!-- /page -->
+
+      <!-- Onboarding4 page -->
+      <section data-role="page" data-theme="a" id="onboard4">
+        <div data-role="content" data-theme="a">
+            <ul class="flexibleList">
+				<li><img src="./img/social.jpg" class="tutorialImage"/></li>
+				<li><h2>Share Experience</h2></li>
+				<li><p>The whole point of the app is to share with others! Let everyone know what you've achieved and share images.</p></li>
+				<li>
+					<ul class="dots">
+					    <li><a data-transition="slide" data-direction="reverse" href="#onboard1"></a></li>
+					    <li><a data-transition="slide" data-direction="reverse" href="#onboard2"></a></li>
+					    <li><a data-transition="slide" data-direction="reverse" href="#onboard3"></a></li>
+					    <li class="active"><a href="#"></a></li>
+					</ul>
+				</li>
+			</ul>
+        </div> <!-- /content -->
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+				<ul>
+				    <li><a href="#onboard5" data-role="button" data-transition="slide">Next</a></li>
+				    <li><a href="#onboard5" data-role="button" data-transition="slide">Skip</a></li>
+				</ul>
+            </div> <!-- /navbar -->
+        </div> <!-- /footer -->
+      </section> <!-- /page -->
+
+		<!-- Onboarding5 page -->
+		<section data-role="page" data-theme="a" id="onboard5">
+			<div data-role="content" data-theme="a">
+				<h1>Register</h1>
+				<form>
+					<label for="fullname">Full Name:</label>
+					<input type="text" name="fullname" id="fullname" value="" placeholder="Full Name">
+					<label for="email">Email:</label>
+					<input type="email" name="email" id="email" value="" placeholder="Email">
+					<label for="password">Password:</label>
+					<input type="password" name="password" id="password" value="" autocomplete="off" placeholder="Password">
+					<label for="confirmpassword">Confirm Password:</label>
+					<input type="password" name="confirmpassword" id="confirmpassword" value="" autocomplete="off" placeholder="Confirm Password">
+					<input type="button" id="registrationSubmit" value="Start Trailing">
+			    </form>
+			</div> <!-- /content -->
+		</section> <!-- /page -->
+
+		<!-- Home page -->
+		<section data-role="page" data-theme="a" id="home">
+			<div data-role="header" data-position="fixed">
+				<!-- Insert Logo Here? -->
+				<h1>Trail Magic</h1>
+				<!-- "message" class can be used for system messages ie. NoJS warnings, etc -->
+				<p class="message"></p>
+			</div> <!-- /header -->
+
+			<div data-role="content" data-theme="a">
+				<ul class="styledList">
+					<li> <a href="#hikeSelection" data-role="button" data-transition="slide" id="hikeSelection">Hike Selection</a> </li>
+					<li> <a href="#news" data-role="button" data-transition="slide" id="news">News</a> </li>
+					<li> <a href="#photos" data-role="button" data-transition="slide" id="photos">Photos</a> </li>
+					<li> <a href="#hikeHistory" data-role="button" data-transition="slide" id="hikeHistoryButton">Hike History</a> </li>
+					<li> <a href="#favourites" data-role="button" data-transition="slide" id="favouritesButton">Favourites</a> </li>
+				</ul>
+			</div> <!-- /content -->
+
+			<div data-role="footer" data-position="fixed">
+				<h4></h4>
+			</div> <!-- /footer -->
+
+		</section> <!-- /page -->
+
+		<!-- Hike Selection page -->
+		<section data-role="page" data-theme="a" id="hikeSelection">
+			<div data-role="header" data-add-back-btn="true" data-position="fixed">
+				<h1>Hike Selection</h1>
+			</div> <!-- /header -->
+
+			<div data-role="content" data-theme="a">
+				<form class="ui-filterable">
+					<input id="filterBasic-input" data-type="search">
+				</form>
+				<ul data-role="listview" class="styledList">
+					<div class="trailData" data-filter="true" data-input="#filterBasic-input"></div>
+				</ul>
+			</div> <!-- /content -->
+
+			<div data-role="footer" data-position="fixed">
+				<h4></h4>
+			</div> <!-- /footer -->
+		</section> <!-- /page -->
+
+		<!-- News page -->
+		<section data-role="page" data-theme="a" id="news">
+			<div data-role="header" data-add-back-btn="true" data-position="fixed">
+				<h1>News</h1>
+			</div> <!-- /header -->
+
+			<div data-role="content" data-theme="a">
+				<label for="shareText">What would you like to say?</label>
+				<input type="text" name="text-basic" id="shareText" value="">
+				<button id="newssubmit" class="ui-btn ui-btn-inline">Share</button>
+				<br>
+				<ul id="newslist" data-role="listview" style="margin-top: 10px;">
+						<li>
+						<h4>John Smith says:</h4>
+						<p>Just another short status update</p>
+					</li>
+					<li>
+						<h4>Joan Someone says:</h4>
+						<p>Maybe one more status update, but this is a lot longer than the last ones</p>
+					</li>
+					<li>
+						<h4>A User says:</h4>
+						<p>This is another status update</p>
+					</li>
+					<li>
+						<h4>Jane Doe says:</h4>
+						<p>This is a status update</p>
+					</li>
+				</ul>
+			</div> <!-- /content -->
+
+			<div data-role="footer" data-position="fixed">
+				<h4></h4>
+			</div> <!-- /footer -->
+
+		</section> <!-- /page -->
+
+		<!-- Photos page -->
+		<section data-role="page" data-theme="a" id="photos">
+			<div data-role="header" data-position="fixed">
+				<a href="#home" data-direction="reverse" data-transition="slide" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back returnHome">Back</a>
+				<h1>Photos</h1>
+			</div> <!-- /header -->
+
+			<div data-role="content" data-theme="a">
+				<div class="thumbnailgrid">
+					<ul>
+						<li><a href="#"><img class="userImg" id="img01" src="./img/photos/img01.jpg" alt="User Image 1"/></a></li>
+						<li><a href="#"><img class="userImg" id="img02" src="./img/photos/img02.jpg" alt="User Image 2"/></a></li>
+						<li><a href="#"><img class="userImg" id="img03" src="./img/photos/img03.jpg" alt="User Image 3"/></a></li>
+						<li><a href="#"><img class="userImg" id="img04" src="./img/photos/img04.jpg" alt="User Image 4"/></a></li>
+						<li><a href="#"><img class="userImg" id="img05" src="./img/photos/img05.jpeg" alt="User Image 5"/></a></li>
+						<li><a href="#"><img class="userImg" id="img06" src="./img/photos/img06.jpeg" alt="User Image 6"/></a></li>
+						<li><a href="#"><img class="userImg" id="img07" src="./img/photos/img07.jpg" alt="User Image 7"/></a></li>
+						<li><a href="#"><img class="userImg" id="img08" src="./img/photos/img08.jpg" alt="User Image 8"/></a></li>
+						<li><a href="#"><img class="userImg" id="img09" src="./img/photos/img09.jpg" alt="User Image 9"/></a></li>
+						<li><a href="#"><img class="userImg" id="img10" src="./img/photos/img10.jpg" alt="User Image 10"/></a></li>
+						<li><a href="#"><img class="userImg" id="img11" src="./img/photos/img11.jpg" alt="User Image 11"/></a></li>
+						<li><a href="#"><img class="userImg" id="img12" src="./img/photos/img12.jpg" alt="User Image 12"/></a></li>
+						<li><a href="#"><img class="userImg" id="img13" src="./img/photos/img13.jpg" alt="User Image 13"/></a></li>
+						<li><a href="#"><img class="userImg" id="img14" src="./img/photos/img14.jpg" alt="User Image 14"/></a></li>
+						<li><a href="#"><img class="userImg" id="img15" src="./img/photos/img15.jpg" alt="User Image 15"/></a></li>
+					</ul>
+				</div>
+        <!-- Modals/Dialogs for photos here -->
+				<!-- Based on code from https://www.w3schools.com/howto/howto_css_modal_images.asp -->
+				<div id="myModal" class="modal">
+					<span class="close">&times;</span>
+					<img class="modal-content" id="modalUserImg">
+					<!-- <button class="ui-btn">Share</button> -->
+					<div id="caption"></div>
+				</div>
+			</div> <!-- /content -->
+
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#camera" data-role="button" data-transition="slide">Take Photo</a></li>
+					</ul>
+				</div> <!-- /navbar -->
+			</div> <!-- /footer -->
+
+		</section> <!-- /page -->
+
+		<!-- Camera page -->
+		<section data-role="page" data-theme="a" id="camera">
+			<div data-role="header">
+			</div> <!-- /header -->
+
+			<div data-role="content" data-theme="a">
+				<a href="#photos"><img style="max-width:100%; max-height:100%;" src="img/camera.jpg"></a>
+			</div> <!-- /content -->
+
+			<div data-role="footer" data-position="fixed">
+
+			</div> <!-- /footer -->
+
+		</section> <!-- /page -->
+
+		<!-- Hike History page -->
+		<!-- IN PROGRESS: Bug fixing -->
+		<section data-role="page" data-theme="a" id="hikeHistory">
+			<div data-role="header" data-add-back-btn="true" data-position="fixed">
+				<h1>Hike History</h1>
+			</div> <!-- /header -->
+
+			<div data-role="content" data-theme="a">
+
+				<ul class="styledList">
+					<div class="historicTrailData"></div>
+				</ul>
+			</div> <!-- /content -->
+
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home" data-role="button" id="clearHikeHistory">Clear Hike History</a></li>
+					</ul>
+				</div> <!-- /navbar -->
+			</div> <!-- /footer -->
+
+		</section> <!-- /page -->
+
+		<!-- Favourites Page -->
+		<!-- IN PROGRESS: Bug fixing -->
+		<section data-role="page" data-theme="a" id="favourites">
+			<div data-role="header" data-add-back-btn="true" data-position="fixed">
+				<h1>Favourites</h1>
+			</div> <!-- /header -->
+
+			<div data-role="content" data-theme="a">
+				<ul class="styledList">
+					<div class="myFavouritesList"></div>
+				</ul>
+
+			</div> <!-- /content -->
+
+			<div data-role="footer" data-position="fixed">
+				<h4></h4>
+			</div> <!-- /footer -->
+
+		</section><!-- /page -->
+
+		<!-- Trail Info Page -->
+		<section data-role="page" data-theme="a" id="trailInfo">
+			<div data-role="header" data-add-back-btn="true" data-position="fixed">
+				<a href="#home" data-direction="reverse" data-transition="slide" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-home returnHome">Home</a>
+				<h1 class="trailInfoTitle">Trail Info</h1>
+			</div> <!-- /header -->
+			<div data-role="content" data-theme="a">
+
+				<ul class="styledList">
+					<a href="#trailMap" data-role="button" data-transition="slide"><li>
+						<!-- Info will be selected from the XML file (based on what the user selected) so this page is populated with appropriate data -->
+						<img class="trailImageFull" src="http://via.placeholder.com/300x300" />
+					</li></a>
+				</ul>
+				<p>Click the image to navigate to the map screen or press the Select button</p>
+				<h3>Alternative Name</h3>
+				<p id="trailInfoAltName"></p>
+				<h3>Notes</h3>
+				<p id="trailInfoNotes">Lorem Ipsum</p>
+				<h3>Hazards</h3>
+				<p id="trailInfoHazards"></p>
+				<h3>Length</h3>
+				<p id="trailInfoLength"></p>
+				<h3>Surface</h3>
+				<p id="trailInfoSurface"></p>
+				<h3>Contact</h3>
+				<p id="trailInfoContact"></p>
+				<h3>Backpacking Allowed?</h3>
+				<p id="trailInfoBPAllowed"></p>
+				<h3>Bicycles Allowed?</h3>
+				<p id="trailInfoBicyclesAllowed"></p>
+				<h3>Fitness Trail?</h3>
+				<p id="trailInfoFitTrail"></p>
+				<h3>Water Trail?</h3>
+				<p id="trailInfoWaterTrail"></p>
+				<h3>Trail Status</h3>
+				<p id="trailInfoStatus"></p>
+
+				<!-- <p class="ui-grid-b"><a href="#trailMap" data-role="button"  data-transition="slide" class="ui-btn ui-corner-all ui-icon-check ui-btn-icon-left ui-btn-inline">Select</a><a href="#popupBasic" data-rel="popup" data-transition="pop" data-role="button" class="ui-btn-inline ui-btn ui-corner-all ui-icon-heart ui-btn-icon-left" id="myFavourite">Add to Favourites</a></p> -->
+				<!-- Favourites Popup Notification -->
+				<div data-role="popup" id="popupBasic">
+					<p class="trailInfoFavourite"></p>
+				</div>
+
+			</div> <!-- /content -->
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#trailMap" data-role="button"  data-transition="slide">Select Trail</a></li>
+						<li><a href="#popupBasic" data-rel="popup" data-transition="pop" data-role="button" id="myFavourite">Add to Favourites</a></li>
+					</ul>
+				</div><!-- /navbar -->
+			</div> <!-- /footer -->
+		</section><!-- /page -->
+
+		<!-- Trail Map Page -->
+		<section data-role="page" data-theme="a" id="trailMap">
+			<div data-role="header" data-add-back-btn="true" data-position="fixed">
+				<a href="#home" data-direction="reverse" data-transition="slide" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-home returnHome">Home</a>
+				<h1 class="trailMapTitle">Trail Map</h1>
+			</div> <!-- /header -->
+			<div role="main" class="ui-content" id="mapid">
+				<!-- goes here -->
+			</div> <!-- /content -->
+			
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#popupSocialMenu" data-rel="popup" data-transition="slideup" data-role="button" >Social</a></li>
+					</ul>
+				</div><!-- /navbar -->
+				<div data-role="popup" id="popupSocialMenu" data-theme="a">
+					<ul data-role="listview" data-inset="true" style="min-width:210px;">
+						<li data-role="list-divider">Choose an action</li>
+						<li><a href="#camera">Take Photo</a></li>
+						<li><a href="#news">Share Note</a></li>
+					</ul>
+				</div>
+				
+			</div> <!-- /footer -->
+		</section><!-- /page -->
+
+        <script src="js/helper.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
+</html>

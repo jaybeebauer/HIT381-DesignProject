@@ -1,0 +1,30 @@
+/*------------------
+Flexbox Styles
+------------------*/
+
+.flexibleList {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+	align-items: center;
+}
+
+.flexibleList > li {
+	margin-top:50px;
+	list-style-type:none;
+}
+
+.flexibleList .tutorialImage {
+	width: 300px;
+	height: 300px;
+	margin: 0 auto;
+}
+
+.flexibleList .trailMagicLogo {
+	width: 217px;
+	margin: 0 auto;
+}
+
+.flexibleList > li:first-child {
+	margin-top:0;
+}
