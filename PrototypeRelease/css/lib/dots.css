@@ -74,7 +74,7 @@ Dots Style
         height: 0;
         left: 0;
         width: 100%;
-        background-color: #bbb;
+        background-color: #fff;
         box-shadow: 0 0 1px #bbb;
         -webkit-transition: height 0.3s ease;
         transition: height 0.3s ease;

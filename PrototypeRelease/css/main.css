@@ -25,6 +25,7 @@ input,
 select,
 textarea {
     color: #222;
+    text-shadow: none;
 }
 
 body {
@@ -83,14 +84,14 @@ textarea {
 }
 
 .styledList p {
-	float: left;
+	/*float: left;*/
 	font: 200 12px/1.5 Georgia, Times New Roman, serif;
-	display:inline;
+	/*display:inline;*/
 	padding-left: 1.25em;
 }
 
 .styledList h3 {
-	float: left;
+	/*float: left;*/
 	font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
 	padding-left: 1.25em;
 }
@@ -190,7 +191,7 @@ textarea {
 
 .trailImageFull{
 	width: 100%;
-	height: 260px; 
+	height: 260px;
 }
 
 .trailMapFull{
