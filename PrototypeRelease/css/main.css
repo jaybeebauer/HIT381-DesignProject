@@ -75,6 +75,20 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+/*
+	Centres elements with the noJSWarning class
+*/
+.message{
+	text-align:center;
+}
+
+/*
+	Display a warning message in noJSWarning elements if html has class no-js
+*/
+.no-js .message :after{
+	content:'JavaScript not working/disabled.';
+}
+   
 .styledList li {
 	list-style-type:none;
 }
