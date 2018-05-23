@@ -46,7 +46,7 @@
 		if ( Modernizr.localstorage )
 		{
 			console.log( "Local storage is supported by this browser" );
-			
+
 			//This function sets the variable onboardComplete in localStorage to 1 once user has completed the onboarding steps, will then skip it each time a user runs the app
 			//delete localStorage.onboardComplete ; //This is for testing to see first page again
 			//console.log(localStorage.onboardComplete);
@@ -55,7 +55,7 @@
 			if (onboard) $.mobile.navigate("#home");
 			$("#registrationSubmit").click( function()
 				{
-					localStorage.setItem('onboardComplete', 1);
+					localStorage.setItem('onboardComplete', 0);
 					if( $('#fullname').val() == "" || $('#fullname').val() == null)
 					{
 						localStorage.setItem('userName', "Guest" );
@@ -67,32 +67,32 @@
 					$.mobile.navigate("#home", {transition:"slide"});
 				});
 
-			$("#onboard1").swipeleft(function() 
+			$("#onboard1").swipeleft(function()
 			{
 				$.mobile.changePage("#onboard2", {transition:"slide"});
 			});
-			
-			$("#onboard2").swiperight(function() 
+
+			$("#onboard2").swiperight(function()
 			{
 				$.mobile.changePage("#onboard1", {transition:"slide", reverse:"true"});
 			});
-			
-			$("#onboard2").swipeleft(function() 
+
+			$("#onboard2").swipeleft(function()
 			{
 				$.mobile.changePage("#onboard3", {transition:"slide"});
 			});
-			
-			$("#onboard3").swiperight(function() 
+
+			$("#onboard3").swiperight(function()
 			{
 				$.mobile.changePage("#onboard2", {transition:"slide", reverse:"true"});
 			});
-			
-			$("#onboard3").swipeleft(function() 
+
+			$("#onboard3").swipeleft(function()
 			{
 				$.mobile.changePage("#onboard4", {transition:"slide"});
 			});
-			
-			$("#onboard4").swiperight(function() 
+
+			$("#onboard4").swiperight(function()
 			{
 				$.mobile.changePage("#onboard3", {transition:"slide", reverse:"true"});
 			});
@@ -104,7 +104,7 @@
 				$('#password').css({"color":"black"});
 				$('#confirmpassword').css({"color":"black"});
 			});
-			
+
 			// Variable for temporarily storing the user's currently selected trail
 			var selectedTrail = {};
 				selectedTrail.name = "";
@@ -135,7 +135,7 @@
 			// Retrieve userFavouriteList from localStorage
 			var retrievedFavouriteList = ( JSON.parse( localStorage.getItem( 'userFavouriteList' ) ) );
 
-			// Check to see if the user has added any trails to their favourites list. If userFavouriteList is 
+			// Check to see if the user has added any trails to their favourites list. If userFavouriteList is
 			// null, hide the favouritesButton.
 			if (localStorage.getItem('userFavouriteList') === null)
 			{
@@ -147,7 +147,7 @@
 				$( '#favouritesButton' ).show();
 			}
 
-			// Check to see if the user has any trails in their hike history. If yourHikeHistory is null, 
+			// Check to see if the user has any trails in their hike history. If yourHikeHistory is null,
 			// hide the hikeHistoryButton
 			if (localStorage.getItem('yourHikeHistory') === null)
 			{
@@ -161,7 +161,7 @@
 
 			$( document ).on( 'pagebeforeshow', '#home', function()
 			{
-				// Check to see if the user has added any trails to their favourites list. If userFavouriteList is 
+				// Check to see if the user has added any trails to their favourites list. If userFavouriteList is
 				// null, hide the favouritesButton.
 				if (localStorage.getItem('userFavouriteList') === null)
 				{
@@ -173,7 +173,7 @@
 					$( '#favouritesButton' ).show();
 				}
 
-				// Check to see if the user has any trails in their hike history. If yourHikeHistory is null, 
+				// Check to see if the user has any trails in their hike history. If yourHikeHistory is null,
 				// hide the hikeHistoryButton
 				if (localStorage.getItem('yourHikeHistory') === null)
 				{
@@ -281,7 +281,7 @@
 				{
 					$('#myModal').css({"display":"none"});
 				});
-				
+
 			});
 
 			$(document).on('pagebeforeshow', '#hikeHistory', function()
@@ -305,13 +305,13 @@
 						}
 					});
 				}
-				
+
 				$('#hikeHistory').on('click', '#clearHikeHistory', function()
 				{
 						localStorage.removeItem('yourHikeHistory');
 						console.log( "yourHikeHistory removed from Local storage" );
 				});
-				
+
 				$('#hikeHistory').on('click', '.test', function()
 				{
 					// Retrieve all trail details stored in the button that was clicked
@@ -387,7 +387,7 @@
 							$( ".myFavouritesList" ).append($(tempHTML));
 							return false;
 						}
-					  
+
 					});
 				}
 				else
@@ -401,7 +401,7 @@
 					  }
 					});
 				}
-				
+
 				$('#favourites').on('click', '.test', function()
 				{
 					// Retrieve all trail details stored in the button that was clicked
@@ -458,9 +458,9 @@
 					// Set 'yourHikeHistory' items in localStorage to the contents of testObject
 					localStorage.setItem('yourHikeHistory', JSON.stringify(testObject));
 				});
-				
+
 			});
-			
+
 			$(document).on('pagebeforeshow', '#trailInfo', function()
 			{
 				var retrievedTrails = (JSON.parse(localStorage.getItem('yourTrails')));
@@ -488,7 +488,7 @@
 						// alert("gotcha!");
 					}
 				}
-				
+
 				$(document).on('click', '#myFavourite', function(){
 					if(retrievedFavouriteList != null){
 						$.each( retrievedFavouriteList, function( index, value)
@@ -497,7 +497,7 @@
 								// alert("name:"+retrievedFavouriteList[index].name)
 							}
 						});
-						
+
 						favouritesList.push(retrievedTrails);
 						favouritesList = $.grep(favouritesList, function(v, k){
 							return $.inArray(v ,favouritesList) === k;
@@ -532,7 +532,7 @@
 					// This sets the map and allows acccess using token
 					var mymap = L.map('mymap');
 					L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-						attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+						attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery ï¿½ <a href="https://www.mapbox.com/">Mapbox</a>',
 						maxZoom: 18,
 						id: 'mapbox.streets',
 						accessToken: 'pk.eyJ1Ijoiam9zaHliZWUiLCJhIjoiY2poNHBvbmI1MTFxNDJ3bzJzamNhYWtrcCJ9.ylGldaVSlDpQrJ_v325E4w'
@@ -542,7 +542,7 @@
 					var tempMapSelector = $('.trailMapTitle').text();
 					tempMapSelector = tempMapSelector.slice(0,-4);
 					tempMapSelector = tempMapSelector.split(' ').join('_');
-					
+
 					// Find the kml file for the map that we want to display, fit the coordinates
 					// to the map frame, centre it and display it
 					var runLayer = omnivore.kml('./database/'+tempMapSelector+'.xml')
@@ -563,10 +563,10 @@
 							.setLatLng(e.latlng)
 							.setContent("<form name='addHazard' action=''><div class='popupContent'><h3>Add Hazard</h3><br><label for='hn' class='ui-hidden-accessible'>Hazard Name:</label><input type='text' name='hname' id='hn' value='' placeholder='Hazard Name' data-theme='a'><br><br><label for='hd' class='ui-hidden-accessible'>Hazard Detail:</label><textarea name='hdetail' id='hd' value='' placeholder='Hazard Detail' data-theme='a'></textarea><br><a href='#' data-theme='a' id='addTrailHazard' class='ui-btn ui-btn-inline ui-mini ui-corner-all'>Add</a></div></form>")
 							.openOn(mymap);
-							
+
 					}
 					mymap.on('click', onMapClick);
-					
+
 					// Check to see if the user has added any hazards before. If they have, retrieve
 					// them from localStorage and display them on the map.
 					if(localStorage.getItem('userHazardList') != null )
@@ -581,12 +581,12 @@
 								var tempHazDet = retrievedHazardList[index].hazardDetails;
 								var marker = L.marker([posX, posY]).addTo(mymap);
 								marker.bindPopup("<b>Hazard: </b>"+tempHazName+"<br>"+tempHazDet).openPopup();
-								
+
 							}
 						});
 
 					}
-					
+
 					// When the user clicks on the addTrailHazard button in the addHazard popup,
 					// store the relevant details in localStorage and place a new hazard marker on
 					// the map
@@ -595,8 +595,8 @@
 						retrievedHazardList = (JSON.parse(localStorage.getItem('userHazardList')));
 						var tempHazName = $('#hn').val();
 						var tempHazDet = $('#hd').val();
-						
-						
+
+
 						if(navigator.onLine){
 							storedHazardList.push({
 								"mapName": $(".trailMapTitle").text(),
@@ -623,10 +623,10 @@
 							// var tempHTML= '<div id="'+tempHazName+'Overlay" class="hazardOverlay" style="position: absolute; top:'+tempLng+'px; left:'+tempLat+'px"><img src="./img/mapOverlayElement.png"/></div>';
 							// $( ".tempOverlay" ).before($(tempHTML));
 						}
-						
+
 					});
 				}
-				else 
+				else
 				{
 					var tempMapName = $(".trailMapTitle").text();
 					tempMapName = tempMapName.split(' ').join('_');
@@ -720,11 +720,11 @@
 						});
 					});
 				}
-				
+
 				//This is an example hazard point
 				// var marker = L.marker([-33.946374, 115.097917]).addTo(mymap);
 				// marker.bindPopup("<b>Hazard</b><br>This is example hazard").openPopup();
-				
+
 			});
 
 		}
